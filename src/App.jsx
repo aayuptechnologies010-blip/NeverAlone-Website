@@ -21,6 +21,7 @@ import ContactPage from './pages/ContactPage';
 import BecomeCompanionLanding from './pages/BecomeCompanionLanding';
 import BecomeCompanionApply from './pages/BecomeCompanionApply';
 import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 // Professional Support Application
 import ProfessionalApplyLanding from './pages/professional-apply/ProfessionalApplyLanding';
@@ -79,7 +80,7 @@ import TrainingReview from './pages/companion/TrainingReview';
 // Public layout wrapper (Navbar + Footer)
 function PublicLayout() {
   return (
-    <div className="min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white bg-white">
+    <div className="min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white bg-white overflow-x-hidden">
       <Navbar />
       <main className="flex-grow pt-24">
         <Outlet />
@@ -140,6 +141,7 @@ function App() {
             <Route path="/become-a-companion" element={<BecomeCompanionLanding />} />
             <Route path="/become-a-companion/apply" element={<BecomeCompanionApply />} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/categories" element={<CategoriesPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/safety" element={<SafetyPage />} />

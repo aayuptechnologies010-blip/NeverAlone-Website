@@ -83,16 +83,22 @@ export default function NextConversationCard({ conversation }) {
           </div>
 
           {/* Actions */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              to={`/call/${conversation.id}`}
+              className="px-6 py-2.5 rounded-full text-sm font-bold text-brand-950 bg-white hover:bg-gray-100 shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all transform hover:scale-105"
+            >
+              📞 Join Call Room
+            </Link>
             <Link
               to={`/dashboard/conversations/${conversation.id}`}
-              className="px-5 py-2.5 rounded-full text-sm font-medium text-white bg-gradient-to-r from-romantic-DEFAULT to-dream-DEFAULT hover:shadow-[0_0_15px_rgba(219,39,119,0.4)] transition-all duration-300"
+              className="px-5 py-2.5 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white/15 border border-white/15 transition-all"
             >
-              View Conversation
+              View Details
             </Link>
             <Link
               to={`/dashboard/conversations/${conversation.id}?action=reschedule`}
-              className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 border border-white/10 hover:bg-white/5 transition-colors"
+              className="px-5 py-2.5 rounded-full text-sm font-medium text-gray-400 hover:text-white border border-white/10 hover:bg-white/5 transition-colors"
             >
               Reschedule
             </Link>

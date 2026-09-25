@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Clock } from 'lucide-react';
 
-const ProfileAvailability = () => {
+const ProfileAvailability = ({ companion }) => {
+  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState("Today");
   const [selectedTime, setSelectedTime] = useState(null);
 
   const dates = ["Today", "Tomorrow", "Wednesday", "Thursday"];
   const times = ["6:00 PM", "7:30 PM", "9:00 PM", "10:30 PM"];
+
+  const handleContinue = () => {
+    if (!selectedTime) return;
+    const category = companion?.categories?.[0] || 'Just Talk';
+    const companionName = companion?.name || 'Aisha';
+    navigate(`/book?category=${encodeURIComponent(category)}&companion=${encodeURIComponent(companionName)}&date=${encodeURIComponent(selectedDate)}&time=${encodeURIComponent(selectedTime)}`);
+  };
 
   return (
     <section id="availability-section" className="py-12 bg-brand-950">
@@ -21,7 +30,7 @@ const ProfileAvailability = () => {
               <button
                 key={date}
                 onClick={() => setSelectedDate(date)}
-                className={`px-6 py-3 rounded-xl whitespace-nowrap text-sm font-medium transition-colors ${
+                className={`px-6 py-3 rounded-xl whitespace-nowrap text-sm font-medium transition-colors cursor-pointer ${
                   selectedDate === date 
                     ? 'bg-white text-brand-950' 
                     : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
@@ -38,7 +47,7 @@ const ProfileAvailability = () => {
               <button
                 key={time}
                 onClick={() => setSelectedTime(time)}
-                className={`flex items-center justify-center space-x-2 py-4 rounded-xl border transition-all ${
+                className={`flex items-center justify-center space-x-2 py-4 rounded-xl border transition-all cursor-pointer ${
                   selectedTime === time
                     ? 'bg-romantic-DEFAULT/20 border-romantic-DEFAULT text-white shadow-[0_0_15px_rgba(219,39,119,0.2)]'
                     : 'bg-brand-950 border-white/5 text-gray-300 hover:border-white/20'
@@ -54,10 +63,11 @@ const ProfileAvailability = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-white/5">
             <p className="text-sm text-gray-500 italic">Availability may change.</p>
             <button 
+              onClick={handleContinue}
               disabled={!selectedTime}
               className={`w-full md:w-auto px-10 py-4 rounded-xl font-semibold transition-all ${
                 selectedTime 
-                  ? 'bg-white text-brand-950 hover:bg-gray-100' 
+                  ? 'bg-white text-brand-950 hover:bg-gray-100 hover:scale-105 active:scale-95 cursor-pointer shadow-lg' 
                   : 'bg-white/10 text-gray-500 cursor-not-allowed'
               }`}
             >

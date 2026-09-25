@@ -76,19 +76,19 @@ const ExploreCategories = () => {
       isProfessional: false
     },
     {
-      id: "flirty",
-      title: "Flirty Mode",
-      tagline: "A little playful. A little flirty. Always respectful.",
-      desc: "A separate 18+ experience for light, consensual and non-explicit phone conversations.",
+      id: "mindfulness",
+      title: "Mindfulness & Healing",
+      tagline: "Calm your thoughts. Regain your inner peace.",
+      desc: "A dedicated safe space for anxiety relief, stress reduction, deep listening, and guided mindfulness conversations.",
       icon: Sparkles,
-      chips: ["Playful Conversation", "Fun Banter", "Compliments", "Light Romantic Conversation", "Getting To Know Someone's Vibe"],
-      iconBg: "bg-rose-500",
-      accentColor: "text-rose-400",
-      chipBg: "bg-rose-500/10 text-rose-300 border-rose-500/20",
-      cta: "Explore Flirty Mode",
-      ctaBg: "bg-rose-600 hover:bg-rose-500",
+      chips: ["Anxiety Support", "Overthinking", "Panic Relief", "Breathing & Calm", "Emotional Healing", "Safe Space"],
+      iconBg: "bg-cyan-500",
+      accentColor: "text-cyan-400",
+      chipBg: "bg-cyan-500/10 text-cyan-300 border-cyan-500/20",
+      cta: "Find Calm & Healing",
+      ctaBg: "bg-cyan-600 hover:bg-cyan-500",
       isProfessional: false,
-      badges: ["18+", "Mutual Consent", "Non-Explicit", "Phone Calls Only"]
+      badges: ["100% Confidential", "Zero Judgment", "Evidence-Based", "Phone Calls Only"]
     }
   ];
 

@@ -12,6 +12,7 @@ import {
   LogOut,
   X,
 } from 'lucide-react';
+import { auth } from '../../firebase';
 
 const sidebarLinks = [
   { to: '/dashboard', label: 'Overview', icon: LayoutDashboard, end: true },
@@ -82,11 +83,16 @@ export default function DashboardSidebar({ onLinkClick }) {
 
       {/* Sign out */}
       <button
-        onClick={() => {
-          console.log('Sign out – placeholder');
+        onClick={async () => {
           if (onLinkClick) onLinkClick();
+          try {
+            await auth.signOut();
+          } catch (e) {
+            console.error(e);
+          }
+          navigate('/signin');
         }}
-        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors mt-4"
+        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-red-400 hover:bg-white/5 transition-colors mt-4"
       >
         <LogOut className="w-[18px] h-[18px]" />
         Sign Out

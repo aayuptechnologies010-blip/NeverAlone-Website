@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Calendar, Clock, Phone, Shield } from 'lucide-react';
@@ -7,6 +7,12 @@ import { CheckCircle2, Calendar, Clock, Phone, Shield } from 'lucide-react';
 export default function PreCallScreen({ booking, countdown, onStart }) {
   const { companion, category, displayDate, displayTime, duration, callType } = booking;
   const isReady = countdown <= 0;
+  const [readiness, setReadiness] = useState({ privateSpace: false, boundaries: false });
+  const canStart = isReady && readiness.privateSpace && readiness.boundaries;
+
+  const toggleReadiness = (key) => {
+    setReadiness((current) => ({ ...current, [key]: !current[key] }));
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8 relative">
@@ -100,18 +106,39 @@ export default function PreCallScreen({ booking, countdown, onStart }) {
           </div>
         </div>
 
+        <div className="w-full rounded-xl border border-electric-cyan/20 bg-electric-cyan/5 p-4 mb-8">
+          <p className="text-xs font-medium text-white mb-3">A quick readiness check</p>
+          <label className="flex cursor-pointer items-start gap-3 text-xs text-gray-300">
+            <input type="checkbox" checked={readiness.privateSpace} onChange={() => toggleReadiness('privateSpace')} className="mt-0.5 h-4 w-4 rounded border-white/20 bg-brand-950 accent-cyan-400" />
+            <span>I am in a place where I feel comfortable starting this private conversation.</span>
+          </label>
+          <label className="mt-3 flex cursor-pointer items-start gap-3 text-xs text-gray-300">
+            <input type="checkbox" checked={readiness.boundaries} onChange={() => toggleReadiness('boundaries')} className="mt-0.5 h-4 w-4 rounded border-white/20 bg-brand-950 accent-cyan-400" />
+            <span>I understand I can pause, end, or report the conversation at any time.</span>
+          </label>
+        </div>
+
+        <div className="w-full mb-8 rounded-xl border border-white/10 bg-brand-950/60 p-4">
+          <p className="text-xs font-medium text-gray-300 mb-3">What to expect</p>
+          <ol className="space-y-2 text-xs text-gray-400">
+            <li><span className="mr-2 text-electric-cyan">1.</span>Start wherever feels easiest. You do not need to explain everything at once.</li>
+            <li><span className="mr-2 text-electric-cyan">2.</span>Share, ask questions, or take a quiet moment. You set the pace.</li>
+            <li><span className="mr-2 text-electric-cyan">3.</span>At the end, reflect on what felt useful and choose a next step only if you want one.</li>
+          </ol>
+        </div>
+
         {/* Start button */}
         <button
           onClick={onStart}
-          disabled={!isReady}
+          disabled={!canStart}
           className={`w-full flex items-center justify-center gap-2 py-4 rounded-full text-base font-semibold transition-all ${
-            isReady
+            canStart
               ? 'text-white bg-gradient-to-r from-romantic-DEFAULT to-dream-DEFAULT hover:shadow-[0_0_25px_rgba(219,39,119,0.5)] hover:-translate-y-0.5'
               : 'text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed'
           }`}
         >
           <Phone className="w-5 h-5" />
-          {isReady ? 'Start Conversation' : `Available at ${displayTime}`}
+          {!isReady ? `Available at ${displayTime}` : canStart ? 'Start Conversation' : 'Complete readiness check'}
         </button>
       </div>
     </div>

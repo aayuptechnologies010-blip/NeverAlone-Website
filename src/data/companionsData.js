@@ -36,12 +36,13 @@ export const companions = [
     style: "Fun & Energetic",
     languages: ["Hindi", "English"],
     interests: ["Music", "Fashion", "Vlogs"],
-    categories: ["Just Talk", "Flirty Mode"],
+    categories: ["Just Talk", "Mindfulness & Healing"],
     availability: "Available Today",
     shortBio: "Fun energy, easy talks, good vibes.",
-    longBio: "If you need a pick-me-up or just want to have a fun, lighthearted conversation, Ananya brings amazing energy. She's great for playful banter and keeping things bright.",
+    longBio: "If you need a pick-me-up or just want to have a fun, lighthearted conversation, Ananya brings amazing energy. She's great for positive vibes and keeping things bright.",
     image: "https://i.pravatar.cc/300?img=20",
-    hasFlirtyMode: true,
+    hasFlirtyMode: false,
+    audioIntro: "https://actions.google.com/sounds/v1/human_voices/female_voice_hello.ogg",
     styleTraits: ["Energetic", "Playful", "Funny", "Talkative", "Upbeat"]
   },
   {

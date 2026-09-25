@@ -4,87 +4,96 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 
 // Public pages
-import Home from './pages/Home';
-import About from './pages/About';
-import CategoriesPage from './pages/CategoriesPage';
-import PricingPage from './pages/PricingPage';
-import SafetyPage from './pages/SafetyPage';
-import CompanionsPage from './pages/CompanionsPage';
-import CompanionProfilePage from './pages/CompanionProfilePage';
-import HowItWorksPage from './pages/HowItWorksPage';
-import BookingPage from './pages/BookingPage';
-import FlirtyModePage from './pages/FlirtyModePage';
-import ProfessionalSupportPage from './pages/ProfessionalSupportPage';
-import ProfessionalProfilePage from './pages/ProfessionalProfilePage';
-import FaqPage from './pages/FaqPage';
-import ContactPage from './pages/ContactPage';
-import BecomeCompanionLanding from './pages/BecomeCompanionLanding';
-import BecomeCompanionApply from './pages/BecomeCompanionApply';
-import SignIn from './pages/SignIn';
+import Home from './views/Home';
+import About from './views/About';
+import CategoriesPage from './views/CategoriesPage';
+import PricingPage from './views/PricingPage';
+import SafetyPage from './views/SafetyPage';
+import CompanionsPage from './views/CompanionsPage';
+import CompanionProfilePage from './views/CompanionProfilePage';
+import HowItWorksPage from './views/HowItWorksPage';
+import BookingPage from './views/BookingPage';
+import ProfessionalSupportPage from './views/ProfessionalSupportPage';
+import ProfessionalProfilePage from './views/ProfessionalProfilePage';
+import FaqPage from './views/FaqPage';
+import ContactPage from './views/ContactPage';
+import BecomeCompanionLanding from './views/BecomeCompanionLanding';
+import BecomeCompanionApply from './views/BecomeCompanionApply';
+import SignIn from './views/SignIn';
+import SignUp from './views/SignUp';
+import FirstSessionPage from './views/FirstSessionPage';
 
 // Professional Support Application
-import ProfessionalApplyLanding from './pages/professional-apply/ProfessionalApplyLanding';
-import ProfessionalApplication from './pages/professional-apply/ProfessionalApplication';
-import ProfessionalOnboardingStatus from './pages/professional-apply/ProfessionalOnboardingStatus';
+import ProfessionalApplyLanding from './views/professional-apply/ProfessionalApplyLanding';
+import ProfessionalApplication from './views/professional-apply/ProfessionalApplication';
+import ProfessionalOnboardingStatus from './views/professional-apply/ProfessionalOnboardingStatus';
 
 // Admin System
 import AdminLayout from './components/admin/AdminLayout';
-import AdminLogin from './pages/admin/AdminLogin';
+import AdminLogin from './views/admin/AdminLogin';
 import { 
   AdminDashboard, AdminCustomers, AdminCustomerDetails, 
   AdminCompanions, AdminCompanionDetails, AdminCompanionApplications 
-} from './pages/admin/AdminPages1';
+} from './views/admin/AdminPages1';
 import { 
   AdminProfessionals, AdminProfessionalDetails, AdminProfessionalApplications,
   AdminConversations, AdminSubscriptions, AdminCategories 
-} from './pages/admin/AdminPages2';
+} from './views/admin/AdminPages2';
 import { 
   AdminPricing, AdminPayments, AdminRefunds, AdminReports, AdminSettings 
-} from './pages/admin/AdminPages3';
+} from './views/admin/AdminPages3';
 
 // Dashboard layout + pages
 
 import DashboardLayout from './components/dashboard/DashboardLayout';
-import Dashboard from './pages/dashboard/Dashboard';
-import MyConversations from './pages/dashboard/MyConversations';
-import ConversationDetails from './pages/dashboard/ConversationDetails';
-import MyPlan from './pages/dashboard/MyPlan';
+import Dashboard from './views/dashboard/Dashboard';
+import MyConversations from './views/dashboard/MyConversations';
+import ConversationDetails from './views/dashboard/ConversationDetails';
+import MyPlan from './views/dashboard/MyPlan';
+import ProfilePage from './views/dashboard/ProfilePage';
 
 // Call experience pages
-import CallPage from './pages/call/CallPage';
-import CallFeedbackPage from './pages/call/CallFeedbackPage';
+import CallPage from './views/call/CallPage';
+import CallFeedbackPage from './views/call/CallFeedbackPage';
 
 // Companion Dashboard
 import CompanionDashboardLayout from './components/companion-dashboard/CompanionDashboardLayout';
-import CompanionOverview from './pages/companion-dashboard/CompanionOverview';
-import CompanionConversations from './pages/companion-dashboard/CompanionConversations';
-import CompanionConversationDetails from './pages/companion-dashboard/CompanionConversationDetails';
-import CompanionSchedule from './pages/companion-dashboard/CompanionSchedule';
-import CompanionAvailability from './pages/companion-dashboard/CompanionAvailability';
-import CompanionEarnings from './pages/companion-dashboard/CompanionEarnings';
-import CompanionProfile from './pages/companion-dashboard/CompanionProfile';
-import CompanionSafety from './pages/companion-dashboard/CompanionSafety';
+import CompanionOverview from './views/companion-dashboard/CompanionOverview';
+import CompanionConversations from './views/companion-dashboard/CompanionConversations';
+import CompanionConversationDetails from './views/companion-dashboard/CompanionConversationDetails';
+import CompanionSchedule from './views/companion-dashboard/CompanionSchedule';
+import CompanionAvailability from './views/companion-dashboard/CompanionAvailability';
+import CompanionEarnings from './views/companion-dashboard/CompanionEarnings';
+import CompanionProfile from './views/companion-dashboard/CompanionProfile';
+import CompanionSafety from './views/companion-dashboard/CompanionSafety';
 
 // Companion Training
 import { TrainingProvider } from './components/training/TrainingContext';
 import TrainingLayout from './components/training/TrainingLayout';
-import CompanionOnboarding from './pages/companion/CompanionOnboarding';
-import TrainingHome from './pages/companion/TrainingHome';
-import TrainingModules from './pages/companion/TrainingModules';
-import TrainingProgress from './pages/companion/TrainingProgress';
-import TrainingGuidelines from './pages/companion/TrainingGuidelines';
-import TrainingModulePage from './pages/companion/TrainingModulePage';
-import TrainingReview from './pages/companion/TrainingReview';
+import CompanionOnboarding from './views/companion/CompanionOnboarding';
+import TrainingHome from './views/companion/TrainingHome';
+import TrainingModules from './views/companion/TrainingModules';
+import TrainingProgress from './views/companion/TrainingProgress';
+import TrainingGuidelines from './views/companion/TrainingGuidelines';
+import TrainingModulePage from './views/companion/TrainingModulePage';
+import TrainingReview from './views/companion/TrainingReview';
 
-// Public layout wrapper (Navbar + Footer)
+import MobileBottomNav from './components/MobileBottomNav';
+import SEOHead from './components/SEOHead';
+import { useLocation } from 'react-router-dom';
+
+// Public layout wrapper (Navbar + Footer + MobileBottomNav + SEOHead)
 function PublicLayout() {
+  const location = useLocation();
   return (
-    <div className="min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white bg-white">
+    <div className="min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white bg-white pb-14 sm:pb-0">
+      <SEOHead pathname={location.pathname} />
       <Navbar />
       <main className="flex-grow pt-24">
         <Outlet />
       </main>
       <Footer />
+      <MobileBottomNav />
     </div>
   );
 }
@@ -100,6 +109,10 @@ function App() {
             <Route path="conversations" element={<MyConversations />} />
             <Route path="conversations/:id" element={<ConversationDetails />} />
             <Route path="plan" element={<MyPlan />} />
+            <Route path="call-history" element={<MyConversations />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="support" element={<ProfilePage />} />
+            <Route path="settings" element={<ProfilePage />} />
           </Route>
 
           {/* ── Call experience routes (fullscreen, no Navbar/Footer/Sidebar) ── */}
@@ -134,12 +147,14 @@ function App() {
           {/* ── Public routes (with Navbar + Footer) ── */}
           <Route element={<PublicLayout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/first-session" element={<FirstSessionPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/become-a-companion" element={<BecomeCompanionLanding />} />
             <Route path="/become-a-companion/apply" element={<BecomeCompanionApply />} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/categories" element={<CategoriesPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/safety" element={<SafetyPage />} />
@@ -147,7 +162,6 @@ function App() {
             <Route path="/companions/:id" element={<CompanionProfilePage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/book" element={<BookingPage />} />
-            <Route path="/flirty-mode" element={<FlirtyModePage />} />
             <Route path="/professional-support" element={<ProfessionalSupportPage />} />
             <Route path="/professionals/:id" element={<ProfessionalProfilePage />} />
             

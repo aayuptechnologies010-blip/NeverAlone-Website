@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FaqAccordion from './FaqAccordion';
 import { motion } from 'framer-motion';
+import { Search } from 'lucide-react';
 
 export default function FaqList({ faqs, isSearching, onClearSearch }) {
   const [openIndex, setOpenIndex] = useState(0);
@@ -12,8 +13,8 @@ export default function FaqList({ faqs, isSearching, onClearSearch }) {
   if (faqs.length === 0) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center py-12 text-center">
-        <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-2xl">
-          🔍
+        <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-400">
+          <Search size={28} />
         </div>
         <h3 className="text-xl font-semibold text-white mb-2">
           Couldn’t find that answer.

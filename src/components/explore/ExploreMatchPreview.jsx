@@ -6,7 +6,7 @@ const ExploreMatchPreview = () => {
   const [step, setStep] = useState(1);
   const [selections, setSelections] = useState({ category: null, language: null, style: null });
 
-  const categories = ["Just Talk", "Relationship", "Career", "Flirty Mode"];
+  const categories = ["Just Talk", "Relationship", "Career", "Mindfulness & Healing"];
   const languages = ["Hindi", "English", "Hindi + English"];
   const styles = ["Warm & Easygoing", "Great Listener", "Fun & Energetic", "Calm & Thoughtful"];
 
@@ -81,7 +81,7 @@ const ExploreMatchPreview = () => {
                         "Just Talk": "/cat_just_talk.jpg",
                         "Relationship": "/cat_relationship.jpg",
                         "Career": "/cat_career.jpg",
-                        "Flirty Mode": "/cat_flirty.jpg"
+                        "Mindfulness & Healing": "/cat_flirty.jpg"
                       };
                       return (
                         <button
@@ -132,13 +132,16 @@ const ExploreMatchPreview = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.1 }}
-                      className="bg-brand-900 border border-white/10 p-4 rounded-2xl flex flex-col justify-between hover:border-pink-500/30 transition-colors"
+                      onClick={() => {
+                        window.location.href = `/book?category=${encodeURIComponent(selections.category || 'Relationship')}&companion=${encodeURIComponent(comp.name)}`;
+                      }}
+                      className="bg-brand-900 border border-white/10 p-4 rounded-2xl flex flex-col justify-between hover:border-pink-500/50 hover:bg-brand-900/90 transition-all cursor-pointer group"
                     >
                       <div className="flex items-center space-x-3 mb-3">
-                        <img src={comp.img} alt={comp.name} className="w-11 h-11 rounded-full object-cover border border-white/20" />
+                        <img src={comp.img} alt={comp.name} className="w-11 h-11 rounded-full object-cover border border-white/20 group-hover:scale-105 transition-transform" />
                         <div>
                           <div className="flex items-center space-x-1">
-                            <h4 className="text-white font-semibold text-sm">{comp.name}</h4>
+                            <h4 className="text-white font-semibold text-sm group-hover:text-pink-300 transition-colors">{comp.name}</h4>
                             <CheckCircle2 size={12} className="text-cyan-400" />
                           </div>
                           <p className="text-xs text-pink-400">{comp.style}</p>
@@ -146,7 +149,7 @@ const ExploreMatchPreview = () => {
                       </div>
                       <div className="flex items-center justify-between pt-3 border-t border-white/5">
                         <span className="text-xs text-gray-500">{comp.lang}</span>
-                        <div className="w-8 h-8 rounded-full bg-pink-600/20 flex items-center justify-center text-pink-400 hover:bg-pink-600 hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-full bg-pink-600/20 flex items-center justify-center text-pink-400 group-hover:bg-pink-600 group-hover:text-white transition-colors">
                           <Phone size={14} />
                         </div>
                       </div>
@@ -155,11 +158,19 @@ const ExploreMatchPreview = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                  <button className="px-8 py-3 rounded-full text-white font-semibold bg-pink-600 hover:bg-pink-500 transition-all flex items-center space-x-2 shadow-lg">
+                  <button 
+                    onClick={() => {
+                      const params = new URLSearchParams();
+                      if (selections.category) params.set('category', selections.category);
+                      if (selections.language) params.set('language', selections.language);
+                      window.location.href = `/companions?${params.toString()}`;
+                    }}
+                    className="px-8 py-3 rounded-full text-white font-semibold bg-pink-600 hover:bg-pink-500 transition-all flex items-center space-x-2 shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                  >
                     <span>View Matching Companions</span>
                     <ChevronRight size={18} />
                   </button>
-                  <button onClick={resetFlow} className="px-6 py-3 rounded-full text-gray-400 hover:text-white flex items-center space-x-2 transition-colors text-sm">
+                  <button onClick={resetFlow} className="px-6 py-3 rounded-full text-gray-400 hover:text-white flex items-center space-x-2 transition-colors text-sm cursor-pointer">
                     <RotateCcw size={15} />
                     <span>Start Over</span>
                   </button>

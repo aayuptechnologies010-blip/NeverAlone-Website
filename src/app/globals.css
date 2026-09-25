@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply text-warm-white bg-brand-950 antialiased font-sans;
+  }
+}

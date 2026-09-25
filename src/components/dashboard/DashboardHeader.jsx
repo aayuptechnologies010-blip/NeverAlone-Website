@@ -3,10 +3,27 @@ import { Link } from 'react-router-dom';
 import { Menu, ChevronDown, User, Settings, CreditCard, LogOut } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { demoUser } from '../../data/dashboardDemo';
+import { auth } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 export default function DashboardHeader({ onMenuClick }) {
+  const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const currentUser = auth.currentUser;
+
+  const displayName = currentUser?.displayName || demoUser.firstName;
+  const displayEmail = currentUser?.email || demoUser.email;
+  const avatarUrl = currentUser?.photoURL || demoUser.avatar;
+
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+    } catch (e) {
+      console.error(e);
+    }
+    navigate('/signin');
+  };
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -41,8 +58,8 @@ export default function DashboardHeader({ onMenuClick }) {
           className="flex items-center gap-2"
         >
           <img
-            src={demoUser.avatar}
-            alt={demoUser.firstName}
+            src={avatarUrl}
+            alt={displayName}
             className="w-8 h-8 rounded-full object-cover border border-white/20"
           />
           <ChevronDown className="w-4 h-4 text-gray-400 hidden sm:block" />
@@ -58,8 +75,8 @@ export default function DashboardHeader({ onMenuClick }) {
               className="absolute right-0 mt-2 w-52 bg-brand-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-50"
             >
               <div className="px-4 py-3 border-b border-white/10">
-                <p className="text-sm font-medium text-white">{demoUser.firstName}</p>
-                <p className="text-xs text-gray-400 truncate">{demoUser.email}</p>
+                <p className="text-sm font-medium text-white truncate">{displayName}</p>
+                <p className="text-xs text-gray-400 truncate">{displayEmail}</p>
               </div>
 
               <Link
@@ -88,9 +105,9 @@ export default function DashboardHeader({ onMenuClick }) {
                 <button
                   onClick={() => {
                     setDropdownOpen(false);
-                    console.log('Sign out – placeholder');
+                    handleSignOut();
                   }}
-                  className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                  className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-400 hover:text-red-300 hover:bg-white/5 transition-colors"
                 >
                   <LogOut className="w-4 h-4" /> Sign Out
                 </button>

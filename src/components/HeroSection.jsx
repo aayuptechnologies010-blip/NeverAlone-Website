@@ -31,7 +31,7 @@ const HeroSection = () => {
           >
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-brand-900/50 border border-brand-800 backdrop-blur-sm mb-8">
-              <span>💗</span>
+              <Heart size={14} className="text-romantic-pink fill-romantic-pink/20" />
               <span className="text-sm font-medium text-gray-300">A private place for real conversations</span>
             </div>
 
@@ -106,7 +106,7 @@ const HeroSection = () => {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute -bottom-4 -right-4 md:-right-6 bg-brand-900/90 backdrop-blur-md border border-romantic-DEFAULT/30 p-3 rounded-2xl rounded-tl-sm shadow-[0_10px_30px_rgba(0,0,0,0.4)] z-20 max-w-[190px]"
             >
-              <p className="text-xs text-gray-400">Aisha: <br /><span className="text-white font-medium">"Of course. I'm listening 💗"</span></p>
+              <p className="text-xs text-gray-400">Aisha: <br /><span className="text-white font-medium inline-flex items-center gap-1">"Of course. I'm listening" <Heart size={12} className="text-romantic-pink inline fill-romantic-pink" /></span></p>
             </motion.div>
 
             {/* Glow behind image */}

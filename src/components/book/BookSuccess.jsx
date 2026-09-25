@@ -3,9 +3,13 @@ import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { companions } from '../../data/companionsData';
+import { professionalsDemo } from '../../data/professionalDemo';
 
 const BookSuccess = ({ state }) => {
-  const companion = companions.find(c => c.id === state.companion);
+  const companion = [...companions, ...professionalsDemo].find((profile) => profile.id === state.companion);
+  const supportPreference = [state.preferences?.language, state.preferences?.supportStyle]
+    .filter(Boolean)
+    .join(' - ');
 
   return (
     <motion.div
@@ -49,16 +53,31 @@ const BookSuccess = ({ state }) => {
         </div>
         <div className="flex justify-between items-center">
           <span className="text-gray-400 text-sm">Duration</span>
-          <span className="text-white font-medium">60 Minutes</span>
+          <span className="text-white font-medium">{state.plan === 'Professional Session' ? companion?.sessionDuration || '60 Minutes' : '60 Minutes'}</span>
         </div>
+        {supportPreference && (
+          <div className="mt-4 pt-4 border-t border-white/10 flex justify-between items-start gap-4">
+            <span className="text-gray-400 text-sm">Your preferences</span>
+            <span className="text-white font-medium text-right text-sm">{supportPreference}</span>
+          </div>
+        )}
+      </div>
+
+      <div className="mb-8 rounded-2xl border border-electric-cyan/20 bg-electric-cyan/5 p-5 text-left">
+        <p className="text-sm font-semibold text-white">Before your session</p>
+        <ul className="mt-3 space-y-2 text-xs leading-relaxed text-gray-300">
+          <li className="flex gap-2"><span className="text-electric-cyan">1.</span>Keep the date and time somewhere handy. We will show it in your dashboard.</li>
+          <li className="flex gap-2"><span className="text-electric-cyan">2.</span>Choose a space where you feel comfortable talking. You do not need to prepare a perfect story.</li>
+          <li className="flex gap-2"><span className="text-electric-cyan">3.</span>You can reschedule or cancel from Manage Booking if your plans change.</li>
+        </ul>
       </div>
 
       <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
         <Link 
-          to="/" 
+          to="/dashboard/conversations"
           className="px-8 py-3 rounded-full font-semibold text-brand-950 bg-white hover:bg-gray-100 transition-colors"
         >
-          Go To Dashboard
+          Manage Booking
         </Link>
         <Link 
           to="/companions" 

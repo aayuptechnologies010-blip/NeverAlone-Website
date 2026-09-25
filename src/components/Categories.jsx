@@ -47,10 +47,10 @@ const Categories = () => {
     },
     {
       id: 6,
-      title: "Flirty Mode",
-      description: "A little playful. Always respectful.",
+      title: "Mindfulness & Healing",
+      description: "Anxiety relief, emotional balance & safe listening.",
       icon: Sparkles,
-      gradient: "from-pink-500 to-rose-400",
+      gradient: "from-cyan-500 to-blue-400",
       isProfessional: false
     },
   ];

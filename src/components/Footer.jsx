@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.jpeg';
+import SeoKeywordCloud from './SeoKeywordCloud';
+const logo = '/logo.jpeg';
 
 const Footer = () => {
   return (
@@ -33,6 +34,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
+              <li><Link to="/first-session" className="text-gray-400 hover:text-white transition-colors">First Session</Link></li>
               <li><Link to="/#how-it-works" className="text-gray-400 hover:text-white transition-colors">How It Works</Link></li>
               <li><Link to="/companions" className="text-gray-400 hover:text-white transition-colors">Companions</Link></li>
               <li><Link to="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</Link></li>
@@ -47,8 +49,8 @@ const Footer = () => {
               <li><Link to="/categories" className="text-gray-400 hover:text-white transition-colors">Relationship</Link></li>
               <li><Link to="/categories" className="text-gray-400 hover:text-white transition-colors">Family</Link></li>
               <li><Link to="/categories" className="text-gray-400 hover:text-white transition-colors">Career & College</Link></li>
-              <li><Link to="/categories" className="text-pink-400 hover:text-pink-300 transition-colors">Flirty Mode</Link></li>
-              <li><Link to="/categories" className="text-cyan-400 hover:text-cyan-300 transition-colors">Professional Support</Link></li>
+              <li><Link to="/categories" className="text-gray-400 hover:text-white transition-colors">Mindfulness & Healing</Link></li>
+              <li><Link to="/professional-support" className="text-cyan-400 hover:text-cyan-300 transition-colors">Professional Support</Link></li>
             </ul>
           </div>
 
@@ -67,8 +69,11 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Dense SEO & GEO Keyword Footer Cloud */}
+        <SeoKeywordCloud />
+
         {/* Bottom Safety Statement & Copyright */}
-        <div className="pt-1  flex flex-col md:flex-row items-center ">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between border-t border-white/5">
           <p className="text-[10px] md:text-xs font-semibold tracking-[0.1em] md:tracking-[0.2em] text-gray-500 text-center md:text-left">
             18+ <span className="mx-2">•</span> PHONE CALLS ONLY <span className="mx-2">•</span> RESPECTFUL <span className="mx-2">•</span> NON-EXPLICIT
           </p>

@@ -8,7 +8,7 @@ const categories = [
   { id: 'Family & Personal', icon: Users, desc: 'Family and boundaries' },
   { id: 'Career & Work', icon: Briefcase, desc: 'Jobs and future planning' },
   { id: 'College & Student Life', icon: GraduationCap, desc: 'Campus life and studies' },
-  { id: 'Flirty Mode', icon: Sparkles, desc: '18+ playful and consensual' },
+  { id: 'Mindfulness & Healing', icon: Sparkles, desc: 'Anxiety relief and emotional balance' },
   { id: 'Professional Support', icon: Stethoscope, desc: 'Qualified mental health professionals' }
 ];
 

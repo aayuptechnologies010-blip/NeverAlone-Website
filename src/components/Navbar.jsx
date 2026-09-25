@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-import logo from '../assets/logo.jpeg';
+const logo = '/logo.jpeg';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,8 +24,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'First Session', path: '/first-session' },
     { name: 'Explore', path: '/categories' },
-    // { name: 'How It Works', path: '/#how-it-works' },
     { name: 'Companions', path: '/#companions' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'Safety', path: '/safety' },
@@ -106,10 +106,10 @@ const Navbar = () => {
               Sign In
             </Link>
             <Link
-              to="/categories"
+              to="/first-session"
               className="px-4 py-2 rounded-full text-sm font-semibold text-white bg-pink-600 hover:bg-pink-500 shadow-lg shadow-pink-600/20 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
             >
-              Find Someone
+              Get Support
             </Link>
           </div>
 
@@ -165,11 +165,11 @@ const Navbar = () => {
                 Sign In
               </Link>
               <Link
-                to="/categories"
+                to="/first-session"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full py-4 text-center text-lg font-medium text-white bg-pink-600 hover:bg-pink-500 shadow-lg shadow-pink-600/20 rounded-xl transition-all"
               >
-                Find Someone
+                Get Support
               </Link>
             </div>
           </motion.div>

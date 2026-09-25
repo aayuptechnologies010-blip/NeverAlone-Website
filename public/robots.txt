@@ -1,0 +1,9 @@
+# Robots.txt for Never Alone
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /call/
+
+# Sitemap location
+Sitemap: https://neveralone.in/sitemap.xml

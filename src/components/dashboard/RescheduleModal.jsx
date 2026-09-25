@@ -6,13 +6,14 @@ const demoDates = ['Today', 'Tomorrow', 'Wednesday', 'Thursday'];
 const demoSlots = ['6:00 PM', '7:30 PM', '9:00 PM', '10:30 PM'];
 
 // Reschedule modal with demo date and time slot selection.
-export default function RescheduleModal({ isOpen, onClose, companionName }) {
+export default function RescheduleModal({ isOpen, onClose, companionName, onConfirm }) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [confirmed, setConfirmed] = useState(false);
 
   const handleConfirm = () => {
     if (selectedDate && selectedSlot) {
+      onConfirm?.(selectedDate, selectedSlot);
       setConfirmed(true);
     }
   };

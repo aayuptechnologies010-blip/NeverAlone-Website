@@ -47,7 +47,7 @@ const SignUp = () => {
           transition={{ delay: 0.1 }}
           className="mt-2 text-center text-3xl font-semibold text-white"
         >
-          Create your account
+          Create your space
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ const SignUp = () => {
         >
           Already have an account?{' '}
           <Link to="/signin" className="font-medium text-electric-cyan hover:text-cyan-300 transition-colors">
-            Sign in instead
+            Sign in
           </Link>
         </motion.p>
       </div>
@@ -77,7 +77,7 @@ const SignUp = () => {
             </div>
           )}
 
-          {/* Quick Google Sign Up Button */}
+          {/* Google Sign Up Button */}
           <button
             type="button"
             onClick={handleGoogleSignUp}
@@ -94,7 +94,7 @@ const SignUp = () => {
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
               </svg>
             )}
-            <span>{loadingGoogle ? 'Connecting Google Account...' : 'Sign up with Google'}</span>
+            <span>{loadingGoogle ? 'Connecting with Google...' : 'Sign up with Google'}</span>
           </button>
 
           <div className="my-6 relative">
@@ -109,7 +109,7 @@ const SignUp = () => {
           <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); navigate('/dashboard'); }}>
             <div>
               <label htmlFor="name" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                Full Name / Alias
+                Your Preferred Name
               </label>
               <div className="relative rounded-xl shadow-sm">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
@@ -158,40 +158,42 @@ const SignUp = () => {
                   id="password"
                   name="password"
                   type="password"
-                  autoComplete="new-password"
                   required
                   className="block w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:ring-electric-cyan focus:border-electric-cyan text-sm transition-colors bg-brand-950 text-white placeholder-gray-500 focus:outline-none"
-                  placeholder="At least 8 characters"
+                  placeholder="••••••••"
                 />
               </div>
             </div>
 
-            <div className="flex items-start gap-2 pt-1">
+            <div className="flex items-start text-xs">
               <input
                 id="terms"
                 name="terms"
                 type="checkbox"
+                required
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
-                className="h-4 w-4 mt-0.5 text-pink-600 focus:ring-pink-500 border-gray-600 rounded bg-brand-950"
+                className="h-4 w-4 mt-0.5 text-pink-600 focus:ring-pink-500 border-gray-600 rounded bg-brand-950 shrink-0"
               />
-              <label htmlFor="terms" className="text-xs text-gray-400 leading-tight">
+              <label htmlFor="terms" className="ml-2.5 text-gray-300 leading-relaxed">
                 I agree to the{' '}
-                <Link to="/terms" className="text-electric-cyan hover:underline">Terms of Service</Link>
-                {' '}and{' '}
-                <Link to="/privacy" className="text-electric-cyan hover:underline">Privacy Policy</Link>.
+                <Link to="/terms" className="text-electric-cyan hover:underline">
+                  Terms of Service
+                </Link>{' '}
+                and confirm that I am at least 18 years of age.
               </label>
             </div>
 
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-lg text-sm font-bold text-brand-950 bg-gradient-to-r from-electric-cyan to-blue-400 hover:opacity-95 focus:outline-none transition-all transform hover:scale-[1.01]"
+                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-lg text-sm font-bold text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:opacity-95 focus:outline-none transition-all transform hover:scale-[1.01]"
               >
                 Create Account
               </button>
             </div>
           </form>
+
         </div>
       </motion.div>
     </div>

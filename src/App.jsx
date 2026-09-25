@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 
 // Public pages
 import Home from './views/Home';
@@ -44,7 +44,6 @@ import {
 } from './views/admin/AdminPages3';
 
 // Dashboard layout + pages
-
 import DashboardLayout from './components/dashboard/DashboardLayout';
 import Dashboard from './views/dashboard/Dashboard';
 import MyConversations from './views/dashboard/MyConversations';
@@ -80,7 +79,6 @@ import TrainingReview from './views/companion/TrainingReview';
 
 import MobileBottomNav from './components/MobileBottomNav';
 import SEOHead from './components/SEOHead';
-import { useLocation } from 'react-router-dom';
 
 // Public layout wrapper (Navbar + Footer + MobileBottomNav + SEOHead)
 function PublicLayout() {
@@ -204,4 +202,3 @@ function App() {
 }
 
 export default App;
-

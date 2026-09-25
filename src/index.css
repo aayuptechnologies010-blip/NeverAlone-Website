@@ -5,6 +5,9 @@
 @config "../tailwind.config.js";
 
 @layer base {
+  html, body {
+    @apply overflow-x-hidden;
+  }
   body {
     @apply text-warm-white bg-brand-950 antialiased font-sans;
   }

@@ -18,7 +18,7 @@ export default function AboutHero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-romantic-DEFAULT/20 bg-romantic-DEFAULT/5 mb-8"
         >
           <span className="text-xs font-semibold text-romantic-300 uppercase tracking-wider">
-            About Never Alone
+            About Neuravia
           </span>
         </motion.div>
 
@@ -42,7 +42,7 @@ export default function AboutHero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed"
         >
-          Never Alone exists to make meaningful human connection easier — giving adults a private, respectful place to talk, be heard and simply be themselves.
+          Neuravia exists to make meaningful human connection easier — giving adults a private, respectful place to talk, be heard and simply be themselves.
         </motion.p>
 
         {/* Actions */}

@@ -29,7 +29,7 @@ export default function AboutPhilosophy() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-3xl md:text-3xl lg:text-6xl font-semibold text-white mb-6 leading-tight"
         >
-          Never Alone isn’t about having <br className="hidden md:block" />
+          Neuravia isn’t about having <br className="hidden md:block" />
           <span className="text-gray-400">the perfect conversation.</span>
         </motion.h2>
 

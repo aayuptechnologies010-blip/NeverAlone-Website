@@ -217,7 +217,7 @@ export default function CallFeedbackPage() {
 
             <div className="flex w-full max-w-xs flex-col gap-3">
               <Link to="/first-session" className="w-full rounded-full bg-gradient-to-r from-romantic-DEFAULT to-dream-DEFAULT py-3 text-center text-xs font-bold text-white">
-                Book ₹797 Next Session
+                Book ₹499 Next Session
               </Link>
               <Link to="/dashboard" className="w-full rounded-full border border-white/10 py-3 text-center text-xs font-medium text-gray-300 transition hover:bg-white/5">
                 Go to Dashboard

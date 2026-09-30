@@ -2,7 +2,7 @@
 export const demoCompanion = {
   firstName: 'Aisha',
   lastName: 'Sharma',
-  email: 'aisha@demo.neveralone.com',
+  email: 'aisha@demo.neuravia.com',
   languages: ['Hindi', 'English'],
   conversationStyle: 'Warm & Easygoing',
   interests: ['Music', 'Travel', 'Books', 'Movies', 'Food'],

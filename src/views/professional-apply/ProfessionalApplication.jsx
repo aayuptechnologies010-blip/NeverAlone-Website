@@ -121,7 +121,7 @@ export default function ProfessionalApplication() {
         
         {step === 7 && (
           <p className="text-xs text-gray-500 text-center mt-6 max-w-xl mx-auto">
-            Never Alone approval does not replace any professional, legal or regulatory obligations that may apply to the applicant.
+            Neuravia approval does not replace any professional, legal or regulatory obligations that may apply to the applicant.
           </p>
         )}
 
@@ -447,7 +447,7 @@ function Step7Review({ data, setStep, update }) {
         
         <DeclBox checked={data.declarations.accurate} onChange={() => toggleDecl('accurate')} text="I confirm that the information and credentials I have provided are accurate." />
         <DeclBox checked={data.declarations.review} onChange={() => toggleDecl('review')} text="I understand that professional credentials must be reviewed before my profile can be approved." />
-        <DeclBox checked={data.declarations.boundaries} onChange={() => toggleDecl('boundaries')} text="I agree to follow Never Alone’s safety, privacy and professional boundaries." />
+        <DeclBox checked={data.declarations.boundaries} onChange={() => toggleDecl('boundaries')} text="I agree to follow Neuravia’s safety, privacy and professional boundaries." />
         <DeclBox checked={data.declarations.noGuarantee} onChange={() => toggleDecl('noGuarantee')} text="I understand that submitting an application does not guarantee approval." />
       </div>
     </div>

@@ -69,7 +69,7 @@ export default function TrainingReview() {
             to="/about"
             className="px-8 py-4 rounded-full text-base font-medium text-white border border-white/20 bg-white/5 hover:bg-white/10 transition-colors"
           >
-            Learn About Never Alone
+            Learn About Neuravia
           </Link>
         </div>
       </motion.div>
@@ -116,7 +116,7 @@ export default function TrainingReview() {
         <Checkbox
           checked={declSafety}
           onChange={setDeclSafety}
-          label="I agree to follow Never Alone's safety and conversation guidelines."
+          label="I agree to follow Neuravia's safety and conversation guidelines."
         />
         {flirtyModeRequired && (
           <Checkbox

@@ -155,7 +155,7 @@ export function AdminSettings() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <SettingSection title="General">
-          <SettingRow label="Platform Name" value="Never Alone" />
+          <SettingRow label="Platform Name" value="Neuravia" />
           <SettingRow label="Tagline" value="Someone to talk to. Someone who listens." />
         </SettingSection>
 

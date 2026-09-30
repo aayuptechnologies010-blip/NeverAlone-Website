@@ -15,7 +15,7 @@ export default function ProfCrisis() {
         </h2>
         
         <p className="text-lg font-medium text-gray-300 mb-4">
-          Never Alone is not an emergency service.
+          Neuravia is not an emergency service.
         </p>
 
         <p className="text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">

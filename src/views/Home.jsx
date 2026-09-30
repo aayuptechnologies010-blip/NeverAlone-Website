@@ -11,7 +11,7 @@ import HowItWorks from '../components/HowItWorks';
 import MidPageCTA from '../components/MidPageCTA';
 import FirstSessionOffer from '../components/FirstSessionOffer';
 import Testimonials from '../components/Testimonials';
-import WhyNeverAlone from '../components/WhyNeverAlone';
+import WhyNeuravia from '../components/WhyNeuravia';
 import Pricing from '../components/Pricing';
 import SafetyPreview from '../components/SafetyPreview';
 import FinalCTA from '../components/FinalCTA';
@@ -35,7 +35,7 @@ const Home = () => {
       <Companions />
       <HowItWorks />
       <MidPageCTA />
-      <WhyNeverAlone />
+      <WhyNeuravia />
       <Testimonials />
       <Pricing />
       <GeoCoverageSection />

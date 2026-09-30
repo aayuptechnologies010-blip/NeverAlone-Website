@@ -8,12 +8,12 @@ const FinalCTA = () => {
 
   const faqs = [
     {
-      q: "What is Never Alone?",
-      a: "Never Alone is a premium conversation platform where you can talk to someone who listens. It's for those moments when you just need to vent, seek advice, or hear a friendly voice."
+      q: "What is Neuravia?",
+      a: "Neuravia is a premium conversation platform where you can talk to someone who listens. It's for those moments when you just need to vent, seek advice, or hear a friendly voice."
     },
     {
       q: "Are calls video calls?",
-      a: "No. All conversations on Never Alone are strictly audio phone calls to ensure your privacy and comfort."
+      a: "No. All conversations on Neuravia are strictly audio phone calls to ensure your privacy and comfort."
     },
     {
       q: "Can I choose my companion?",
@@ -29,7 +29,7 @@ const FinalCTA = () => {
     },
     {
       q: "Is Flirty Mode sexual?",
-      a: "No. Never Alone is not an adult services platform. All conversations must remain respectful and non-explicit. Explicit behavior will result in a ban."
+      a: "No. Neuravia is not an adult services platform. All conversations must remain respectful and non-explicit. Explicit behavior will result in a ban."
     },
     {
       q: "Can I meet my companion?",

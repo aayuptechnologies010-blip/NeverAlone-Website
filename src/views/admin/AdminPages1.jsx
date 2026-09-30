@@ -29,7 +29,7 @@ export const StatusBadge = ({ status }) => {
 export function AdminDashboard() {
   return (
     <div className="space-y-8">
-      <PageHeader title="Dashboard" desc="Overview of Never Alone platform activity." />
+      <PageHeader title="Dashboard" desc="Overview of Neuravia platform activity." />
       
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

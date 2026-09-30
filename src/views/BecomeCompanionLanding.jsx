@@ -43,7 +43,7 @@ export default function BecomeCompanionLanding() {
               transition={{ delay: 0.2 }}
               className="text-lg text-gray-400 mb-10 leading-relaxed max-w-lg"
             >
-              Never Alone companions create respectful, meaningful conversations by listening well, communicating clearly and respecting boundaries.
+              Neuravia companions create respectful, meaningful conversations by listening well, communicating clearly and respecting boundaries.
             </motion.p>
 
             <motion.div
@@ -261,7 +261,7 @@ export default function BecomeCompanionLanding() {
               No camera. <br />Just conversation.
             </h2>
             <p className="text-lg text-gray-400 mb-12">
-              Never Alone uses phone-call based conversations. We do not use video, webcams, or support physical meetups.
+              Neuravia uses phone-call based conversations. We do not use video, webcams, or support physical meetups.
             </p>
 
             <div className="space-y-8">

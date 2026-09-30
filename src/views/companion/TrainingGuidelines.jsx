@@ -14,7 +14,7 @@ export default function TrainingGuidelines() {
         <GuidelineCard title="Reliability" desc="Be available when you commit to a conversation. Customers depend on your scheduled availability." />
         <GuidelineCard title="Safety" desc="Know when something should be reported or redirected to appropriate support. Use reporting tools when necessary." />
         <GuidelineCard title="Privacy" desc="Do not request unnecessary personal information from customers. Do not share customer details outside the platform." />
-        <GuidelineCard title="No Physical Meetups" desc="Never Alone is for online phone conversations only. Do not arrange physical meetings through the platform." />
+        <GuidelineCard title="No Physical Meetups" desc="Neuravia is for online phone conversations only. Do not arrange physical meetings through the platform." />
         <GuidelineCard title="No Off-Platform Money" desc="Never request or accept money from customers outside the approved platform systems." />
 
         <div className="bg-electric-cyan/5 border border-electric-cyan/20 rounded-2xl p-6">

@@ -11,7 +11,7 @@ const PricingFAQ = () => {
     { q: "Can I choose my companion?", a: "Where availability allows, users can browse and choose from eligible companions." },
     { q: "Is professional support included?", a: "No. Professional mental-health support is a separately identified service with its own pricing." },
     { q: "Is Flirty Mode included?", a: "Availability and pricing for Flirty Mode depend on the platform's configured plan/category rules." },
-    { q: "Are calls video calls?", a: "No. Never Alone is phone-call only." },
+    { q: "Are calls video calls?", a: "No. Neuravia is phone-call only." },
     { q: "Can I buy more than one extension?", a: "Multiple extensions may be purchased when available." }
   ];
 

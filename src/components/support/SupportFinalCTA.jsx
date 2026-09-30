@@ -13,7 +13,7 @@ export default function SupportFinalCTA({ onGetSupport }) {
         </h2>
 
         <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
-          If something about Never Alone is unclear, tell us what you need help with.
+          If something about Neuravia is unclear, tell us what you need help with.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">

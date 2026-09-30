@@ -30,36 +30,38 @@ const HeroSection = () => {
             className="flex flex-col items-start text-left"
           >
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-brand-900/50 border border-brand-800 backdrop-blur-sm mb-8">
-              <Heart size={14} className="text-romantic-pink fill-romantic-pink/20" />
-              <span className="text-sm font-medium text-gray-300">A private place for real conversations</span>
+            <div className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-brand-900/80 border border-brand-700/60 backdrop-blur-md mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-brand-leaf animate-pulse" />
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-brand-200 uppercase font-sans">Confidential & Empathetic Mental Health Care</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-2xl md:text-3xl font-medium text-white leading-tight mb-5">
-              You don't always need advice.<br />
-              <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-romantic-pink to-soft-lavender">Sometimes</span>
-              , you just need <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan to-dream-purple">someone</span>.
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.15] mb-5 tracking-tight font-display">
+              Where Minds Find Peace.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-teal to-brand-leaf font-serif italic font-normal">
+                Someone Who Listens,
+              </span>
+              {' '}Whenever You Need.
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-base md:text-lg text-gray-300 mb-6 max-w-xl leading-relaxed">
-              Talk about your day, relationships, family, career, college — or simply talk because sometimes you don't want to feel alone.
+            <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-xl leading-relaxed font-normal">
+              Talk about anxiety, relationship stress, burnout, or simply share what is on your mind. Private, 1-on-1 audio sessions with verified empathetic companions & therapists.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-6 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-6 w-full sm:w-auto">
               <Link
                 to="/categories"
-                className="px-6 py-3 rounded-full text-base font-semibold text-brand-950 bg-white hover:bg-gray-100 shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 text-center transform hover:-translate-y-1"
+                className="px-7 py-3.5 rounded-full text-base font-bold text-white bg-gradient-to-r from-brand-teal to-brand-500 hover:from-brand-600 hover:to-brand-teal shadow-[0_0_25px_rgba(2,132,199,0.35)] transition-all duration-300 text-center transform hover:-translate-y-0.5 border border-cyan-300/30"
               >
                 Find Someone To Talk To
               </Link>
               <Link
                 to="/#how-it-works"
-                className="px-6 py-3 rounded-full text-base font-medium text-white border border-brand-700 hover:bg-brand-900 transition-all duration-300 text-center"
+                className="px-7 py-3.5 rounded-full text-base font-semibold text-slate-200 bg-white/5 hover:bg-white/10 hover:text-white border border-white/15 transition-all duration-300 text-center backdrop-blur-sm"
               >
-                See How It Works
+                How It Works
               </Link>
             </div>
 

@@ -27,7 +27,7 @@ export default function SupportSafetyShortcut() {
               Something didn’t feel right?
             </h3>
             <p className="text-gray-400 leading-relaxed mb-6">
-              If a conversation crossed your boundaries, you can report the concern through Never Alone’s safety tools.
+              If a conversation crossed your boundaries, you can report the concern through Neuravia’s safety tools.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -49,7 +49,7 @@ export default function SupportSafetyShortcut() {
 
         <div className="mt-8 text-center bg-white/5 border border-white/10 rounded-xl p-6">
           <p className="text-sm font-semibold text-red-300 mb-1">
-            Never Alone is not an emergency service.
+            Neuravia is not an emergency service.
           </p>
           <p className="text-sm text-gray-400">
             If you or someone else may be in immediate danger, contact appropriate local emergency or crisis-support services.

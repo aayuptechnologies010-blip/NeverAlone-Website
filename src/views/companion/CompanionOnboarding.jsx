@@ -34,7 +34,7 @@ export default function CompanionOnboarding() {
         </h1>
 
         <p className="text-lg text-gray-400 mb-12 max-w-lg mx-auto leading-relaxed">
-          Before becoming available for conversations, learn the principles that keep Never Alone respectful, comfortable and safe.
+          Before becoming available for conversations, learn the principles that keep Neuravia respectful, comfortable and safe.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">

@@ -72,7 +72,7 @@ export default function SeoKeywordCloud() {
         {/* Long-tail SEO Narrative for High Search Authority */}
         <div className="p-5 rounded-2xl bg-brand-900/30 border border-white/5 space-y-3 leading-relaxed text-[11px] text-gray-400">
           <p>
-            <strong className="text-gray-200">About Never Alone:</strong> Never Alone is India’s dedicated confidential mental health and emotional companionship platform. We bridge the gap between acute emotional distress, loneliness, and clinical psychological care. Whether you are searching for an <em>online clinical psychologist in Delhi</em>, an <em>anxiety specialist in Mumbai</em>, or an <em>empathetic listener in Hindi or English</em>, our platform provides encrypted, single-session ₹797 access without mandatory long-term contracts.
+            <strong className="text-gray-200">About Neuravia:</strong> Neuravia is India’s dedicated confidential mental health and emotional companionship platform. We bridge the gap between acute emotional distress, loneliness, and clinical psychological care. Whether you are searching for an <em>online clinical psychologist in Delhi</em>, an <em>anxiety specialist in Mumbai</em>, or an <em>empathetic listener in Hindi or English</em>, our platform provides encrypted, single-session ₹499 access without mandatory long-term contracts.
           </p>
           <p>
             Our network includes RCI verified clinical psychologists, psychotherapists, and trained empathetic companions. All conversations adhere to strict medical privacy standards and are conducted via private audio connections. National emergency crisis helpline support is available 24/7 via KIRAN (1800-599-0019) and Tele-MANAS (14416).

@@ -24,7 +24,7 @@ export default function StepVerification({ data, updateData, errors }) {
       exit={{ opacity: 0, x: -20 }}
     >
       <div className="mb-8">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-2">Help us keep Never Alone trustworthy.</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-2">Help us keep Neuravia trustworthy.</h2>
         <p className="text-gray-400">Complete verification details.</p>
         {errors.verification && <p className="text-red-400 text-sm mt-2">{errors.verification}</p>}
       </div>

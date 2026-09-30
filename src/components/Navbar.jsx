@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-const logo = '/logo.jpeg';
+const logo = '/logo.png';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -35,19 +35,18 @@ const Navbar = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-            ? 'bg-brand-950/90 backdrop-blur-xl shadow-md py-3 border-b border-white/10'
-            : 'bg-brand-900 py-5'
+            ? 'bg-white backdrop-blur-md shadow-md shadow-slate-900/5 py-3 border-b border-slate-100'
+            : 'bg-white py-4 shadow-sm border-b border-slate-100'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 z-50">
-            <img src={logo} alt="Never Alone Logo" className="h-14 w-auto rounded-md object-contain" />
-            {/* <span className="text-xl font-semibold text-white tracking-wide">Never Alone</span> */}
+          <Link to="/" className="flex items-center space-x-3 z-50 group">
+            <img src={logo} alt="Neuravia Logo" className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-0">
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navLinks.map((link) => {
               const isHash = link.path.includes('#');
               let isActive = false;
@@ -58,7 +57,7 @@ const Navbar = () => {
                 isActive = location.pathname === link.path && !location.hash;
               }
 
-              const linkClasses = `relative px-3 py-2 text-sm font-medium transition-colors hover:text-white whitespace-nowrap ${isActive ? 'text-white font-semibold' : 'text-gray-300'}`;
+              const linkClasses = `relative px-3.5 py-2 text-sm font-medium transition-all duration-200 hover:text-brand-teal whitespace-nowrap rounded-lg ${isActive ? 'text-brand-navy font-bold' : 'text-slate-600'}`;
 
               const handleClick = (e) => {
                 if (isHash && location.pathname === '/') {
@@ -87,7 +86,7 @@ const Navbar = () => {
                   {isActive && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-pink-500"
+                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-brand-teal to-brand-green rounded-full"
                       initial={false}
                       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                     />
@@ -101,13 +100,13 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-3">
             <Link 
               to="/signin" 
-              className="px-4 py-2 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 transition-all duration-300 whitespace-nowrap"
+              className="px-4 py-2 rounded-full text-sm font-semibold text-brand-navy hover:text-brand-teal hover:bg-slate-50 border border-slate-200 transition-all duration-300 whitespace-nowrap"
             >
               Sign In
             </Link>
             <Link
               to="/first-session"
-              className="px-4 py-2 rounded-full text-sm font-semibold text-white bg-pink-600 hover:bg-pink-500 shadow-lg shadow-pink-600/20 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
+              className="px-5 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r from-brand-navy via-brand-teal to-brand-green hover:opacity-95 shadow-md shadow-brand-teal/20 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
             >
               Get Support
             </Link>
@@ -115,7 +114,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-white z-50"
+            className="md:hidden text-brand-navy z-50 p-1 rounded-lg hover:bg-slate-100"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -131,7 +130,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-brand-950/95 backdrop-blur-xl flex flex-col pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-white flex flex-col pt-24 px-6 md:hidden shadow-2xl"
           >
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => {
@@ -149,7 +148,7 @@ const Navbar = () => {
                     key={link.name}
                     to={link.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`text-2xl font-medium border-b pb-4 transition-colors ${isActive ? 'text-pink-400 border-pink-500/50' : 'text-gray-300 border-white/5 hover:text-white'}`}
+                    className={`text-xl font-semibold border-b border-slate-100 pb-4 transition-colors ${isActive ? 'text-brand-teal' : 'text-slate-700 hover:text-brand-navy'}`}
                   >
                     {link.name}
                   </Link>
@@ -160,14 +159,14 @@ const Navbar = () => {
               <Link
                 to="/signin"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-4 text-center text-lg font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl transition-all"
+                className="w-full py-3.5 text-center text-base font-semibold text-brand-navy bg-slate-100 hover:bg-slate-200 rounded-xl transition-all"
               >
                 Sign In
               </Link>
               <Link
                 to="/first-session"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-4 text-center text-lg font-medium text-white bg-pink-600 hover:bg-pink-500 shadow-lg shadow-pink-600/20 rounded-xl transition-all"
+                className="w-full py-3.5 text-center text-base font-bold text-white bg-gradient-to-r from-brand-navy via-brand-teal to-brand-green shadow-lg shadow-brand-teal/20 rounded-xl transition-all"
               >
                 Get Support
               </Link>

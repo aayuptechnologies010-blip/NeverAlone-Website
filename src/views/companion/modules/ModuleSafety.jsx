@@ -42,7 +42,7 @@ export default function ModuleSafety() {
       <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 md:p-8 mb-12">
         <div className="flex items-center gap-3 mb-4">
           <AlertTriangle className="w-6 h-6 text-red-400" />
-          <h3 className="text-lg font-bold text-white">Not Allowed On Never Alone</h3>
+          <h3 className="text-lg font-bold text-white">Not Allowed On Neuravia</h3>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-300">
           {[
@@ -101,7 +101,7 @@ export default function ModuleSafety() {
       {/* Offline meetup rule */}
       <div className="bg-brand-900 border-2 border-red-500/30 rounded-2xl p-6 mb-12">
         <h3 className="text-lg font-bold text-red-300 mb-2">No physical meetups.</h3>
-        <p className="text-sm text-gray-400">Never Alone is for online phone conversations only. Do not arrange physical meetings through the platform.</p>
+        <p className="text-sm text-gray-400">Neuravia is for online phone conversations only. Do not arrange physical meetings through the platform.</p>
       </div>
 
       {/* Crisis */}
@@ -109,7 +109,7 @@ export default function ModuleSafety() {
         <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-4">
             <ShieldAlert className="w-5 h-5 text-yellow-400" />
-            <p className="text-sm font-bold text-white">Never Alone is not an emergency service.</p>
+            <p className="text-sm font-bold text-white">Neuravia is not an emergency service.</p>
           </div>
           <p className="text-sm text-gray-400 leading-relaxed">
             Companions should not try to act as emergency professionals. If someone may be in immediate danger, the platform flow should direct them toward appropriate emergency or crisis resources.

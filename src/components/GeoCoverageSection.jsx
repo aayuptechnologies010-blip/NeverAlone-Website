@@ -37,7 +37,7 @@ export default function GeoCoverageSection() {
             to="/first-session"
             className="mt-4 md:mt-0 inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white text-white hover:text-brand-950 font-bold px-5 py-2.5 text-xs transition-all border border-white/10"
           >
-            <span>Book ₹797 Session Anywhere</span>
+            <span>Book ₹499 Session Anywhere</span>
           </Link>
         </div>
 

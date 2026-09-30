@@ -124,11 +124,11 @@ export default function ModuleFlirty() {
           question={"A customer says: \"Can we meet sometime?\" What's the correct direction?"}
           options={[
             { id: 'a', text: 'Share your location details.' },
-            { id: 'b', text: 'Politely explain that Never Alone conversations remain online/phone-based and physical meetups are not part of the service.' },
+            { id: 'b', text: 'Politely explain that Neuravia conversations remain online/phone-based and physical meetups are not part of the service.' },
             { id: 'c', text: 'Say maybe and keep the conversation going.' },
           ]}
           correctId="b"
-          explanation="Physical meetups are never arranged through Never Alone. Politely redirect while keeping the conversation comfortable."
+          explanation="Physical meetups are never arranged through Neuravia. Politely redirect while keeping the conversation comfortable."
           onComplete={() => { saveAnswer('flirty-mode', 'q2', true); setQuiz2Passed(true); }}
           savedAnswer={getAnswer('flirty-mode', 'q2') ? 'b' : null}
         />

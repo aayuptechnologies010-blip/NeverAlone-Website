@@ -19,6 +19,11 @@ const SignUp = () => {
       console.log("Signed up user via Google:", user);
       navigate('/dashboard');
     } catch (err) {
+      // User closed the popup window manually
+      if (err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request') {
+        console.log("User cancelled Google Sign-up popup.");
+        return;
+      }
       console.error("Google SignUp Error:", err);
       setErrorMsg(err.message || "Google registration failed. Please try again.");
     } finally {

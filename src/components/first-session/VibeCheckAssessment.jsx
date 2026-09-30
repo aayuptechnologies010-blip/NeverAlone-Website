@@ -180,7 +180,7 @@ export default function VibeCheckAssessment() {
                 </div>
                 <div className="flex justify-between items-baseline">
                   <p className="text-lg font-bold text-white">60-Min 1-on-1 Consultation</p>
-                  <p className="text-xl font-black text-electric-cyan">₹797</p>
+                  <p className="text-xl font-black text-electric-cyan">₹499</p>
                 </div>
               </div>
 
@@ -189,7 +189,7 @@ export default function VibeCheckAssessment() {
                   to={`/book?serviceType=Professional+Support&concern=${encodeURIComponent(recommendedCategory)}`}
                   className="w-full sm:flex-1 py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-bold text-sm shadow-xl shadow-pink-600/30 transition-all text-center flex items-center justify-center gap-2"
                 >
-                  <span>Book This Match &bull; ₹797</span>
+                  <span>Book This Match &bull; ₹499</span>
                   <ArrowRight size={16} />
                 </Link>
                 <button

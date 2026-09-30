@@ -7,7 +7,7 @@ const categories = [
     id: 'general',
     icon: MessageCircle,
     title: 'General Help',
-    desc: 'Questions about Never Alone or how the platform works.',
+    desc: 'Questions about Neuravia or how the platform works.',
   },
   {
     id: 'booking',

@@ -47,8 +47,10 @@ function CompanionDashboardShell() {
       <aside className="hidden lg:flex flex-col w-60 flex-shrink-0 border-r border-white/5 bg-brand-950 fixed inset-y-0 left-0 z-40">
         {/* Logo */}
         <div className="h-16 flex items-center px-6 border-b border-white/5">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-lg font-semibold text-white">Never Alone</span>
+          <Link to="/" className="flex items-center gap-2.5">
+            <div className="bg-white rounded-xl p-1 shadow-sm flex items-center justify-center border border-white/30">
+              <img src="/logo.png" alt="Neuravia Logo" className="h-7 w-auto max-w-[130px] object-contain rounded" />
+            </div>
           </Link>
         </div>
         <div className="px-6 py-3">
@@ -103,7 +105,7 @@ function CompanionDashboardShell() {
               className="fixed inset-y-0 left-0 w-72 bg-brand-950 border-r border-white/10 z-50 lg:hidden flex flex-col"
             >
               <div className="h-16 flex items-center justify-between px-6 border-b border-white/5">
-                <span className="text-lg font-semibold text-white">Never Alone</span>
+                <span className="text-lg font-semibold text-white">Neuravia</span>
                 <button onClick={() => setMobileOpen(false)} className="text-gray-400 hover:text-white">
                   <X className="w-5 h-5" />
                 </button>

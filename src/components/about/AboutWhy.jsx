@@ -29,7 +29,7 @@ export default function AboutWhy() {
                 Other days, you just want to talk about your day, your relationships, your career, college, family, music, movies, plans, confusion or completely random thoughts.
               </p>
               <p className="text-white font-medium">
-                Never Alone gives those conversations a place to begin.
+                Neuravia gives those conversations a place to begin.
               </p>
             </div>
           </motion.div>

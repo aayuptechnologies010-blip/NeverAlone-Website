@@ -48,7 +48,7 @@ export default function SafetyHero({ onReadGuidelines, onReport }) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
         >
-          Never Alone is designed around private, respectful phone conversations with clear boundaries and easy access to safety tools.
+          Neuravia is designed around private, respectful phone conversations with clear boundaries and easy access to safety tools.
         </motion.p>
 
         {/* Actions */}

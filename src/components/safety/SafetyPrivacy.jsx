@@ -13,7 +13,7 @@ export default function SafetyPrivacy() {
               No video. Less pressure.
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Never Alone is designed around phone conversations rather than video calls. Personal phone numbers should not be unnecessarily displayed.
+              Neuravia is designed around phone conversations rather than video calls. Personal phone numbers should not be unnecessarily displayed.
             </p>
           </div>
 

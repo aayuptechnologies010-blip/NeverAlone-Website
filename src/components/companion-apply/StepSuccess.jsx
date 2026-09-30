@@ -48,7 +48,7 @@ export default function StepSuccess() {
           to="/about"
           className="px-8 py-4 rounded-full text-base font-medium text-white border border-white/20 bg-white/5 hover:bg-white/10 transition-colors"
         >
-          Learn About Never Alone
+          Learn About Neuravia
         </Link>
       </div>
 

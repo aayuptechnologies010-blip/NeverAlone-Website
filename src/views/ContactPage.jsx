@@ -20,9 +20,9 @@ const contactMethods = [
   {
     icon: Mail,
     title: "Email Support",
-    value: "care@neveralone.in",
+    value: "care@neuravia.in",
     desc: "Average response in under 2 hours",
-    action: "mailto:care@neveralone.in",
+    action: "mailto:care@neuravia.in",
     actionLabel: "Send Email"
   },
   {
@@ -195,7 +195,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-sm font-bold text-red-100">Need Immediate Crisis Support?</h3>
                     <p className="mt-1 text-xs text-red-200/80 leading-relaxed">
-                      Never Alone is not an emergency psychiatric hospital. If you are in immediate distress, please call the national helpline <strong>KIRAN (1800-599-0019)</strong> or <strong>112</strong> immediately.
+                      Neuravia is not an emergency psychiatric hospital. If you are in immediate distress, please call the national helpline <strong>KIRAN (1800-599-0019)</strong> or <strong>112</strong> immediately.
                     </p>
                     <Link
                       to="/safety"
@@ -257,7 +257,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-sm font-bold text-white">Looking for your First Session?</h4>
-                    <p className="text-xs text-pink-300">60-Min 1-on-1 Consultation for ₹797</p>
+                    <p className="text-xs text-pink-300">60-Min 1-on-1 Consultation for ₹499</p>
                   </div>
                 </div>
                 <p className="text-xs text-gray-300 leading-relaxed mb-4">
@@ -267,7 +267,7 @@ export default function ContactPage() {
                   to="/first-session"
                   className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-xs font-bold text-brand-950 hover:bg-gray-100 transition-colors shadow-md"
                 >
-                  <span>Explore First Session (₹797)</span>
+                  <span>Explore First Session (₹499)</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

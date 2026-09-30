@@ -37,7 +37,7 @@ export default function FloatingFirstSessionBar() {
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-sm font-black text-white">₹797</span>
+                  <span className="text-sm font-black text-white">₹499</span>
                   <span className="text-[10px] line-through text-gray-500">₹1,499</span>
                   <span className="text-[10px] font-bold text-green-400 bg-green-500/10 px-1.5 py-0.2 rounded">60 Min</span>
                 </div>

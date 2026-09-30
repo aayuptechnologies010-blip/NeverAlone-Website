@@ -30,13 +30,14 @@ const BookStepConfirm = ({ state, onConfirm }) => {
 
   // Determine amount based on selected plan
   const getAmountForPlan = (planName) => {
-    if (planName?.includes('First Session') || planName === 'First Session') return 797;
+    if (planName?.includes('1 Session') || planName?.includes('First Session') || planName === 'First Session') return 499;
     if (planName?.includes('Professional Session')) return professionalAmount;
-    if (planName?.includes('7 Days') || planName === 'Weekly') return 799;
-    if (planName?.includes('30 Days') || planName === 'Monthly') return 2999;
-    if (planName?.includes('365 Days') || planName === 'Yearly') return 19999;
+    if (planName?.includes('6 Session') || planName?.includes('Starter Pack')) return 2500;
+    if (planName?.includes('12 Session') || planName?.includes('Growth Pack') || planName?.includes('Monthly')) return 4500;
+    if (planName?.includes('20 Session') || planName?.includes('Transformation')) return 8000;
+    if (planName?.includes('25 Session') || planName?.includes('Complete Wellness') || planName?.includes('Yearly')) return 10000;
     if (planName === 'Extra Time') return 199;
-    return 797; // Default to first session price
+    return 499; // Default to single session price
   };
 
   const saveBookingToDatabase = async (paymentId = 'pay_demo_success') => {
@@ -44,7 +45,7 @@ const BookStepConfirm = ({ state, onConfirm }) => {
       const user = auth.currentUser;
       const bookingData = {
         userId: user?.uid || 'guest_user',
-        userEmail: user?.email || 'user@neveralone.in',
+        userEmail: user?.email || 'user@neuravia.in',
         userName: user?.displayName || 'Valued Member',
         companionId: companion?.id || state.companion,
         companionName: companion?.name || 'Specialist',
@@ -88,7 +89,7 @@ const BookStepConfirm = ({ state, onConfirm }) => {
       key: keyId,
       amount: amount * 100, // Amount in paise
       currency: "INR",
-      name: "Never Alone",
+      name: "Neuravia",
       description: `${state.plan || 'Session'} - Conversation with ${companion?.name || 'Specialist'}`,
       image: "/logo.jpeg",
       handler: async function (response) {
@@ -99,11 +100,11 @@ const BookStepConfirm = ({ state, onConfirm }) => {
       },
       prefill: {
         name: "Valued Member",
-        email: "user@neveralone.in",
+        email: "user@neuravia.in",
         contact: "9999999999"
       },
       theme: {
-        color: "#db2777" // romantic-pink/brand color
+        color: "#0891b2" // Neuravia teal-cyan
       },
       modal: {
         ondismiss: function() {

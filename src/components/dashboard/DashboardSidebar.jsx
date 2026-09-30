@@ -34,14 +34,11 @@ export default function DashboardSidebar({ onLinkClick }) {
       <div className="flex items-center justify-between mb-8 px-1">
         <button
           onClick={() => navigate('/')}
-          className="flex items-center space-x-2"
+          className="flex items-center space-x-2.5"
         >
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-romantic-DEFAULT to-electric-DEFAULT flex items-center justify-center">
-            <span className="text-white font-semibold text-sm">NA</span>
+          <div className="bg-white rounded-xl p-1.5 shadow-sm flex items-center justify-center border border-white/30">
+            <img src="/logo.png" alt="Neuravia Logo" className="h-8 w-auto max-w-[130px] object-contain rounded-md" />
           </div>
-          <span className="text-lg font-semibold text-white tracking-wide">
-            Never Alone
-          </span>
         </button>
 
         {/* Only visible when used inside mobile drawer */}

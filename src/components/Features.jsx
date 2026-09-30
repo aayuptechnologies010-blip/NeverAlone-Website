@@ -41,7 +41,7 @@ const Features = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-6">
-          <h2 className="text-brand-500 font-semibold tracking-wide uppercase text-sm mb-3">Why Never Alone?</h2>
+          <h2 className="text-brand-500 font-semibold tracking-wide uppercase text-sm mb-3">Why Neuravia?</h2>
           <h3 className="text-3xl md:text-3xl font-semibold text-brand-950 mb-6">A safe space for real conversations.</h3>
         </div>
 

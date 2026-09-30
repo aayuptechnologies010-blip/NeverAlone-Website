@@ -17,7 +17,7 @@ export default function ProfessionalApplyLanding() {
             to meaningful conversations.
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
-            Professional Support is a separate Never Alone service designed for appropriately qualified professionals.
+            Professional Support is a separate Neuravia service designed for appropriately qualified professionals.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/professional-support/application" className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-brand-950 bg-electric-cyan hover:bg-electric-cyan/90 transition-colors text-lg">
@@ -53,7 +53,7 @@ export default function ProfessionalApplyLanding() {
           </p>
           <div className="flex flex-col md:flex-row gap-4 p-6 bg-brand-950 rounded-2xl border border-white/5">
             <BriefcaseMedical className="w-6 h-6 text-lavender-400 flex-shrink-0" />
-            <p className="text-sm text-gray-300">Never Alone requires professionals to submit proof of qualification and identity before they can provide Professional Support on the platform.</p>
+            <p className="text-sm text-gray-300">Neuravia requires professionals to submit proof of qualification and identity before they can provide Professional Support on the platform.</p>
           </div>
         </motion.div>
 

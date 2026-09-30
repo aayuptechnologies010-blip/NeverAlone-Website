@@ -38,7 +38,7 @@ const Mission = () => {
           className="text-lg md:text-xl text-brand-200 leading-relaxed max-w-3xl mx-auto space-y-6 font-light"
         >
           <p>
-            Never Alone started with a simple idea: <strong>Human connection should be easier to find.</strong>
+            Neuravia started with a simple idea: <strong>Human connection should be easier to find.</strong>
           </p>
           <p>
             Whether you want to share your day, talk through a relationship, discuss a family situation, think about your career, have a fun conversation or seek professional support, the first step can simply be talking.

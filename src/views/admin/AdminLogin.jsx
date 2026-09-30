@@ -22,7 +22,7 @@ export default function AdminLogin() {
         </div>
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-white mb-2">Admin Access</h1>
-          <p className="text-sm text-gray-400">Manage Never Alone operations.</p>
+          <p className="text-sm text-gray-400">Manage Neuravia operations.</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">

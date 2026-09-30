@@ -10,7 +10,7 @@ const App = dynamic(() => import('../App'), {
     <div className="min-h-screen bg-brand-950 flex items-center justify-center text-white font-sans">
       <div className="flex flex-col items-center gap-4">
         <div className="w-10 h-10 border-4 border-electric-cyan border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-gray-400 text-sm tracking-wider uppercase">Loading Never Alone...</p>
+        <p className="text-gray-400 text-sm tracking-wider uppercase">Loading Neuravia...</p>
       </div>
     </div>
   ),
@@ -28,7 +28,7 @@ export default function ClientApp() {
       <div className="min-h-screen bg-brand-950 flex items-center justify-center text-white font-sans">
         <div className="flex flex-col items-center gap-4">
           <div className="w-10 h-10 border-4 border-electric-cyan border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-gray-400 text-sm tracking-wider uppercase">Loading Never Alone...</p>
+          <p className="text-gray-400 text-sm tracking-wider uppercase">Loading Neuravia...</p>
         </div>
       </div>
     );

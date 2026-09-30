@@ -18,6 +18,11 @@ const SignIn = () => {
       console.log("Logged in user:", user);
       navigate('/dashboard');
     } catch (err) {
+      // User closed the popup window manually
+      if (err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request') {
+        console.log("User cancelled Google Sign-in popup.");
+        return;
+      }
       console.error("Google Auth Error:", err);
       setErrorMsg(err.message || "Google Sign-In failed. Please try again.");
     } finally {

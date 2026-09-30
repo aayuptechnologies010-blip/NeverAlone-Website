@@ -37,7 +37,7 @@ export default function ModuleRelationship() {
         Support the conversation, <br className="hidden md:block" />not a side.
       </h1>
       <p className="text-gray-400 leading-relaxed mb-10">
-        Relationship and personal conversations are some of the most common on Never Alone. Learn how to navigate them responsibly.
+        Relationship and personal conversations are some of the most common on Neuravia. Learn how to navigate them responsibly.
       </p>
 
       <LessonSection title="Topics you'll encounter">

@@ -14,7 +14,7 @@ export default function SafetyCrisis() {
         </div>
 
         <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-          Never Alone is not an emergency service.
+          Neuravia is not an emergency service.
         </h2>
         
         <p className="text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed text-lg">

@@ -14,14 +14,14 @@ export const faqs = [
   // Getting Started
   {
     category: 'getting-started',
-    question: 'What is Never Alone?',
-    answer: 'Never Alone is a private conversation platform designed to help adults find someone to talk to through respectful phone conversations.',
+    question: 'What is Neuravia?',
+    answer: 'Neuravia is a private conversation platform designed to help adults find someone to talk to through respectful phone conversations.',
     keywords: 'what is, about, purpose, meaning'
   },
   {
     category: 'getting-started',
-    question: 'Who can use Never Alone?',
-    answer: 'Never Alone is intended for adults aged 18 or older.',
+    question: 'Who can use Neuravia?',
+    answer: 'Neuravia is intended for adults aged 18 or older.',
     keywords: 'age, who, 18, adults, kids, minors'
   },
   {
@@ -32,8 +32,8 @@ export const faqs = [
   },
   {
     category: 'getting-started',
-    question: 'Do I need a serious reason to use Never Alone?',
-    answer: 'No. You can use Never Alone simply because you feel like talking to someone.',
+    question: 'Do I need a serious reason to use Neuravia?',
+    answer: 'No. You can use Neuravia simply because you feel like talking to someone.',
     keywords: 'reason, serious, casual, why use'
   },
 
@@ -47,7 +47,7 @@ export const faqs = [
   {
     category: 'conversations',
     question: 'Are calls audio or video?',
-    answer: 'Never Alone uses phone calls only. There is no video or webcam experience.',
+    answer: 'Neuravia uses phone calls only. There is no video or webcam experience.',
     keywords: 'audio, video, webcam, camera, phone'
   },
   {
@@ -111,7 +111,7 @@ export const faqs = [
   {
     category: 'plans-pricing',
     question: 'What plans are available?',
-    answer: 'Never Alone currently presents: Weekly — ₹799 (7 days, 1 hour every day), Monthly — ₹2,999 (30 days, 1 hour every day), Yearly — ₹19,999 (365 days, 1 hour every day).',
+    answer: 'Neuravia currently presents: Weekly — ₹799 (7 days, 1 hour every day), Monthly — ₹2,999 (30 days, 1 hour every day), Yearly — ₹19,999 (365 days, 1 hour every day).',
     keywords: 'plans, pricing, cost, subscription, weekly, monthly, yearly'
   },
   {
@@ -193,7 +193,7 @@ export const faqs = [
   {
     category: 'flirty-mode',
     question: 'Can I meet a Flirty Mode companion in person?',
-    answer: 'No. Never Alone is designed for online phone conversations and does not provide physical meetups.',
+    answer: 'No. Neuravia is designed for online phone conversations and does not provide physical meetups.',
     keywords: 'meet in person, real life, meetup, physical, date'
   },
   {
@@ -242,7 +242,7 @@ export const faqs = [
   },
   {
     category: 'professional-support',
-    question: 'Is Never Alone an emergency service?',
+    question: 'Is Neuravia an emergency service?',
     answer: 'No. If you or someone else may be in immediate danger, contact appropriate local emergency or crisis-support services.',
     keywords: 'emergency, crisis, suicide, danger, 911'
   },
@@ -250,13 +250,13 @@ export const faqs = [
   // Safety & Privacy
   {
     category: 'safety-privacy',
-    question: 'Is Never Alone 18+?',
-    answer: 'Yes. Never Alone is intended for adults only.',
+    question: 'Is Neuravia 18+?',
+    answer: 'Yes. Neuravia is intended for adults only.',
     keywords: '18+, adults, age limit, minors'
   },
   {
     category: 'safety-privacy',
-    question: 'Does Never Alone allow physical meetups?',
+    question: 'Does Neuravia allow physical meetups?',
     answer: 'No. The platform is intended for online conversations.',
     keywords: 'physical meetup, real life, meet'
   },
@@ -281,7 +281,7 @@ export const faqs = [
   {
     category: 'safety-privacy',
     question: 'Are my personal phone numbers hidden?',
-    answer: 'Never Alone is designed to minimize unnecessary sharing of personal contact information. Specific calling privacy features depend on the implemented calling system.',
+    answer: 'Neuravia is designed to minimize unnecessary sharing of personal contact information. Specific calling privacy features depend on the implemented calling system.',
     keywords: 'phone number, hidden, masked, privacy, show number'
   },
   {

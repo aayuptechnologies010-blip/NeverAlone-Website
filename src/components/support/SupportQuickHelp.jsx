@@ -6,7 +6,7 @@ const links = [
   {
     to: '/how-it-works',
     icon: Info,
-    title: 'How Never Alone Works',
+    title: 'How Neuravia Works',
     desc: 'The steps from booking to conversation.'
   },
   {

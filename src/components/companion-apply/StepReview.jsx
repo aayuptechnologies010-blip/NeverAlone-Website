@@ -111,7 +111,7 @@ export default function StepReview({ data, updateData, errors, onSubmit, isSubmi
               {data.declSafety && <svg className="w-4 h-4 text-brand-950 absolute top-0.5 left-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>}
             </div>
           </div>
-          <p className="text-sm font-medium text-gray-300">I agree to follow Never Alone’s safety and conversation guidelines.</p>
+          <p className="text-sm font-medium text-gray-300">I agree to follow Neuravia’s safety and conversation guidelines.</p>
         </label>
         
         <label className="flex items-start gap-3 cursor-pointer group">

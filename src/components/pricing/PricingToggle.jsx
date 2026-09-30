@@ -4,7 +4,7 @@ const PricingToggle = ({ selected, onSelect }) => {
   return (
     <section className="py-12 bg-brand-950">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl font-semibold text-white mb-8">How long would you like Never Alone around?</h2>
+        <h2 className="text-2xl font-semibold text-white mb-8">How long would you like Neuravia around?</h2>
         
         <div className="inline-flex bg-brand-900 border border-white/10 rounded-full p-1.5">
           {['7 Days', '30 Days', '365 Days'].map(duration => (

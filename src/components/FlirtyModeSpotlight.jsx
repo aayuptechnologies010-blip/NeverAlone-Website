@@ -104,7 +104,7 @@ const FlirtyModeSpotlight = () => {
 
                 <div className="mt-6 pt-4 border-t border-white/10">
                   <p className="text-[10px] md:text-xs text-gray-500 leading-relaxed">
-                    Never Alone is not a dating app or an adult services platform. All conversations are phone-call only and must remain strictly non-explicit.
+                    Neuravia is not a dating app or an adult services platform. All conversations are phone-call only and must remain strictly non-explicit.
                   </p>
                 </div>
               </div>

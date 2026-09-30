@@ -84,7 +84,7 @@ const howItWorksSteps = [
     step: '01',
     title: 'Select Your Slot & Focus Area',
     description: 'Pick an available time that fits your day (same-day slots available) and let us know what is on your mind.',
-    subtext: 'Your first session is ₹797 for a complete 60-minute 1-on-1 consultation.'
+    subtext: 'Your first session is ₹499 for a complete 60-minute 1-on-1 consultation.'
   },
   {
     step: '02',
@@ -162,8 +162,8 @@ const testimonials = [
 
 const faqs = [
   {
-    question: 'Who are we and how does Never Alone support your healing?',
-    answer: 'Never Alone is a dedicated mental well-being platform designed to bridge the gap between emotional distress and meaningful healing. We offer confidential, accessible 1-on-1 therapy and emotional support sessions with qualified mental health professionals and empathetic listeners, combining evidence-based psychotherapy (CBT, SFBT, Mindfulness) with flexible, judgment-free care.'
+    question: 'Who are we and how does Neuravia support your healing?',
+    answer: 'Neuravia is a dedicated mental well-being platform designed to bridge the gap between emotional distress and meaningful healing. We offer confidential, accessible 1-on-1 therapy and emotional support sessions with qualified mental health professionals and empathetic listeners, combining evidence-based psychotherapy (CBT, SFBT, Mindfulness) with flexible, judgment-free care.'
   },
   {
     question: 'What actually happens in a first session?',
@@ -179,7 +179,7 @@ const faqs = [
   },
   {
     question: 'Do I have to commit to long packages right away?',
-    answer: 'Not at all. You can begin with a single 60-minute consultation at ₹797. Only after your first session and in agreement with your therapist do you decide whether and how you want to continue.'
+    answer: 'Not at all. You can begin with a single 60-minute consultation at ₹499. Only after your first session and in agreement with your therapist do you decide whether and how you want to continue.'
   },
   {
     question: 'How is my privacy and identity protected?',
@@ -236,7 +236,7 @@ export default function FirstSessionPage() {
               {/* Price & Duration Feature Pills */}
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-2xl px-4 py-2.5 backdrop-blur-md">
-                  <span className="text-2xl font-black text-white">₹797</span>
+                  <span className="text-2xl font-black text-white">₹499</span>
                   <span className="text-xs text-gray-400">/ 60 Minutes Session</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-2xl px-4 py-2.5 backdrop-blur-md text-xs font-semibold text-gray-200">
@@ -255,7 +255,7 @@ export default function FirstSessionPage() {
                   to={bookingPath}
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-pink-600 via-pink-500 to-rose-600 px-8 py-4 text-base font-bold text-white shadow-[0_0_30px_rgba(219,39,119,0.35)] transition-all hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(219,39,119,0.5)]"
                 >
-                  <span>Book Session &bull; ₹797</span>
+                  <span>Book Session &bull; ₹499</span>
                   <ArrowRight className="h-5 w-5" />
                 </Link>
                 <Link
@@ -311,7 +311,7 @@ export default function FirstSessionPage() {
                 <div className="my-6 rounded-2xl bg-brand-950/80 border border-white/10 p-4">
                   <div className="flex items-baseline justify-between">
                     <div>
-                      <span className="text-3xl font-extrabold text-white">₹797</span>
+                      <span className="text-3xl font-extrabold text-white">₹499</span>
                       <span className="text-xs text-gray-400 line-through ml-2">₹1,499</span>
                     </div>
                     <span className="rounded-lg bg-green-500/10 border border-green-500/30 px-2.5 py-1 text-xs font-bold text-green-400">
@@ -344,7 +344,7 @@ export default function FirstSessionPage() {
                   to={bookingPath}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-white py-4 font-bold text-brand-950 transition hover:bg-gray-100 hover:shadow-lg"
                 >
-                  <span>Book Now &bull; ₹797</span>
+                  <span>Book Now &bull; ₹499</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
 
@@ -559,7 +559,7 @@ export default function FirstSessionPage() {
                   to={bookingPath}
                   className="inline-flex items-center gap-2 rounded-2xl bg-pink-600 hover:bg-pink-500 px-8 py-4 font-bold text-white shadow-lg shadow-pink-600/20 transition-all"
                 >
-                  <span>Secure Your Slot at ₹797</span>
+                  <span>Secure Your Slot at ₹499</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -573,7 +573,7 @@ export default function FirstSessionPage() {
                     <ShieldCheck className="h-5 w-5" />
                     <span>Professional Therapy & Clinical Support</span>
                   </div>
-                  <span className="text-xs font-bold text-electric-cyan bg-electric-cyan/10 px-2.5 py-1 rounded-full">₹797 First Session</span>
+                  <span className="text-xs font-bold text-electric-cyan bg-electric-cyan/10 px-2.5 py-1 rounded-full">₹499 First Session</span>
                 </div>
                 <p className="text-sm text-gray-300 leading-relaxed">
                   Conducted by qualified clinical psychologists and registered therapists. Best for Anxiety, Depression, Trauma, OCD, and structured mental health healing.
@@ -762,7 +762,7 @@ export default function FirstSessionPage() {
             A Little Space. Just For You.
           </span>
           <h2 className="mt-3 text-3xl sm:text-5xl font-black text-white leading-tight">
-            Start With One Session &mdash; ₹797
+            Start With One Session &mdash; ₹499
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-300 max-w-2xl mx-auto font-light">
             Talk to your therapist. Assess your current emotional space. Decide what is next together with complete peace of mind.
@@ -773,7 +773,7 @@ export default function FirstSessionPage() {
               to={bookingPath}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 px-9 py-4 text-base font-bold text-white shadow-xl shadow-pink-600/30 transition-all hover:scale-105"
             >
-              <span>Book Your First Session (₹797)</span>
+              <span>Book Your First Session (₹499)</span>
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
@@ -805,7 +805,7 @@ export default function FirstSessionPage() {
               Frequently Asked Questions
             </h2>
             <p className="mt-2 text-sm text-gray-400">
-              Everything you need to know about starting your first session with Never Alone.
+              Everything you need to know about starting your first session with Neuravia.
             </p>
           </div>
 

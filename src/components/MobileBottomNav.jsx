@@ -26,7 +26,7 @@ export default function MobileBottomNav() {
         }
       >
         <Sparkles size={18} />
-        <span>₹797 Session</span>
+        <span>₹499 Session</span>
       </NavLink>
 
       <NavLink

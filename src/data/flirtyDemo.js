@@ -69,11 +69,11 @@ export const flirtyFaqs = [
   },
   {
     question: 'Can I meet my companion?',
-    answer: 'No. Never Alone is designed for online phone conversations, not physical meetups.',
+    answer: 'No. Neuravia is designed for online phone conversations, not physical meetups.',
   },
   {
     question: 'Is video available?',
-    answer: 'No. Never Alone uses phone calls only.',
+    answer: 'No. Neuravia uses phone calls only.',
   },
   {
     question: 'Can I stop a flirty conversation?',

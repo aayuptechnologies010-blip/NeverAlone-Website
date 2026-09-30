@@ -3,9 +3,9 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCXDUIIKJOH5tsPeinaG7R8TIK2KjQiv4o",
-  authDomain: "never-alone-e6913.firebaseapp.com",
-  projectId: "never-alone-e6913",
-  storageBucket: "never-alone-e6913.firebasestorage.app",
+  authDomain: "neuravia-e6913.firebaseapp.com",
+  projectId: "neuravia-e6913",
+  storageBucket: "neuravia-e6913.firebasestorage.app",
   messagingSenderId: "287368257036",
   appId: "1:287368257036:web:ab5912b7f3ae6f6716d829",
   measurementId: "G-HQ2YB5R0XY"

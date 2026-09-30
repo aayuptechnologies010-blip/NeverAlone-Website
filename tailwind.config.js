@@ -8,46 +8,52 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#f0f3fa',
-          100: '#e1e7f6',
-          200: '#c3d1ed',
-          300: '#a5bbe4',
-          400: '#6a8ed2',
-          500: '#2f61c0',
-          600: '#2a57ad',
-          700: '#1c3a73',
-          800: '#152c56',
-          900: '#040d2e', // Logo dominant blue
-          950: '#020617', // Deep midnight navy / near black
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0284c7',
+          600: '#0369a1',
+          700: '#075985',
+          800: '#0c4a6e',
+          900: '#083058', // Logo primary dark navy
+          950: '#03192f', // Logo deep night background
+          navy: '#083058',
+          teal: '#00839a',
+          cyan: '#0ea5e9',
+          green: '#2ea44f',
+          leaf: '#4ade80',
         },
         romantic: {
-          pink: '#f9a8d4', // pink-300
-          light: '#fdf2f8', // pink-50
-          DEFAULT: '#db2777', // pink-600
+          pink: '#38bdf8',
+          light: '#f0fdfa',
+          DEFAULT: '#00839a',
         },
         electric: {
-          cyan: '#22d3ee', // cyan-400
-          DEFAULT: '#06b6d4', // cyan-500
+          cyan: '#38bdf8',
+          DEFAULT: '#0284c7',
         },
         dream: {
-          purple: '#c084fc', // purple-400
-          DEFAULT: '#9333ea', // purple-600
+          purple: '#2dd4bf',
+          DEFAULT: '#059669',
         },
         soft: {
-          lavender: '#e9d5ff', // purple-200
+          lavender: '#bae6fd',
         },
         warm: {
-          white: '#fcfcfc', // warm white
+          white: '#f8fafc',
         },
         accent: {
-          light: '#f0f0f0',
-          DEFAULT: '#e5e7eb',
-          dark: '#9ca3af',
+          light: '#f1f5f9',
+          DEFAULT: '#e2e8f0',
+          dark: '#94a3b8',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
+        serif: ['"Playfair Display"', 'serif'],
       }
     },
   },

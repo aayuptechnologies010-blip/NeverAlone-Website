@@ -45,10 +45,9 @@ export default function DashboardHeader({ onMenuClick }) {
 
       {/* Center logo */}
       <Link to="/dashboard" className="flex items-center space-x-2">
-        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-romantic-DEFAULT to-electric-DEFAULT flex items-center justify-center">
-          <span className="text-white font-semibold text-xs">NA</span>
+        <div className="bg-white rounded-lg p-1 shadow-sm flex items-center justify-center border border-white/30">
+          <img src="/logo.png" alt="Neuravia Logo" className="h-6 w-auto max-w-[120px] object-contain rounded" />
         </div>
-        <span className="text-base font-semibold text-white">Never Alone</span>
       </Link>
 
       {/* Profile dropdown */}

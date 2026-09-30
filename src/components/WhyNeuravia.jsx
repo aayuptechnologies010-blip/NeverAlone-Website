@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Ear, MessageSquare, Lightbulb, HeartHandshake, ShieldCheck, Ruler } from 'lucide-react';
 
-const WhyNeverAlone = () => {
+const WhyNeuravia = () => {
   const benefits = [
     {
       title: "Someone Who Listens",
@@ -46,7 +46,7 @@ const WhyNeverAlone = () => {
             viewport={{ once: true }}
             className="text-2xl md:text-3xl font-bold text-white mb-3"
           >
-            Why Never Alone?
+            Why Neuravia?
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -96,4 +96,4 @@ const WhyNeverAlone = () => {
   );
 };
 
-export default WhyNeverAlone;
+export default WhyNeuravia;

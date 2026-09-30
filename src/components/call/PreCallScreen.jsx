@@ -28,7 +28,7 @@ export default function PreCallScreen({ booking, countdown, onStart }) {
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-romantic-DEFAULT to-electric-DEFAULT flex items-center justify-center">
             <span className="text-white font-semibold text-sm">NA</span>
           </div>
-          <span className="text-lg font-semibold text-white">Never Alone</span>
+          <span className="text-lg font-semibold text-white">Neuravia</span>
         </div>
 
         {/* Badge */}

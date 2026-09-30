@@ -47,7 +47,7 @@ export default function SafetyPrinciples({ principles }) {
             transition={{ delay: 0.2 }}
             className="text-lg text-gray-500 max-w-2xl mx-auto font-medium"
           >
-            These core principles guide how Never Alone operates to keep everyone comfortable, secure, and respected.
+            These core principles guide how Neuravia operates to keep everyone comfortable, secure, and respected.
           </motion.p>
         </div>
 

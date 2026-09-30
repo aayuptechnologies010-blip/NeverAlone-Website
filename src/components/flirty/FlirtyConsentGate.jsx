@@ -24,7 +24,7 @@ export default function FlirtyConsentGate({ onConsent }) {
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-romantic-DEFAULT to-dream-purple flex items-center justify-center shadow-[0_0_15px_rgba(219,39,119,0.4)]">
                 <span className="text-white font-semibold text-sm">NA</span>
               </div>
-              <span className="text-lg font-semibold text-white">Never Alone</span>
+              <span className="text-lg font-semibold text-white">Neuravia</span>
             </div>
             <div className="px-4 py-1.5 rounded-full border border-romantic-DEFAULT/30 bg-romantic-DEFAULT/10 text-romantic-pink text-xs font-semibold tracking-wide uppercase">
               Flirty Mode • 18+

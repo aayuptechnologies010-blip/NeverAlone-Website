@@ -1,11 +1,11 @@
 export const safetyFaqs = [
   {
-    question: 'Is Never Alone 18+?',
+    question: 'Is Neuravia 18+?',
     answer: 'Yes. The platform is intended for adults only.',
   },
   {
     question: 'Are calls video calls?',
-    answer: 'No. Never Alone uses phone calls only.',
+    answer: 'No. Neuravia uses phone calls only.',
   },
   {
     question: 'Can I meet my companion in person?',
@@ -37,7 +37,7 @@ export const safetyFaqs = [
   },
   {
     question: 'What should I do in an emergency?',
-    answer: 'Never Alone is not an emergency service. Contact appropriate local emergency or crisis resources.',
+    answer: 'Neuravia is not an emergency service. Contact appropriate local emergency or crisis resources.',
   }
 ];
 
@@ -48,7 +48,7 @@ export const safetyPrinciples = [
   },
   {
     title: '18+ Platform',
-    desc: 'Never Alone is intended for adults only.'
+    desc: 'Neuravia is intended for adults only.'
   },
   {
     title: 'Phone Calls Only',

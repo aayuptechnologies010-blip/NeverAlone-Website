@@ -27,7 +27,7 @@ export default function TrainingLayout() {
             </span>
           </div>
           <NavLink to="/" className="text-sm text-gray-400 hover:text-white transition-colors">
-            ← Back to Never Alone
+            ← Back to Neuravia
           </NavLink>
         </div>
         

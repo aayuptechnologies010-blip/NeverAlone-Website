@@ -1,12 +1,12 @@
 import './globals.css';
 
 export const metadata = {
-  metadataBase: new URL('https://neveralone.in'),
+  metadataBase: new URL('https://neuravia.in'),
   title: {
-    default: 'Never Alone — Online Therapy, Mental Wellness & Emotional Companions in India',
-    template: '%s | Never Alone'
+    default: 'Neuravia — Online Therapy, Mental Wellness & Emotional Companions in India',
+    template: '%s | Neuravia'
   },
-  description: 'Book 1-on-1 confidential online therapy sessions (₹797) and empathetic companion conversations. Verified clinical psychologists & listeners for anxiety, depression, breakups, OCD, and stress relief.',
+  description: 'Book 1-on-1 confidential online therapy sessions (₹499) and empathetic companion conversations. Verified clinical psychologists & listeners for anxiety, depression, breakups, OCD, and stress relief.',
   keywords: [
     'Online therapy India',
     'Mental health support India',
@@ -15,35 +15,35 @@ export const metadata = {
     'Depression counselling online',
     'Anxiety therapy India',
     'Breakup counselling',
-    'First therapy session 797',
+    'First therapy session 499',
     'Emotional companion Hindi English',
     'Confidential psychological counselling',
     'Psychologist near me',
     'Online counseling India Hindi'
   ],
-  authors: [{ name: 'Never Alone Health & Wellness' }],
-  creator: 'Never Alone',
-  publisher: 'Never Alone',
+  authors: [{ name: 'Neuravia Health & Wellness' }],
+  creator: 'Neuravia',
+  publisher: 'Neuravia',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   alternates: {
-    canonical: 'https://neveralone.in',
+    canonical: 'https://neuravia.in',
   },
   openGraph: {
-    title: 'Never Alone — Confidential Therapy & Emotional Companions',
-    description: 'Book a ₹797 single session with verified clinical therapists. Safe, non-judgmental, same-day audio sessions across India.',
-    url: 'https://neveralone.in',
-    siteName: 'Never Alone',
+    title: 'Neuravia — Confidential Therapy & Emotional Companions',
+    description: 'Book a ₹499 single session with verified clinical therapists. Safe, non-judgmental, same-day audio sessions across India.',
+    url: 'https://neuravia.in',
+    siteName: 'Neuravia',
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Never Alone — Online Therapy & Compassionate Care',
-    description: 'Talk with verified clinical psychologists & companions. Private 1-on-1 audio sessions from ₹797.',
+    title: 'Neuravia — Online Therapy & Compassionate Care',
+    description: 'Talk with verified clinical psychologists & companions. Private 1-on-1 audio sessions from ₹499.',
   },
   robots: {
     index: true,
@@ -73,11 +73,11 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://neveralone.in/#organization',
-      name: 'Never Alone',
-      url: 'https://neveralone.in',
-      logo: 'https://neveralone.in/logo.jpeg',
-      description: 'Never Alone is India’s premier online psychological therapy and emotional companionship platform offering 1-on-1 confidential audio sessions.',
+      '@id': 'https://neuravia.in/#organization',
+      name: 'Neuravia',
+      url: 'https://neuravia.in',
+      logo: 'https://neuravia.in/logo.jpeg',
+      description: 'Neuravia is India’s premier online psychological therapy and emotional companionship platform offering 1-on-1 confidential audio sessions.',
       contactPoint: {
         '@type': 'ContactPoint',
         telephone: '+91-1800-599-0019',
@@ -86,18 +86,18 @@ const jsonLd = {
         availableLanguage: ['English', 'Hindi', 'Marathi', 'Tamil', 'Telugu', 'Bengali']
       },
       sameAs: [
-        'https://instagram.com/neveralone.in',
-        'https://facebook.com/neveralone.in'
+        'https://instagram.com/neuravia.in',
+        'https://facebook.com/neuravia.in'
       ]
     },
     {
       '@type': 'MedicalBusiness',
-      '@id': 'https://neveralone.in/#localbusiness',
-      name: 'Never Alone Mental Wellness & Therapy India',
-      image: 'https://neveralone.in/logo.jpeg',
-      url: 'https://neveralone.in',
+      '@id': 'https://neuravia.in/#localbusiness',
+      name: 'Neuravia Mental Wellness & Therapy India',
+      image: 'https://neuravia.in/logo.jpeg',
+      url: 'https://neuravia.in',
       telephone: '+91-1800-599-0019',
-      priceRange: '₹797 - ₹2999',
+      priceRange: '₹499 - ₹2999',
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'IN',
@@ -129,7 +129,7 @@ const jsonLd = {
           {
             '@type': 'Offer',
             name: 'First Therapy Session (60 Min)',
-            price: '797',
+            price: '499',
             priceCurrency: 'INR'
           },
           {
@@ -143,14 +143,14 @@ const jsonLd = {
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://neveralone.in/#faq',
+      '@id': 'https://neuravia.in/#faq',
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What happens in the first therapy session at Never Alone?',
+          name: 'What happens in the first therapy session at Neuravia?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Your first session is a 60-minute confidential 1-on-1 private audio consultation with a qualified psychologist or counsellor at ₹797. You explore your emotional challenges, get practical CBT tools, and plan gentle steps without long commitments.'
+            text: 'Your first session is a 60-minute confidential 1-on-1 private audio consultation with a qualified psychologist or counsellor at ₹499. You explore your emotional challenges, get practical CBT tools, and plan gentle steps without long commitments.'
           }
         },
         {
@@ -158,12 +158,12 @@ const jsonLd = {
           name: 'How much does online therapy cost in India?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'At Never Alone, a complete 60-minute single therapy consultation is priced at flat ₹797 with no hidden fees or mandatory long-term packages.'
+            text: 'At Neuravia, a complete 60-minute single therapy consultation is priced at flat ₹499 with no hidden fees or mandatory long-term packages.'
           }
         },
         {
           '@type': 'Question',
-          name: 'Is Never Alone therapy completely private and anonymous?',
+          name: 'Is Neuravia therapy completely private and anonymous?',
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'Yes, all sessions take place over encrypted private audio connections. No video is required and your personal identity remains 100% confidential.'
@@ -171,10 +171,10 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'Which languages are supported by Never Alone therapists?',
+          name: 'Which languages are supported by Neuravia therapists?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Therapists and companions on Never Alone are fluent in Hindi, English, Marathi, Tamil, Telugu, and Bengali.'
+            text: 'Therapists and companions on Neuravia are fluent in Hindi, English, Marathi, Tamil, Telugu, and Bengali.'
           }
         }
       ]
@@ -186,25 +186,25 @@ const jsonLd = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://neveralone.in'
+          item: 'https://neuravia.in'
         },
         {
           '@type': 'ListItem',
           position: 2,
-          name: 'First Session (₹797)',
-          item: 'https://neveralone.in/first-session'
+          name: 'First Session (₹499)',
+          item: 'https://neuravia.in/first-session'
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Companions',
-          item: 'https://neveralone.in/companions'
+          item: 'https://neuravia.in/companions'
         },
         {
           '@type': 'ListItem',
           position: 4,
           name: 'Professional Support',
-          item: 'https://neveralone.in/professional-support'
+          item: 'https://neuravia.in/professional-support'
         }
       ]
     }
@@ -224,7 +224,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Never Alone" />
+        <meta name="apple-mobile-web-app-title" content="Neuravia" />
         {/* Geo Meta Tags for India Targetting */}
         <meta name="geo.region" content="IN" />
         <meta name="geo.placename" content="India" />

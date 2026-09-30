@@ -4,10 +4,11 @@ import { Check } from 'lucide-react';
 import { professionalsDemo } from '../../data/professionalDemo';
 
 const companionPlans = [
-  { id: 'First Session', price: '\u20B9797', label: 'Single 60 Min', description: 'One-time confidential 1-on-1 session' },
-  { id: 'Weekly', price: '\u20B9799', label: '', description: '1 hour every day for 7 days' },
-  { id: 'Monthly', price: '\u20B92,999', label: 'Most Popular', description: '1 hour every day for 30 days' },
-  { id: 'Yearly', price: '\u20B919,999', label: 'Best Value', description: '1 hour every day for 365 days' },
+  { id: '1 Session', price: '₹499', label: 'Single Trial', description: 'One-time confidential 60-min audio session' },
+  { id: '6 Sessions', price: '₹2,500', label: 'Save 16%', description: '6 × 60-min sessions • Flexible scheduling' },
+  { id: '12 Sessions', price: '₹4,500', label: 'Most Popular', description: '12 × 60-min sessions • Priority matching' },
+  { id: '20 Sessions', price: '₹8,000', label: 'Deep Support', description: '20 × 60-min sessions • VIP listener access' },
+  { id: '25 Sessions', price: '₹10,000', label: 'Best Value', description: '25 × 60-min sessions • No expiry, full pass' },
 ];
 
 export default function BookStepPlan({ selectedPlan, onSelect, isProfessional, selectedProfile }) {

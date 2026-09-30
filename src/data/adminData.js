@@ -69,7 +69,7 @@ export const DEMO_CATEGORIES = [
 ];
 
 export const DEMO_PRICING = [
-  { id: 'p0', name: 'First Session Special', price: '₹797', duration: '1 Session', daily: '60 Minutes', enabled: true },
+  { id: 'p0', name: 'First Session Special', price: '₹499', duration: '1 Session', daily: '60 Minutes', enabled: true },
   { id: 'p1', name: 'Weekly', price: '₹799', duration: '7 Days', daily: '60 Minutes', enabled: true },
   { id: 'p2', name: 'Monthly', price: '₹2,999', duration: '30 Days', daily: '60 Minutes', enabled: true },
   { id: 'p3', name: 'Yearly', price: '₹19,999', duration: '365 Days', daily: '60 Minutes', enabled: true },

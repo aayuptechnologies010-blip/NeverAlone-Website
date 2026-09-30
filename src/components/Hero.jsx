@@ -41,7 +41,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-6 text-xl text-brand-700 leading-relaxed max-w-2xl mx-auto mb-6"
           >
-            Talk. Connect. Be Yourself. Never Alone is a private online conversation platform designed to make it easier to find someone to talk to.
+            Talk. Connect. Be Yourself. Neuravia is a private online conversation platform designed to make it easier to find someone to talk to.
           </motion.p>
 
           <motion.div 

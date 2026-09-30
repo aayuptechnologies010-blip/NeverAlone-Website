@@ -19,8 +19,8 @@ const commonQuestions = [
     answer: "No. Regular companions provide conversation, listening and friendly general perspectives. Professional Support is a separate service."
   },
   {
-    question: "Does Never Alone offer video calls?",
-    answer: "No. Never Alone uses phone calls only."
+    question: "Does Neuravia offer video calls?",
+    answer: "No. Neuravia uses phone calls only."
   },
   {
     question: "Where can I find my upcoming conversations?",

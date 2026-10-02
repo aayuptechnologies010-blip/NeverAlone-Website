@@ -6,34 +6,35 @@ import { Link } from 'react-router-dom';
 const Pricing = () => {
   const plans = [
     {
-      name: "Starter Pack",
+      name: "First Trial Session",
+      sessions: "1 Session",
+      price: "₹797",
+      perSession: "Introductory Special",
+      duration: "Single Session",
+      features: [
+        "1 × 50-60 min private audio session",
+        "RCI certified psychologist or verified companion",
+        "Personalized action plan & CBT coping summary",
+        "Free access to Alpha/Theta sound healing library",
+        "100% confidential & zero video pressure"
+      ],
+      isPopular: false,
+      isBestValue: false,
+      badge: "40% First-Time Off",
+      gradient: "from-brand-teal to-brand-500"
+    },
+    {
+      name: "Growth Care Pack",
       sessions: "6 Sessions",
       price: "₹2,500",
       perSession: "₹416 / session",
       duration: "Flexible Scheduling",
       features: [
         "6 × 60-min audio sessions",
-        "Private 1-on-1 conversations",
-        "Dedicated companion matching",
-        "All topic categories included"
-      ],
-      isPopular: false,
-      isBestValue: false,
-      badge: "Save 16%",
-      gradient: "from-brand-teal to-brand-500"
-    },
-    {
-      name: "Growth Pack",
-      sessions: "12 Sessions",
-      price: "₹4,500",
-      perSession: "₹375 / session",
-      duration: "Most Balanced",
-      features: [
-        "12 × 60-min audio sessions",
-        "Priority companion matching",
-        "Same-day slot availability",
+        "Priority specialist slot matching",
+        "Same therapist consistency",
         "Dedicated emotional check-ins",
-        "Priority care support"
+        "All topic categories & sound therapy included"
       ],
       isPopular: true,
       isBestValue: false,
@@ -41,39 +42,39 @@ const Pricing = () => {
       gradient: "from-brand-navy via-brand-teal to-brand-green"
     },
     {
-      name: "Transformation",
-      sessions: "20 Sessions",
-      price: "₹8,000",
-      perSession: "₹400 / session",
-      duration: "Deep Healing",
+      name: "Deep Healing Pack",
+      sessions: "12 Sessions",
+      price: "₹4,500",
+      perSession: "₹375 / session",
+      duration: "Most Comprehensive",
       features: [
-        "20 × 60-min audio sessions",
-        "VIP listener priority",
-        "Flexible rollover anytime",
-        "Crisis safety shortcuts",
+        "12 × 60-min audio sessions",
+        "VIP listener & therapist priority",
+        "Structured CBT / ERP progress milestone tracking",
+        "Flexible rollover anytime (No expiration)",
         "24/7 dedicated support"
-      ],
-      isPopular: false,
-      isBestValue: false,
-      badge: "Deep Support",
-      gradient: "from-brand-teal to-brand-green"
-    },
-    {
-      name: "Complete Wellness",
-      sessions: "25 Sessions",
-      price: "₹10,000",
-      perSession: "₹400 / session",
-      duration: "Full Journey",
-      features: [
-        "25 × 60-min audio sessions",
-        "All-access companion pass",
-        "No expiration on sessions",
-        "Exclusive priority matching",
-        "Complimentary family extension"
       ],
       isPopular: false,
       isBestValue: true,
       badge: "Best Value",
+      gradient: "from-brand-teal to-brand-green"
+    },
+    {
+      name: "Complete Transformation",
+      sessions: "20 Sessions",
+      price: "₹7,500",
+      perSession: "₹375 / session",
+      duration: "Long-term Wellness",
+      features: [
+        "20 × 60-min audio sessions",
+        "All-access companion & clinical pass",
+        "Unlimited sound frequency suite",
+        "Exclusive priority matching",
+        "Complimentary family / partner session addon"
+      ],
+      isPopular: false,
+      isBestValue: false,
+      badge: "Full Care",
       gradient: "from-brand-green to-brand-teal"
     }
   ];

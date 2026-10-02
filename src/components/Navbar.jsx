@@ -25,7 +25,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'First Session', path: '/first-session' },
-    { name: 'Explore', path: '/categories' },
+    { name: 'Therapy & Care', path: '/categories' },
     { name: 'Companions', path: '/#companions' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'Safety', path: '/safety' },
@@ -98,15 +98,9 @@ const Navbar = () => {
 
           {/* Desktop Right */}
           <div className="hidden md:flex items-center space-x-3">
-            <Link 
-              to="/signin" 
-              className="px-4 py-2 rounded-full text-sm font-semibold text-brand-navy hover:text-brand-teal hover:bg-slate-50 border border-slate-200 transition-all duration-300 whitespace-nowrap"
-            >
-              Sign In
-            </Link>
             <Link
               to="/first-session"
-              className="px-5 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r from-brand-navy via-brand-teal to-brand-green hover:opacity-95 shadow-md shadow-brand-teal/20 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
+              className="px-6 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-brand-navy via-brand-teal to-brand-green hover:opacity-95 shadow-md shadow-brand-teal/20 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
             >
               Get Support
             </Link>
@@ -156,13 +150,6 @@ const Navbar = () => {
               })}
             </div>
             <div className="mt-8 flex flex-col space-y-4">
-              <Link
-                to="/signin"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3.5 text-center text-base font-semibold text-brand-navy bg-slate-100 hover:bg-slate-200 rounded-xl transition-all"
-              >
-                Sign In
-              </Link>
               <Link
                 to="/first-session"
                 onClick={() => setMobileMenuOpen(false)}

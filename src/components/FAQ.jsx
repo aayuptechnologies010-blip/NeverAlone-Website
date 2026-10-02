@@ -7,44 +7,28 @@ const FAQ = () => {
 
   const faqs = [
     {
-      q: "What is Neuravia?",
-      a: "Neuravia is a premium conversation platform where you can talk to someone who listens. It's for those moments when you just need to vent, seek advice, or hear a friendly voice."
+      q: "What makes Neuravia different from traditional therapy platforms?",
+      a: "Neuravia is the complete emotional wellness ecosystem combining RCI-certified psychological therapy (CBT, ERP) with evidence-backed neuroscience sound therapy & empathetic human companions. Sessions are 100% audio-first for total privacy and zero video fatigue."
     },
     {
-      q: "Are calls video calls?",
-      a: "No. All conversations on Neuravia are strictly audio phone calls to ensure your privacy and comfort."
+      q: "What if I cry or get overwhelmed during my session?",
+      a: "Crying is a completely natural, healthy somatic release. Our psychologists and verified listeners are trained to hold a gentle, safe, non-judgmental container for you to express your emotions freely without pressure."
     },
     {
-      q: "Can I choose my companion?",
-      a: "Yes! You can browse through profiles, read about their style and interests, and choose the companion you feel most comfortable with."
+      q: "Can I choose my psychologist or change my therapist?",
+      a: "Yes! Finding the right therapeutic comfort is essential. You can browse verified specialists by language, qualification, and area of expertise (Anxiety, Depression, OCD, Couples, Overthinking) or switch anytime."
     },
     {
-      q: "Can I talk about relationships?",
-      a: "Absolutely. Relationship advice and discussion is one of our most popular categories. Just select a companion who specializes in it."
+      q: "How many sessions will I need to see results?",
+      a: "Mental health journeys are unique. Many clients feel profound relief and mental lightness after their very first session. Your therapist collaborates with you to build a practical 3-6 session milestone plan without lock-in."
     },
     {
-      q: "What is Flirty Mode?",
-      a: "Flirty Mode is a playful, lighthearted conversation category for adults. It involves fun banter and compliments, but is strictly non-explicit."
+      q: "Are conversations recorded or shared?",
+      a: "Never. All calls are strictly confidential, end-to-end encrypted, and adhere to strict clinical privacy standards. Your phone number is masked, and zero audio recordings are stored."
     },
     {
-      q: "Is Flirty Mode sexual?",
-      a: "No. Neuravia is not an adult services platform. All conversations must remain respectful and non-explicit. Explicit behavior will result in a ban."
-    },
-    {
-      q: "Can I meet my companion?",
-      a: "No. For the safety and privacy of both users and companions, physical meetups are strictly prohibited."
-    },
-    {
-      q: "How long is each call?",
-      a: "Standard sessions typically last for 60 minutes, depending on the plan you choose."
-    },
-    {
-      q: "What if I want to talk longer?",
-      a: "You can purchase additional time at ₹199 for an extra 60 minutes if your companion is available to continue."
-    },
-    {
-      q: "Is professional support available?",
-      a: "Yes, we have a dedicated category for Professional Support where you can connect with verified professionals. This is separate from our standard companion service."
+      q: "How does the neuroscience sound therapy work with therapy?",
+      a: "We integrate clinically researched acoustic wave frequencies (such as 10 Hz Alpha waves and 432 Hz Solfeggio tones) that stimulate neuroplasticity and calm amygdala hyperactivity, amplifying the cognitive clarity gained during talk therapy."
     }
   ];
 

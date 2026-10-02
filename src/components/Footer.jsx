@@ -126,13 +126,29 @@ const Footer = () => {
         {/* Dense SEO & GEO Keyword Footer Cloud */}
         <SeoKeywordCloud />
 
+        {/* Emergency Helpline & Crisis SOS Bar */}
+        <div className="my-6 p-4 rounded-2xl bg-brand-900/60 border border-brand-800/80 flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+          <div className="flex items-center space-x-2.5 text-slate-300 text-center md:text-left">
+            <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
+            <p>
+              <strong className="text-white">Emergency Support:</strong> If you are experiencing suicidal thoughts or severe distress, call the national 24/7 helpline <span className="text-brand-leaf font-bold">KIRAN (1800-599-0019)</span> or <span className="text-brand-leaf font-bold">Tele-MANAS (14416)</span>.
+            </p>
+          </div>
+          <Link
+            to="/safety"
+            className="text-xs font-bold text-brand-300 hover:text-white underline whitespace-nowrap"
+          >
+            Crisis Safety Guidelines
+          </Link>
+        </div>
+
         {/* Bottom Safety Statement & Copyright */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between w-full gap-4">
-          <p className="text-[10px] md:text-xs font-semibold tracking-[0.1em] md:tracking-[0.2em] text-gray-500 text-center md:text-left">
-            18+ <span className="mx-2">•</span> PHONE CALLS ONLY <span className="mx-2">•</span> RESPECTFUL <span className="mx-2">•</span> NON-EXPLICIT
+          <p className="text-[10px] md:text-xs font-semibold tracking-[0.1em] md:tracking-[0.2em] text-gray-400 text-center md:text-left">
+            18+ <span className="mx-2">•</span> 100% PRIVATE & ENCRYPTED <span className="mx-2">•</span> RCI LICENSED PSYCHOLOGISTS & EMPATHETIC LISTENERS
           </p>
           <p className="text-[10px] md:text-xs text-gray-500 text-center md:text-right">
-            &copy; {new Date().getFullYear()} Neuravia. All rights reserved.
+            &copy; {new Date().getFullYear()} Neuravia Mental Wellness. All rights reserved.
           </p>
         </div>
 

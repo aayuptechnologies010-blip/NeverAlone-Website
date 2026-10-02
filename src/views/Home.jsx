@@ -7,12 +7,16 @@ import EmotionalIntro from '../components/EmotionalIntro';
 import Categories from '../components/Categories';
 import InteractiveQuestion from '../components/InteractiveQuestion';
 import Companions from '../components/Companions';
+import SoundTherapySpotlight from '../components/SoundTherapySpotlight';
+import ClinicalSpecialtiesGrid from '../components/ClinicalSpecialtiesGrid';
+import AssessmentQuizModal from '../components/AssessmentQuizModal';
 import HowItWorks from '../components/HowItWorks';
 import MidPageCTA from '../components/MidPageCTA';
 import FirstSessionOffer from '../components/FirstSessionOffer';
 import Testimonials from '../components/Testimonials';
 import WhyNeuravia from '../components/WhyNeuravia';
 import Pricing from '../components/Pricing';
+import FAQ from '../components/FAQ';
 import SafetyPreview from '../components/SafetyPreview';
 import FinalCTA from '../components/FinalCTA';
 
@@ -29,6 +33,9 @@ const Home = () => {
       <HeroSection />
       <TrustStrip />
       <FirstSessionOffer />
+      <ClinicalSpecialtiesGrid />
+      <SoundTherapySpotlight />
+      <AssessmentQuizModal />
       <EmotionalIntro />
       <Categories />
       <InteractiveQuestion />
@@ -38,6 +45,7 @@ const Home = () => {
       <WhyNeuravia />
       <Testimonials />
       <Pricing />
+      <FAQ />
       <GeoCoverageSection />
       <SafetyPreview />
       <FinalCTA />

@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Users, UserCircle, BriefcaseMedical, CreditCard, MessageSquare, AlertTriangle, CheckCircle2, ChevronRight, XCircle, FileText, Search, Filter } from 'lucide-react';
 import { STATS, RECENT_ACTIVITY, DEMO_CUSTOMERS, DEMO_COMPANIONS, DEMO_CONVERSATIONS } from '../../data/adminData';
+import { getAllUsersForAdmin, getUserProfile } from '../../services/userService';
 
 // --- SHARED COMPONENTS ---
 export const PageHeader = ({ title, desc }) => (
   <div className="mb-8">
-    <h1 className="text-2xl font-bold text-white mb-1">{title}</h1>
+    <h1 className="text-2xl font-bold text-white mb-1 font-display">{title}</h1>
     {desc && <p className="text-sm text-gray-400">{desc}</p>}
   </div>
 );
@@ -137,27 +138,71 @@ function StatCard({ title, value, icon: Icon, alert }) {
 
 // --- CUSTOMERS ---
 export function AdminCustomers() {
+  const [customers, setCustomers] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [statusFilter, setStatusFilter] = React.useState('All');
+
+  React.useEffect(() => {
+    async function loadCustomers() {
+      try {
+        const liveUsers = await getAllUsersForAdmin();
+        if (liveUsers && liveUsers.length > 0) {
+          // Merge live users with any unique demo customers for preview
+          const liveIds = new Set(liveUsers.map(u => u.id));
+          const filteredDemos = DEMO_CUSTOMERS.filter(d => !liveIds.has(d.id));
+          setCustomers([...liveUsers, ...filteredDemos]);
+        } else {
+          setCustomers(DEMO_CUSTOMERS);
+        }
+      } catch (err) {
+        console.error(err);
+        setCustomers(DEMO_CUSTOMERS);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadCustomers();
+  }, []);
+
+  const filtered = customers.filter(c => {
+    const matchesSearch = (c.name?.toLowerCase() || '').includes(searchQuery.toLowerCase()) ||
+                          (c.contact?.toLowerCase() || '').includes(searchQuery.toLowerCase()) ||
+                          (c.email?.toLowerCase() || '').includes(searchQuery.toLowerCase());
+    const matchesStatus = statusFilter === 'All' || c.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Customers" />
-      <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-brand-900 p-4 rounded-2xl border border-white/5">
+      <PageHeader title="Customers" desc="Real-time synchronized customers from Firestore database." />
+      <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-brand-900 p-4 rounded-2xl border border-white/5 shadow-lg">
         <div className="relative w-full sm:w-64">
           <Search className="w-4 h-4 absolute left-3 top-3 text-gray-500" />
-          <input type="text" placeholder="Search customers..." className="w-full bg-brand-950 border border-white/10 rounded-lg pl-9 pr-4 py-2 text-sm text-white focus:outline-none focus:border-electric-cyan" />
+          <input 
+            type="text" 
+            placeholder="Search by name or email..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full bg-brand-950 border border-white/10 rounded-xl pl-9 pr-4 py-2 text-sm text-white focus:outline-none focus:border-electric-cyan" 
+          />
         </div>
         <div className="flex gap-2 w-full sm:w-auto">
-          <select className="bg-brand-950 border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-electric-cyan w-full sm:w-auto">
-            <option>All Statuses</option><option>Active</option><option>Suspended</option>
-          </select>
-          <select className="bg-brand-950 border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-electric-cyan w-full sm:w-auto">
-            <option>All Plans</option><option>Weekly</option><option>Monthly</option><option>Yearly</option>
+          <select 
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="bg-brand-950 border border-white/10 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-electric-cyan w-full sm:w-auto"
+          >
+            <option value="All">All Statuses</option>
+            <option value="Active">Active</option>
+            <option value="Suspended">Suspended</option>
           </select>
         </div>
       </div>
 
-      <div className="bg-brand-900 border border-white/5 rounded-2xl overflow-x-auto">
+      <div className="bg-brand-900 border border-white/5 rounded-2xl overflow-x-auto shadow-xl">
         <table className="w-full text-left whitespace-nowrap">
-          <thead className="bg-white/5 text-xs text-gray-500 uppercase tracking-wider">
+          <thead className="bg-white/5 text-xs text-gray-400 uppercase tracking-wider font-semibold">
             <tr>
               <th className="px-6 py-4 font-medium">Customer</th>
               <th className="px-6 py-4 font-medium">Contact</th>
@@ -169,12 +214,21 @@ export function AdminCustomers() {
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5 text-sm text-gray-300">
-            {DEMO_CUSTOMERS.map(c => (
-              <tr key={c.id} className="hover:bg-white/[0.02]">
-                <td className="px-6 py-4 font-bold text-white">{c.name}</td>
-                <td className="px-6 py-4">{c.contact}</td>
-                <td className="px-6 py-4">{c.plan}</td>
-                <td className="px-6 py-4">{c.joined}</td>
+            {filtered.map(c => (
+              <tr key={c.id} className="hover:bg-white/[0.02] transition-colors">
+                <td className="px-6 py-4 font-bold text-white flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-cyan-500 to-emerald-400 flex items-center justify-center text-brand-950 text-xs font-bold">
+                    {(c.name || 'U')[0]?.toUpperCase()}
+                  </div>
+                  <span>{c.name}</span>
+                </td>
+                <td className="px-6 py-4 text-xs text-gray-300">{c.contact || c.email}</td>
+                <td className="px-6 py-4">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-cyan-300">
+                    {c.plan}
+                  </span>
+                </td>
+                <td className="px-6 py-4 text-xs text-gray-400">{c.joined}</td>
                 <td className="px-6 py-4">{c.conversations}</td>
                 <td className="px-6 py-4"><StatusBadge status={c.status} /></td>
                 <td className="px-6 py-4">
@@ -182,6 +236,13 @@ export function AdminCustomers() {
                 </td>
               </tr>
             ))}
+            {filtered.length === 0 && !loading && (
+              <tr>
+                <td colSpan="7" className="text-center py-8 text-gray-500 text-sm">
+                  No customers found matching your search.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
@@ -191,7 +252,40 @@ export function AdminCustomers() {
 
 export function AdminCustomerDetails() {
   const { id } = useParams();
-  const c = DEMO_CUSTOMERS.find(x => x.id === id) || DEMO_CUSTOMERS[0];
+  const [customer, setCustomer] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    async function loadDetail() {
+      try {
+        const live = await getUserProfile(id);
+        if (live) {
+          setCustomer({
+            id,
+            name: live.name || 'Member',
+            contact: live.email || live.phone || 'N/A',
+            phone: live.phone || 'N/A',
+            email: live.email || 'N/A',
+            plan: live.plan || 'Standard',
+            joined: live.memberSince || 'Recently',
+            conversations: live.conversationsCount || 0,
+            status: live.status || 'Active'
+          });
+        } else {
+          const fallback = DEMO_CUSTOMERS.find(x => x.id === id) || DEMO_CUSTOMERS[0];
+          setCustomer(fallback);
+        }
+      } catch (e) {
+        const fallback = DEMO_CUSTOMERS.find(x => x.id === id) || DEMO_CUSTOMERS[0];
+        setCustomer(fallback);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadDetail();
+  }, [id]);
+
+  const c = customer || DEMO_CUSTOMERS[0];
   
   return (
     <div className="space-y-6">
@@ -200,36 +294,47 @@ export function AdminCustomerDetails() {
       </Link>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">{c.name}</h1>
+          <h1 className="text-3xl font-bold text-white mb-2 font-display">{c.name}</h1>
           <p className="text-sm text-gray-400">Customer ID: {c.id} • Joined {c.joined}</p>
         </div>
         <StatusBadge status={c.status} />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-brand-900 border border-white/5 rounded-2xl p-6 space-y-4">
+        <div className="bg-brand-900 border border-white/5 rounded-2xl p-6 space-y-4 shadow-lg">
           <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest">Profile & Contact</h3>
-          <div><p className="text-xs text-gray-500">Email</p><p className="text-sm font-medium text-white">{c.contact}</p></div>
+          <div><p className="text-xs text-gray-500">Email / Contact</p><p className="text-sm font-medium text-white">{c.contact}</p></div>
+          <div><p className="text-xs text-gray-500">Phone</p><p className="text-sm font-medium text-white">{c.phone || 'N/A'}</p></div>
           <div><p className="text-xs text-gray-500">Total Conversations</p><p className="text-sm font-medium text-white">{c.conversations}</p></div>
         </div>
 
-        <div className="bg-brand-900 border border-white/5 rounded-2xl p-6 space-y-4">
+        <div className="bg-brand-900 border border-white/5 rounded-2xl p-6 space-y-4 shadow-lg">
           <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest">Subscription</h3>
           <div><p className="text-xs text-gray-500">Current Plan</p><p className="text-sm font-medium text-white">{c.plan}</p></div>
-          <button className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold text-white transition-colors">View Subscription Details</button>
+          <button className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold text-white transition-colors cursor-pointer">
+            View Subscription Details
+          </button>
         </div>
       </div>
 
-      <div className="bg-brand-900 border border-white/5 rounded-2xl p-6">
+      <div className="bg-brand-900 border border-white/5 rounded-2xl p-6 shadow-lg">
         <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Account Actions</h3>
         <div className="flex flex-wrap gap-4">
-          <button className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-sm font-bold text-white transition-colors">Reset Password</button>
+          <button className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-sm font-bold text-white transition-colors cursor-pointer">
+            Reset Password
+          </button>
           {c.status === 'Suspended' ? (
-             <button className="px-4 py-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 rounded-xl text-sm font-bold text-green-400 transition-colors">Restore Account</button>
+             <button className="px-4 py-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 rounded-xl text-sm font-bold text-green-400 transition-colors cursor-pointer">
+               Restore Account
+             </button>
           ) : (
             <>
-              <button className="px-4 py-2 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 rounded-xl text-sm font-bold text-yellow-500 transition-colors">Restrict Account</button>
-              <button className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 rounded-xl text-sm font-bold text-red-400 transition-colors">Suspend Account</button>
+              <button className="px-4 py-2 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 rounded-xl text-sm font-bold text-yellow-500 transition-colors cursor-pointer">
+                Restrict Account
+              </button>
+              <button className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 rounded-xl text-sm font-bold text-red-400 transition-colors cursor-pointer">
+                Suspend Account
+              </button>
             </>
           )}
         </div>

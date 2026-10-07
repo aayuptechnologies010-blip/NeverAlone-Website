@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Heart, Mail, Lock, Loader2, AlertCircle } from 'lucide-react';
-import { auth, googleProvider, signInWithPopup } from '../firebase';
+import { auth, googleProvider, signInWithPopup, signInWithEmailAndPassword } from '../firebase';
+import { syncUserProfile } from '../services/userService';
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [loadingGoogle, setLoadingGoogle] = useState(false);
+  const [loadingEmail, setLoadingEmail] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
 
   const handleGoogleSignIn = async () => {
     setErrorMsg('');
@@ -15,18 +22,44 @@ const SignIn = () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-      console.log("Logged in user:", user);
+      
+      // Sync user profile in Firestore
+      await syncUserProfile(user);
+      
       navigate('/dashboard');
     } catch (err) {
-      // User closed the popup window manually
       if (err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request') {
-        console.log("User cancelled Google Sign-in popup.");
         return;
       }
       console.error("Google Auth Error:", err);
       setErrorMsg(err.message || "Google Sign-In failed. Please try again.");
     } finally {
       setLoadingGoogle(false);
+    }
+  };
+
+  const handleEmailSignIn = async (e) => {
+    e.preventDefault();
+    setErrorMsg('');
+    setLoadingEmail(true);
+
+    try {
+      const result = await signInWithEmailAndPassword(auth, formData.email, formData.password);
+      const user = result.user;
+
+      // Sync user profile in Firestore on login
+      await syncUserProfile(user);
+
+      navigate('/dashboard');
+    } catch (err) {
+      console.error("Email SignIn Error:", err);
+      if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
+        setErrorMsg("Invalid email or password. Please try again.");
+      } else {
+        setErrorMsg(err.message || "Sign in failed. Please check your credentials.");
+      }
+    } finally {
+      setLoadingEmail(false);
     }
   };
 
@@ -49,7 +82,7 @@ const SignIn = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="mt-2 text-center text-3xl font-semibold text-white"
+          className="mt-2 text-center text-3xl font-semibold text-white font-display"
         >
           Welcome back
         </motion.h2>
@@ -85,7 +118,7 @@ const SignIn = () => {
           <button
             type="button"
             onClick={handleGoogleSignIn}
-            disabled={loadingGoogle}
+            disabled={loadingGoogle || loadingEmail}
             className="w-full flex items-center justify-center gap-3 py-3.5 px-4 border border-white/15 rounded-xl bg-white hover:bg-gray-100 text-brand-950 font-semibold text-sm transition-all shadow-md transform hover:scale-[1.01] disabled:opacity-75"
           >
             {loadingGoogle ? (
@@ -110,7 +143,7 @@ const SignIn = () => {
             </div>
           </div>
 
-          <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); navigate('/dashboard'); }}>
+          <form className="space-y-5" onSubmit={handleEmailSignIn}>
             <div>
               <label htmlFor="email" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
                 Email address
@@ -125,6 +158,8 @@ const SignIn = () => {
                   type="email"
                   autoComplete="email"
                   required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="block w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:ring-electric-cyan focus:border-electric-cyan text-sm transition-colors bg-brand-950 text-white placeholder-gray-500 focus:outline-none"
                   placeholder="you@example.com"
                 />
@@ -145,6 +180,8 @@ const SignIn = () => {
                   type="password"
                   autoComplete="current-password"
                   required
+                  value={formData.password}
+                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className="block w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:ring-electric-cyan focus:border-electric-cyan text-sm transition-colors bg-brand-950 text-white placeholder-gray-500 focus:outline-none"
                   placeholder="••••••••"
                 />
@@ -159,24 +196,24 @@ const SignIn = () => {
                   type="checkbox"
                   className="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-600 rounded bg-brand-950"
                 />
-                <label htmlFor="remember-me" className="ml-2 text-gray-300">
+                <label htmlFor="remember-me" className="ml-2 block text-gray-400">
                   Remember me
                 </label>
               </div>
 
-              <div>
-                <a href="#" className="font-medium text-electric-cyan hover:underline">
-                  Forgot password?
-                </a>
-              </div>
+              <Link to="/forgot-password" className="font-medium text-electric-cyan hover:underline">
+                Forgot password?
+              </Link>
             </div>
 
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-lg text-sm font-bold text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:opacity-95 focus:outline-none transition-all transform hover:scale-[1.01]"
+                disabled={loadingEmail || loadingGoogle}
+                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-lg text-sm font-bold text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:opacity-95 focus:outline-none transition-all transform hover:scale-[1.01] disabled:opacity-75 items-center gap-2"
               >
-                Sign in
+                {loadingEmail ? <Loader2 className="w-5 h-5 animate-spin" /> : null}
+                <span>{loadingEmail ? 'Signing in...' : 'Sign In'}</span>
               </button>
             </div>
           </form>

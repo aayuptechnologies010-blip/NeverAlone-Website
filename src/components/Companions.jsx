@@ -1,129 +1,141 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, CheckCircle2, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Star, ArrowRight, ShieldCheck } from 'lucide-react';
 
 const Companions = () => {
-  const companions = [
+  const therapists = [
     {
-      name: "Aisha",
-      style: "Warm & Easygoing",
+      name: "Dr. Ananya Sharma",
+      role: "Clinical Psychologist",
+      experience: "8+ Years",
+      specialties: "Anxiety • Stress • Relationships",
       languages: "Hindi • English",
-      interests: ["Music", "Movies", "Travel"],
       rating: "4.9",
-      available: true,
-      image: "/avatar_aisha.jpg"
+      price: "₹499",
+      image: "/images/therapist-ananya.jpg",
+      id: "ananya"
     },
     {
-      name: "Riya",
-      style: "Great Listener",
+      name: "Dr. Rahul Verma",
+      role: "Counselling Psychologist",
+      experience: "6+ Years",
+      specialties: "Depression • Self-Esteem • Life Changes",
       languages: "Hindi • English",
-      interests: ["Books", "Career", "Food"],
-      rating: "5.0",
-      available: true,
-      image: "/avatar_riya.jpg"
-    },
-    {
-      name: "Ananya",
-      style: "Fun & Energetic",
-      languages: "Hindi • English",
-      interests: ["Music", "Fashion", "Vlogs"],
       rating: "4.8",
-      available: false,
-      image: "/avatar_ananya.jpg"
+      price: "₹499",
+      image: "/images/therapist-rahul.jpg",
+      id: "rahul"
+    },
+    {
+      name: "Dr. Neha Singh",
+      role: "Clinical Psychologist",
+      experience: "7+ Years",
+      specialties: "Anxiety • Women's Wellbeing • Stress",
+      languages: "Hindi • English",
+      rating: "4.9",
+      price: "₹499",
+      image: "/images/therapist-neha.jpg",
+      id: "neha"
+    },
+    {
+      name: "Dr. Arjun Mehta",
+      role: "Counselling Psychologist",
+      experience: "5+ Years",
+      specialties: "Relationships • Burnout • Self-Esteem",
+      languages: "Hindi • English",
+      rating: "4.8",
+      price: "₹499",
+      image: "/images/therapist-arjun.jpg",
+      id: "arjun"
     }
   ];
 
   return (
-    <section id="companions" className="py-20 relative bg-brand-900 border-t border-white/5">
+    <section id="therapists" className="py-14 sm:py-16 bg-[#fbfdfc] border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
-          >
-            Featured Companions
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-gray-400 max-w-2xl mx-auto"
-          >
-            A glimpse of the wonderful people waiting to listen. Choose someone who matches your vibe.
-          </motion.p>
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-block px-3 py-1 rounded-full bg-[#00839a]/10 text-[#00839a] text-xs font-semibold uppercase tracking-wider mb-3">
+            Our Therapists
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#083058] tracking-tight font-display mb-3">
+            Meet People Who Are Here to Listen.
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base">
+            Find a therapist who understands your needs, preferences and goals.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {companions.map((companion, index) => (
+        {/* 4 Therapist Cards with Photos */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {therapists.map((t, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-brand-950/80 backdrop-blur-sm border border-white/10 rounded-[2rem] overflow-hidden group hover:border-pink-500/40 hover:shadow-2xl hover:shadow-pink-500/20 hover:-translate-y-2 transition-all duration-500"
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all text-left flex flex-col justify-between group"
             >
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="relative">
-                    <img src={companion.image} alt={companion.name} className="w-20 h-20 rounded-2xl object-cover transform group-hover:scale-110 transition-transform duration-500 shadow-lg" />
-                    <div className="absolute -bottom-2 -right-2 bg-brand-950 rounded-full p-1">
-                      <CheckCircle2 size={18} className="text-electric-cyan" />
-                    </div>
+              <div>
+                {/* Photo with soft rounded frame */}
+                <div className="flex items-center space-x-3.5 mb-4">
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#00839a]/20 shadow-sm shrink-0 bg-slate-100">
+                    <img 
+                      src={t.image} 
+                      alt={t.name}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" 
+                    />
                   </div>
-                  <div className="flex flex-col items-end">
-                    <div className="flex items-center space-x-1 text-yellow-400 mb-3 bg-yellow-400/10 px-2 py-1 rounded-lg">
-                      <Star size={14} className="fill-current" />
-                      <span className="text-sm font-bold">{companion.rating}</span>
+                  <div>
+                    <h3 className="text-base font-bold text-[#083058] leading-snug">{t.name}</h3>
+                    <p className="text-xs text-[#00839a] font-medium">{t.role}</p>
+                    <div className="flex items-center space-x-1 mt-0.5 text-xs text-amber-500 font-semibold">
+                      <Star size={13} className="fill-amber-400 text-amber-400" />
+                      <span>{t.rating}</span>
+                      <span className="text-slate-400 font-normal ml-1">({t.experience})</span>
                     </div>
-                    {companion.available ? (
-                      <span className="flex items-center px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full border border-green-500/20 font-semibold shadow-[0_0_10px_rgba(34,197,94,0.2)]">
-                        <span className="relative flex h-2 w-2 mr-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        Online
-                      </span>
-                    ) : (
-                      <span className="flex items-center px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10 font-semibold">
-                        <span className="h-2 w-2 rounded-full bg-gray-500 mr-2"></span>
-                        Busy
-                      </span>
-                    )}
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold text-white mb-0.5 group-hover:text-pink-300 transition-colors">{companion.name}</h3>
-                <p className="text-romantic-DEFAULT text-xs font-medium mb-4">{companion.style}</p>
-
-                <div className="space-y-2.5 mb-5">
-                  <p className="text-xs text-gray-300"><span className="text-gray-500">Speaks:</span> {companion.languages}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {companion.interests.map(interest => (
-                      <span key={interest} className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400 border border-white/10">{interest}</span>
-                    ))}
-                  </div>
+                {/* Specialties & Language */}
+                <div className="space-y-2 py-3 border-y border-slate-100 text-xs text-slate-600">
+                  <p>
+                    <span className="font-semibold text-slate-700">Focus:</span> {t.specialties}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-slate-700">Languages:</span> {t.languages}
+                  </p>
                 </div>
 
-                <button className="w-full py-2.5 rounded-xl text-sm text-white font-medium bg-pink-600 hover:bg-pink-500 transition-all flex items-center justify-center space-x-1.5">
-                  <Phone size={16} />
-                  <span>Talk With {companion.name}</span>
-                </button>
+                {/* Pricing info */}
+                <div className="mt-3 flex items-baseline justify-between">
+                  <span className="text-xs text-slate-500">Per Session</span>
+                  <span className="text-base font-bold text-[#083058]">{t.price}</span>
+                </div>
+              </div>
+
+              {/* Action buttons */}
+              <div className="grid grid-cols-2 gap-2 mt-5 pt-3 border-t border-slate-100">
+                <Link
+                  to="/first-session"
+                  className="py-2 px-3 text-center text-xs font-semibold text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors border border-slate-200"
+                >
+                  View Profile
+                </Link>
+                <Link
+                  to="/first-session"
+                  className="py-2 px-3 text-center text-xs font-bold text-white bg-[#083058] hover:bg-[#0c4a6e] rounded-lg transition-colors shadow-sm"
+                >
+                  Book Session
+                </Link>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <Link to="/categories" className="inline-flex items-center space-x-2 text-gray-400 hover:text-white transition-colors group">
-            <span className="text-lg">Not feeling the vibe? Explore everyone</span>
-            <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
       </div>
     </section>
   );

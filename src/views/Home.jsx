@@ -1,54 +1,73 @@
 import React, { useEffect } from 'react';
 
-// Import all homepage sections
+// Import all sections in blueprint sequence
 import HeroSection from '../components/HeroSection';
-import TrustStrip from '../components/TrustStrip';
 import EmotionalIntro from '../components/EmotionalIntro';
 import Categories from '../components/Categories';
-import InteractiveQuestion from '../components/InteractiveQuestion';
-import Companions from '../components/Companions';
-import SoundTherapySpotlight from '../components/SoundTherapySpotlight';
 import ClinicalSpecialtiesGrid from '../components/ClinicalSpecialtiesGrid';
-import AssessmentQuizModal from '../components/AssessmentQuizModal';
+import Companions from '../components/Companions';
 import HowItWorks from '../components/HowItWorks';
-import MidPageCTA from '../components/MidPageCTA';
-import FirstSessionOffer from '../components/FirstSessionOffer';
-import Testimonials from '../components/Testimonials';
-import WhyNeuravia from '../components/WhyNeuravia';
 import Pricing from '../components/Pricing';
+import WhyNeuravia from '../components/WhyNeuravia';
+import FirstSessionOffer from '../components/FirstSessionOffer';
+import AssessmentQuizModal from '../components/AssessmentQuizModal';
+import Testimonials from '../components/Testimonials';
+import SoundTherapySpotlight from '../components/SoundTherapySpotlight';
 import FAQ from '../components/FAQ';
-import SafetyPreview from '../components/SafetyPreview';
 import FinalCTA from '../components/FinalCTA';
-
-import GeoCoverageSection from '../components/GeoCoverageSection';
+import EmergencySupport from '../components/EmergencySupport';
 
 const Home = () => {
-  // Ensure we scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="bg-brand-950 text-white min-h-screen">
+    <div className="bg-[#fbfdfc] text-slate-800 min-h-screen">
+      {/* 4. Homepage Hero */}
       <HeroSection />
-      <TrustStrip />
-      <FirstSessionOffer />
-      <ClinicalSpecialtiesGrid />
-      <SoundTherapySpotlight />
-      <AssessmentQuizModal />
+
+      {/* 5. Intro — You Deserve to Feel Better */}
       <EmotionalIntro />
+
+      {/* 6. What Are You Going Through? */}
       <Categories />
-      <InteractiveQuestion />
+
+      {/* 7. Therapy Services */}
+      <ClinicalSpecialtiesGrid />
+
+      {/* 8. Therapist Section */}
       <Companions />
+
+      {/* 9. How Neuravia Works */}
       <HowItWorks />
-      <MidPageCTA />
-      <WhyNeuravia />
-      <Testimonials />
+
+      {/* 10. Pricing — Main Conversion Section */}
       <Pricing />
+
+      {/* 11. Why Neuravia? */}
+      <WhyNeuravia />
+
+      {/* 12. Emotional Section — Your Mental Wellbeing Matters */}
+      <FirstSessionOffer />
+
+      {/* 13. Free Self-Assessment */}
+      <AssessmentQuizModal />
+
+      {/* 14. Testimonials — Real People. Real Journeys. */}
+      <Testimonials />
+
+      {/* 15. Resources / Blog — Learn. Understand. Grow. */}
+      <SoundTherapySpotlight />
+
+      {/* 16. FAQ */}
       <FAQ />
-      <GeoCoverageSection />
-      <SafetyPreview />
+
+      {/* 17. Final CTA */}
       <FinalCTA />
+
+      {/* 18. Emergency Support */}
+      <EmergencySupport />
     </div>
   );
 };

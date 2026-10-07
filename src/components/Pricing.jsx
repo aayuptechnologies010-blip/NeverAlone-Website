@@ -1,193 +1,201 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Check, Sparkles, ArrowRight } from 'lucide-react';
 
 const Pricing = () => {
   const plans = [
     {
-      name: "First Trial Session",
-      sessions: "1 Session",
-      price: "₹797",
-      perSession: "Introductory Special",
-      duration: "Single Session",
-      features: [
-        "1 × 50-60 min private audio session",
-        "RCI certified psychologist or verified companion",
-        "Personalized action plan & CBT coping summary",
-        "Free access to Alpha/Theta sound healing library",
-        "100% confidential & zero video pressure"
-      ],
-      isPopular: false,
+      name: "Single Session",
+      price: "₹499",
+      sessionsCount: 1,
+      effective: "₹499 / session",
+      savings: null,
+      subtitle: "Start with one session.",
+      badge: null,
       isBestValue: false,
-      badge: "40% First-Time Off",
-      gradient: "from-brand-teal to-brand-500"
+      cta: "Book a Session — ₹499",
+      features: [
+        "Up to 50 minutes each",
+        "Online sessions",
+        "Confidential & private",
+        "Flexible scheduling"
+      ]
     },
     {
-      name: "Growth Care Pack",
-      sessions: "6 Sessions",
+      name: "6 Session Plan",
       price: "₹2,500",
-      perSession: "₹416 / session",
-      duration: "Flexible Scheduling",
-      features: [
-        "6 × 60-min audio sessions",
-        "Priority specialist slot matching",
-        "Same therapist consistency",
-        "Dedicated emotional check-ins",
-        "All topic categories & sound therapy included"
-      ],
-      isPopular: true,
+      sessionsCount: 6,
+      effective: "₹417 / session",
+      savings: "Save ₹494",
+      subtitle: "Support for ongoing challenges.",
+      badge: "POPULAR",
       isBestValue: false,
-      badge: "Most Popular",
-      gradient: "from-brand-navy via-brand-teal to-brand-green"
+      cta: "Choose 6 Sessions",
+      features: [
+        "Up to 50 minutes each",
+        "Online sessions",
+        "Confidential & private",
+        "Flexible scheduling"
+      ]
     },
     {
-      name: "Deep Healing Pack",
-      sessions: "12 Sessions",
+      name: "12 Session Plan",
       price: "₹4,500",
-      perSession: "₹375 / session",
-      duration: "Most Comprehensive",
-      features: [
-        "12 × 60-min audio sessions",
-        "VIP listener & therapist priority",
-        "Structured CBT / ERP progress milestone tracking",
-        "Flexible rollover anytime (No expiration)",
-        "24/7 dedicated support"
-      ],
-      isPopular: false,
+      sessionsCount: 12,
+      effective: "₹375 / session",
+      savings: "Save ₹1,488",
+      subtitle: "Comprehensive deep progress.",
+      badge: "BEST VALUE",
       isBestValue: true,
-      badge: "Best Value",
-      gradient: "from-brand-teal to-brand-green"
+      cta: "Choose 12 Sessions",
+      features: [
+        "Up to 50 minutes each",
+        "Online sessions",
+        "Confidential & private",
+        "Flexible scheduling"
+      ]
     },
     {
-      name: "Complete Transformation",
-      sessions: "20 Sessions",
-      price: "₹7,500",
-      perSession: "₹375 / session",
-      duration: "Long-term Wellness",
-      features: [
-        "20 × 60-min audio sessions",
-        "All-access companion & clinical pass",
-        "Unlimited sound frequency suite",
-        "Exclusive priority matching",
-        "Complimentary family / partner session addon"
-      ],
-      isPopular: false,
+      name: "20 Session Plan",
+      price: "₹8,000",
+      sessionsCount: 20,
+      effective: "₹400 / session",
+      savings: "Save ₹1,980",
+      subtitle: "Long-term healing & consistency.",
+      badge: null,
       isBestValue: false,
-      badge: "Full Care",
-      gradient: "from-brand-green to-brand-teal"
+      cta: "Choose 20 Sessions",
+      features: [
+        "Up to 50 minutes each",
+        "Online sessions",
+        "Confidential & private",
+        "Flexible scheduling"
+      ]
+    },
+    {
+      name: "25 Session Plan",
+      price: "₹10,000",
+      sessionsCount: 25,
+      effective: "₹400 / session",
+      savings: "Save ₹2,475",
+      subtitle: "Complete personal transformation.",
+      badge: null,
+      isBestValue: false,
+      cta: "Choose 25 Sessions",
+      features: [
+        "Up to 50 minutes each",
+        "Online sessions",
+        "Confidential & private",
+        "Flexible scheduling"
+      ]
     }
   ];
 
   return (
-    <section className="py-12 bg-brand-950 relative border-t border-brand-800/40">
+    <section id="pricing" className="py-14 sm:py-16 bg-[#fbfdfc] border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Single Session Banner */}
-        <div className="max-w-4xl mx-auto mb-12 bg-gradient-to-r from-brand-900 via-brand-900/90 to-brand-800 border border-brand-teal/30 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="text-center sm:text-left">
-            <span className="inline-block px-3 py-1 bg-brand-leaf/10 border border-brand-leaf/40 text-brand-leaf text-xs font-bold uppercase rounded-full mb-2 tracking-wider">
-              Single Session Flat Rate
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">
-              1 Session — Flat ₹499
-            </h3>
-            <p className="text-slate-300 text-sm mt-1">
-              60-minute confidential 1-on-1 private audio call. Try once with zero commitments.
-            </p>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-block px-3 py-1 rounded-full bg-[#00839a]/10 text-[#00839a] text-xs font-semibold uppercase tracking-wider mb-3">
+            Simple & Transparent Pricing
           </div>
-          <Link
-            to="/first-session"
-            className="px-8 py-3.5 rounded-full font-bold text-sm text-white bg-gradient-to-r from-brand-teal to-brand-500 hover:from-brand-600 hover:to-brand-teal shadow-lg shadow-brand-500/25 transition-all whitespace-nowrap transform hover:-translate-y-0.5 border border-cyan-300/30"
-          >
-            Book 1 Session (₹499)
-          </Link>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#083058] tracking-tight font-display mb-3">
+            Professional Support, Made Accessible.
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base">
+            Start with one session or choose a plan that supports your longer journey.
+          </p>
         </div>
 
-        <div className="text-center mb-8">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-extrabold text-white mb-3 font-display"
-          >
-            Flexible Session Packages
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-base sm:text-lg text-slate-300"
-          >
-            Save more as you continue your healing journey. No expiration on sessions.
-          </motion.p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mt-8">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`relative bg-brand-900/70 backdrop-blur-md rounded-3xl p-6 border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${
-                plan.isPopular 
-                  ? 'border-brand-teal shadow-[0_0_30px_rgba(2,132,199,0.2)] bg-brand-900/90 z-10' 
-                  : 'border-white/10 hover:border-brand-teal/40 z-0'
-              } flex flex-col`}
-            >
-              {plan.badge && (
-                <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full text-[10px] font-bold text-white tracking-widest uppercase bg-gradient-to-r ${plan.gradient} shadow-md whitespace-nowrap`}>
-                  {plan.badge}
-                </div>
-              )}
-
-              <div className="text-center mb-6 mt-2">
-                <h3 className="text-base text-slate-200 font-bold mb-1">{plan.name}</h3>
-                <span className="text-xs font-semibold text-brand-leaf bg-brand-leaf/10 px-2.5 py-0.5 rounded-full inline-block mb-3">
-                  {plan.sessions}
-                </span>
-                <div className="flex items-center justify-center mb-1">
-                  <span className="text-3xl sm:text-4xl font-black text-white font-display">{plan.price}</span>
-                </div>
-                <p className="text-xs font-medium text-brand-300">{plan.perSession}</p>
-              </div>
-
-              <div className="space-y-2.5 flex-grow mb-6">
-                {plan.features.map((feature, i) => (
-                  <div key={i} className="flex items-start space-x-2.5">
-                    <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 bg-brand-leaf/10 mt-0.5">
-                      <Check size={11} className="text-brand-leaf" />
-                    </div>
-                    <span className="text-xs text-slate-300 leading-snug">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <Link 
-                to="/pricing" 
-                className={`w-full py-3 rounded-xl text-sm font-bold text-center transition-all duration-300 ${
-                  plan.isPopular 
-                    ? 'bg-gradient-to-r from-brand-teal to-brand-500 text-white hover:opacity-95 shadow-md shadow-brand-teal/25' 
-                    : 'bg-white/10 text-white hover:bg-white/20'
+        {/* 5 Plans Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch">
+          {plans.map((plan, index) => {
+            const isBest = plan.isBestValue;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
+                className={`relative rounded-2xl p-6 text-left flex flex-col justify-between transition-all ${
+                  isBest
+                    ? 'bg-white border-2 border-[#00839a] shadow-xl ring-4 ring-[#00839a]/10'
+                    : 'bg-white border border-slate-200/80 shadow-sm hover:shadow-md'
                 }`}
               >
-                Choose {plan.sessions}
-              </Link>
-            </motion.div>
-          ))}
+                {/* Badges */}
+                {plan.badge && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <span
+                      className={`px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase shadow-sm ${
+                        isBest
+                          ? 'bg-[#00839a] text-white'
+                          : 'bg-[#083058] text-white'
+                      }`}
+                    >
+                      {plan.badge}
+                    </span>
+                  </div>
+                )}
+
+                <div>
+                  <h3 className="text-lg font-bold text-[#083058] mb-1">{plan.name}</h3>
+                  <p className="text-xs text-slate-500 mb-4 min-h-[1.2rem]">{plan.subtitle}</p>
+
+                  {/* Price */}
+                  <div className="mb-4 pb-4 border-b border-slate-100">
+                    <div className="flex items-baseline space-x-1">
+                      <span className="text-3xl font-extrabold text-[#083058]">{plan.price}</span>
+                      <span className="text-xs text-slate-500 font-medium">/ {plan.sessionsCount} {plan.sessionsCount === 1 ? 'session' : 'sessions'}</span>
+                    </div>
+                    
+                    <div className="mt-2 flex items-center justify-between text-xs">
+                      <span className="text-[#00839a] font-semibold">{plan.effective}</span>
+                      {plan.savings && (
+                        <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold text-[11px]">
+                          {plan.savings}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Features List */}
+                  <ul className="space-y-2.5 mb-6 text-xs text-slate-600">
+                    {plan.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-center space-x-2">
+                        <Check size={14} className="text-[#00839a] shrink-0" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CTA Button */}
+                <div className="pt-2">
+                  <Link
+                    to="/first-session"
+                    className={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-center block transition-all ${
+                      isBest
+                        ? 'bg-[#083058] hover:bg-[#0c4a6e] text-white shadow-md'
+                        : 'bg-slate-50 hover:bg-slate-100 text-[#083058] border border-slate-200'
+                    }`}
+                  >
+                    {plan.cta}
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
-        <div className="mt-12 text-center max-w-2xl mx-auto">
-          <div className="bg-brand-900/40 border border-white/5 rounded-2xl p-4 backdrop-blur-sm">
-            <p className="text-sm text-white font-medium mb-1.5">Extra Time: <span className="text-electric-cyan">₹199 / additional 60 minutes</span></p>
-            <p className="text-[10px] md:text-xs text-gray-500">
-              Note: The same companion is not guaranteed every day and availability may vary. Professional support/therapy pricing is not included in these standard companion plans.
-            </p>
-          </div>
+        {/* Footnote reassurance */}
+        <div className="mt-12 text-center text-xs text-slate-500 max-w-xl mx-auto">
+          All session packages include flexible rollover, verified certified therapists, and confidential online audio/video slots.
         </div>
+
       </div>
     </section>
   );

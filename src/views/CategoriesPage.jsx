@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import ExploreHero from '../components/explore/ExploreHero';
-import ExploreMoodSelector from '../components/explore/ExploreMoodSelector';
-import ExploreComparison from '../components/explore/ExploreComparison';
-import ExploreMatchPreview from '../components/explore/ExploreMatchPreview';
-import ExploreSafety from '../components/explore/ExploreSafety';
-import ExploreFinalCTA from '../components/explore/ExploreFinalCTA';
+import Categories from '../components/Categories';
+import ClinicalSpecialtiesGrid from '../components/ClinicalSpecialtiesGrid';
+import Companions from '../components/Companions';
+import HowItWorks from '../components/HowItWorks';
+import AssessmentQuizModal from '../components/AssessmentQuizModal';
+import FinalCTA from '../components/FinalCTA';
+import EmergencySupport from '../components/EmergencySupport';
 
 const CategoriesPage = () => {
   useEffect(() => {
@@ -12,13 +13,14 @@ const CategoriesPage = () => {
   }, []);
 
   return (
-    <div className="bg-brand-950 text-white min-h-screen">
-      <ExploreHero />
-      <ExploreMoodSelector />
-      <ExploreComparison />
-      <ExploreMatchPreview />
-      <ExploreSafety />
-      <ExploreFinalCTA />
+    <div className="bg-[#fbfdfc] text-slate-800 min-h-screen pt-20">
+      <Categories />
+      <ClinicalSpecialtiesGrid />
+      <Companions />
+      <HowItWorks />
+      <AssessmentQuizModal />
+      <FinalCTA />
+      <EmergencySupport />
     </div>
   );
 };

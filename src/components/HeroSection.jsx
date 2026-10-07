@@ -1,187 +1,105 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Shield, Phone, Heart, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, UserCheck, Video, Calendar, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const HeroSection = () => {
+  const trustPoints = [
+    { label: "Confidential & Private", icon: ShieldCheck },
+    { label: "Qualified Therapists", icon: UserCheck },
+    { label: "Online Sessions", icon: Video },
+    { label: "Flexible Scheduling", icon: Calendar },
+  ];
+
   return (
-    <section 
-      className="relative pt-8 lg:pt-16 pb-10 overflow-hidden text-white bg-cover bg-center"
-      style={{ backgroundImage: 'url(/hero_bg.jpg)' }}
-    >
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-brand-950/80 backdrop-blur-[2px]" />
+    <section className="relative pt-20 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 overflow-hidden bg-[#fbfdfc]">
+      {/* Subtle soft background accents */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00839a]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#083058]/5 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Background gradients */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-dream-DEFAULT/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-electric-DEFAULT/10 rounded-full blur-[150px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-romantic-DEFAULT/10 rounded-full blur-[150px]" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 items-center">
-
-          {/* LEFT SIDE: Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Column: Heading, Copy & CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-start text-left"
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 text-left space-y-6"
           >
-            {/* Badge */}
-            <div className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-brand-900/80 border border-brand-700/60 backdrop-blur-md mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-leaf animate-pulse" />
-              <span className="text-xs sm:text-sm font-semibold tracking-wide text-brand-200 uppercase font-sans">
-                Evidence-Based CBT + Neuroscience Sound Therapy & Listening
-              </span>
+            {/* Tagline Badge */}
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#00839a]/10 border border-[#00839a]/20 text-[#00839a] text-xs font-semibold tracking-wide">
+              <span>Where Minds Find Peace</span>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.15] mb-5 tracking-tight font-display">
-              Where Minds Find Peace.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-teal to-brand-leaf font-serif italic font-normal">
-                Scientifically Supported,
-              </span>
-              {' '}Empathetically Heard.
+            {/* Main Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#083058] leading-[1.2] tracking-tight font-display">
+              A Safe Space for Your Mind, Heart &amp; Wellbeing.
             </h1>
 
-            {/* Supporting Copy */}
-            <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-xl leading-relaxed font-normal">
-              Break free from anxiety, relationship stress, burnout, and overthinking. Private 1-on-1 audio sessions with verified listeners and certified therapists combining CBT with restorative acoustic waves.
+            {/* Description */}
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
+              Life can feel overwhelming sometimes. You don't have to navigate it alone. Connect with a compassionate therapist and take the first step toward feeling better.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-6 w-full sm:w-auto">
+            {/* Primary & Secondary CTAs */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <Link
                 to="/first-session"
-                className="px-7 py-3.5 rounded-full text-base font-bold text-white bg-gradient-to-r from-brand-teal to-brand-500 hover:from-brand-600 hover:to-brand-teal shadow-[0_0_25px_rgba(2,132,199,0.35)] transition-all duration-300 text-center transform hover:-translate-y-0.5 border border-cyan-300/30"
+                className="px-7 py-3.5 rounded-xl font-semibold text-sm sm:text-base text-white bg-[#083058] hover:bg-[#0c4a6e] shadow-sm hover:shadow-md transition-all duration-200 text-center flex items-center justify-center space-x-2"
               >
-                Book Your First Session
+                <span>Book Your First Session — ₹499</span>
+                <ArrowRight size={16} />
               </Link>
+
               <Link
                 to="/categories"
-                className="px-7 py-3.5 rounded-full text-base font-semibold text-slate-200 bg-white/5 hover:bg-white/10 hover:text-white border border-white/15 transition-all duration-300 text-center backdrop-blur-sm"
+                className="px-6 py-3.5 rounded-xl font-semibold text-sm sm:text-base text-[#083058] bg-white hover:bg-slate-50 border border-slate-200 shadow-sm transition-all duration-200 text-center"
               >
-                Explore Specialties
+                Explore Therapies
               </Link>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-row items-center gap-3 text-xs md:text-sm text-gray-400 whitespace-nowrap overflow-x-auto pb-2 w-full custom-scrollbar">
-              <div className="flex items-center space-x-1.5 shrink-0">
-                <span className="font-semibold text-white bg-brand-800 px-1.5 rounded text-xs">18+</span>
-                <span>Adults Only</span>
-              </div>
-              <div className="flex items-center space-x-1.5 shrink-0">
-                <Shield size={14} className="text-romantic-pink" />
-                <span>Private</span>
-              </div>
-              <div className="flex items-center space-x-1.5 shrink-0">
-                <Phone size={14} className="text-electric-cyan" />
-                <span>Phone Calls Only</span>
-              </div>
-              <div className="flex items-center space-x-1.5 shrink-0">
-                <Heart size={14} className="text-dream-purple" />
-                <span>Respectful</span>
+            {/* Trust Points Checklist */}
+            <div className="pt-6 border-t border-slate-100">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {trustPoints.map((point, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <CheckCircle2 size={16} className="text-[#00839a] shrink-0" />
+                    <span className="text-xs sm:text-sm font-medium text-slate-700">{point.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE: Interactive Calm Session Showcase Card */}
+          {/* Right Column: Hero Visual Photography */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:ml-auto w-full max-w-md mx-auto mt-8 lg:mt-0"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5"
           >
-            {/* Ambient Background Glow */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-brand-teal/25 via-brand-cyan/20 to-brand-leaf/20 rounded-3xl blur-2xl pointer-events-none" />
+            <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-xl p-2 sm:p-3">
+              <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-100">
+                <img
+                  src="/images/neuravia-hero.jpg"
+                  alt="Neuravia therapy room with therapist and client"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-            <div className="relative bg-gradient-to-b from-brand-900/95 via-brand-900/90 to-brand-950 border border-brand-700/60 rounded-3xl p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] backdrop-blur-xl">
-              
-              {/* Top Status Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
-                <div className="flex items-center space-x-2.5">
-                  <div className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-leaf opacity-75" />
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-leaf" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold text-white block">Verified Session In-Progress</span>
-                    <span className="text-[11px] text-slate-400">Audio Only • End-to-End Private</span>
-                  </div>
-                </div>
-                <span className="px-2.5 py-1 rounded-full bg-brand-teal/20 border border-brand-teal/30 text-[11px] font-semibold text-brand-300">
-                  CBT + Sound
+              {/* Floating verified badge */}
+              <div className="mt-3 px-3 py-2 bg-slate-50 rounded-lg flex items-center justify-between text-xs text-slate-600">
+                <span className="flex items-center gap-1.5 font-medium text-[#083058]">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Verified Specialists Available
                 </span>
+                <span className="font-semibold text-[#00839a]">First Session ₹499</span>
               </div>
-
-              {/* Therapist / Listener Active Card */}
-              <div className="bg-brand-950/70 border border-white/10 rounded-2xl p-4 mb-4 flex items-center space-x-4">
-                <div className="relative">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-brand-teal to-brand-leaf p-0.5">
-                    <div className="w-full h-full rounded-full bg-brand-900 flex items-center justify-center font-bold text-brand-200 text-lg">
-                      DR
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-brand-leaf border-2 border-brand-950" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center space-x-2">
-                    <h3 className="text-base font-bold text-white truncate">Dr. Riya Sen</h3>
-                    <CheckCircle2 size={14} className="text-brand-leaf shrink-0" />
-                  </div>
-                  <p className="text-xs text-brand-300 font-medium">RCI Registered • Clinical Psychologist</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">Specializes in Anxiety, CBT & Emotional Balance</p>
-                </div>
-              </div>
-
-              {/* Live Waveform / Audio State */}
-              <div className="bg-brand-950/90 border border-brand-800/80 rounded-2xl p-4 mb-5">
-                <div className="flex items-center justify-between text-xs text-slate-300 mb-2.5 font-medium">
-                  <span className="flex items-center gap-1.5 text-brand-leaf">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-leaf animate-pulse" />
-                    Alpha Wave Resonance (10 Hz)
-                  </span>
-                  <span className="text-slate-400">Live Calibration</span>
-                </div>
-
-                {/* Animated Wave Bars */}
-                <div className="h-10 flex items-end justify-between gap-1 px-1">
-                  {[45, 80, 50, 95, 60, 35, 75, 100, 55, 85, 40, 70, 90, 60, 40, 80, 95, 50, 75, 45].map((h, i) => (
-                    <motion.div
-                      key={i}
-                      animate={{ height: [`${Math.max(20, h * 0.4)}%`, `${h}%`, `${Math.max(25, h * 0.6)}%`] }}
-                      transition={{ duration: 1.2 + (i % 4) * 0.2, repeat: Infinity, ease: "easeInOut" }}
-                      className="flex-1 rounded-full bg-gradient-to-t from-brand-teal via-brand-cyan to-brand-leaf"
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* Trust Features Grid */}
-              <div className="grid grid-cols-2 gap-2.5 text-xs text-slate-200">
-                <div className="bg-white/5 border border-white/5 rounded-xl p-2.5 flex items-center space-x-2">
-                  <Shield size={14} className="text-brand-teal shrink-0" />
-                  <span>No Video • Phone Only</span>
-                </div>
-                <div className="bg-white/5 border border-white/5 rounded-xl p-2.5 flex items-center space-x-2">
-                  <Heart size={14} className="text-brand-leaf shrink-0" />
-                  <span>100% Non-Judgmental</span>
-                </div>
-              </div>
-
-              {/* Bottom Quick Connect Action */}
-              <Link
-                to="/first-session"
-                className="mt-5 w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-teal to-brand-500 hover:from-brand-600 hover:to-brand-teal text-white font-bold text-xs sm:text-sm text-center block transition-all shadow-md shadow-brand-teal/30"
-              >
-                Connect With An Available Specialist Now
-              </Link>
-
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

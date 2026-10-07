@@ -1,73 +1,77 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-
-import { safetyPrinciples, safetyFaqs } from '../data/safetyDemo';
-
-import SafetyHero from '../components/safety/SafetyHero';
-import SafetyPrinciples from '../components/safety/SafetyPrinciples';
-import SafetyAllowed from '../components/safety/SafetyAllowed';
-import SafetyNotAllowed from '../components/safety/SafetyNotAllowed';
-import SafetyPrivacy from '../components/safety/SafetyPrivacy';
-import SafetyReporting from '../components/safety/SafetyReporting';
-import SafetyBlocking from '../components/safety/SafetyBlocking';
-import SafetyFlirty from '../components/safety/SafetyFlirty';
-import SafetyProfSupport from '../components/safety/SafetyProfSupport';
-import SafetyMentalHealth from '../components/safety/SafetyMentalHealth';
-import SafetyCrisis from '../components/safety/SafetyCrisis';
-import SafetyCallPreview from '../components/safety/SafetyCallPreview';
-import SafetyFAQ from '../components/safety/SafetyFAQ';
-import SafetyFinalCTA from '../components/safety/SafetyFinalCTA';
+import { ShieldCheck, Lock, UserCheck, PhoneCall, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import FAQ from '../components/FAQ';
+import FinalCTA from '../components/FinalCTA';
+import EmergencySupport from '../components/EmergencySupport';
 
 export default function SafetyPage() {
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleReadGuidelines = () => {
-    const el = document.getElementById('guidelines');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleReport = () => {
-    const el = document.getElementById('reporting');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const safetyFeatures = [
+    {
+      title: "100% Confidential Conversations",
+      desc: "All audio and video sessions take place over private, end-to-end encrypted channels. No recordings are ever stored.",
+      icon: Lock
+    },
+    {
+      title: "RCI Verified & Certified Professionals",
+      desc: "Every psychologist and counsellor on Neuravia undergoes stringent credential verification and ethical background checks.",
+      icon: UserCheck
+    },
+    {
+      title: "Strict Non-Judgmental Space",
+      desc: "A safe, respectful environment adhering strictly to clinical confidentiality and professional boundaries.",
+      icon: ShieldCheck
+    },
+    {
+      title: "Anonymous Options Available",
+      desc: "Choose voice-only calls and display name aliases if you prefer maximum personal privacy.",
+      icon: PhoneCall
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-brand-950 font-sans text-warm-white selection:bg-electric-cyan/30 selection:text-white">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <SafetyHero 
-          onReadGuidelines={handleReadGuidelines} 
-          onReport={handleReport} 
-        />
-        
-        <SafetyPrinciples principles={safetyPrinciples} />
-        
-        {/* Allowed & Not Allowed Side by Side on Desktop */}
-        <div className="bg-brand-950">
-           <SafetyAllowed />
-           <SafetyNotAllowed />
+    <div className="min-h-screen bg-[#fbfdfc] font-sans text-slate-800 pt-20">
+      {/* Hero */}
+      <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-block px-3.5 py-1.5 rounded-full bg-[#00839a]/10 text-[#00839a] text-xs font-semibold uppercase tracking-wider">
+            Trust &amp; Confidentiality
+          </div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#083058] tracking-tight font-display leading-tight">
+            Your Privacy &amp; Safety Are Our Highest Priority.
+          </h1>
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            We hold ourselves to the highest standards of mental healthcare privacy, ethical guidelines and user protection.
+          </p>
         </div>
+      </section>
 
-        <SafetyPrivacy />
-        <SafetyReporting />
-        <SafetyBlocking />
-        <SafetyFlirty />
-        
-        <SafetyProfSupport />
-        <SafetyMentalHealth />
-        
-        <SafetyCrisis />
-        <SafetyCallPreview />
-        
-        <SafetyFAQ faqs={safetyFaqs} />
-        <SafetyFinalCTA />
-      </motion.div>
+      {/* Safety Features */}
+      <section className="py-14 sm:py-16 bg-[#fbfdfc] border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 gap-8">
+            {safetyFeatures.map((f, i) => (
+              <div key={i} className="bg-white border border-slate-100 rounded-2xl p-7 shadow-sm text-left flex gap-5">
+                <div className="w-12 h-12 rounded-xl bg-[#00839a]/10 text-[#00839a] flex items-center justify-center shrink-0">
+                  <f.icon size={24} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-[#083058] mb-2">{f.title}</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FAQ />
+      <FinalCTA />
+      <EmergencySupport />
     </div>
   );
 }

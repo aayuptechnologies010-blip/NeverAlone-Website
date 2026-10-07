@@ -1,81 +1,87 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { HeartHandshake, Compass, TrendingUp } from 'lucide-react';
 
 const EmotionalIntro = () => {
-  const prompts = [
-    "Had a long day?",
-    "Heart feeling heavy?",
-    "Relationship confusing you?",
-    "Family situation bothering you?",
-    "Career stuck in your head?",
-    "Or just feeling a little alone?"
+  const pillars = [
+    {
+      title: "Feel Heard",
+      description: "A safe space to express your thoughts and emotions freely without fear of judgment.",
+      icon: HeartHandshake
+    },
+    {
+      title: "Understand Yourself",
+      description: "Discover underlying patterns, emotions and personal challenges with professional guidance.",
+      icon: Compass
+    },
+    {
+      title: "Move Forward",
+      description: "Build healthier coping habits, stronger relationships and a more balanced, peaceful life.",
+      icon: TrendingUp
+    }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-  };
-
   return (
-    <section 
-      className="py-10 relative overflow-hidden flex flex-col items-center justify-center min-h-[70vh] bg-cover bg-center"
-      style={{ backgroundImage: 'url(/emotional_bg.jpg)' }}
-    >
-      <div className="absolute inset-0 bg-brand-950/70 backdrop-blur-[2px]" />
-      
-      {/* Subtle glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-romantic-DEFAULT/5 rounded-full blur-[100px] pointer-events-none z-0" />
+    <section className="py-14 sm:py-16 bg-white border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Visual Scene */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5"
+          >
+            <div className="relative rounded-2xl overflow-hidden bg-slate-50 border border-slate-100 p-2 sm:p-3 shadow-md">
+              <div className="rounded-xl overflow-hidden aspect-[4/3] bg-slate-100">
+                <img 
+                  src="/images/neuravia-hero.jpg" 
+                  alt="Therapist calmly listening to a client" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="text-3xl md:text-3xl font-serif italic text-white mb-6"
-        >
-          "Sometimes, one conversation changes the whole mood."
-        </motion.h2>
+          {/* Right Text Content & Pillars */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 text-left space-y-6"
+          >
+            <div className="inline-block px-3 py-1 rounded-full bg-[#083058]/5 text-[#083058] text-xs font-semibold uppercase tracking-wider">
+              Care That Puts You First
+            </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col items-center space-y-6 mb-8"
-        >
-          {prompts.map((prompt, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <p className="text-xl md:text-2xl text-gray-400 font-light tracking-wide">
-                {prompt}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#083058] leading-tight font-display">
+              You Deserve a Space Where You Can Truly Be Yourself.
+            </h2>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <div className="inline-block px-8 py-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <p className="text-2xl md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-romantic-pink to-electric-cyan">
-              Whatever it is — you can talk about it here.
+            <p className="text-base text-slate-600 leading-relaxed font-normal">
+              At Neuravia, we believe that mental wellbeing deserves the same care and attention as physical wellbeing. Our platform helps you connect with supportive professionals who listen without judgement and understand what you're going through.
             </p>
-          </div>
-        </motion.div>
+
+            {/* 3 Value Pillars */}
+            <div className="grid sm:grid-cols-3 gap-5 pt-4">
+              {pillars.map((p, idx) => (
+                <div key={idx} className="bg-[#fbfdfc] border border-slate-100 rounded-xl p-5 hover:border-[#00839a]/30 transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-[#00839a]/10 text-[#00839a] flex items-center justify-center mb-3">
+                    <p.icon size={20} />
+                  </div>
+                  <h3 className="text-base font-bold text-[#083058] mb-1.5">{p.title}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">{p.description}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+        </div>
+
       </div>
     </section>
   );

@@ -7,87 +7,105 @@ const FAQ = () => {
 
   const faqs = [
     {
-      q: "What makes Neuravia different from traditional therapy platforms?",
-      a: "Neuravia is the complete emotional wellness ecosystem combining RCI-certified psychological therapy (CBT, ERP) with evidence-backed neuroscience sound therapy & empathetic human companions. Sessions are 100% audio-first for total privacy and zero video fatigue."
+      q: "How does therapy work?",
+      a: "Therapy is a collaborative process where you connect with a trained professional in a safe, confidential environment. Together, you discuss what's on your mind, explore emotional patterns, and develop healthy coping strategies."
     },
     {
-      q: "What if I cry or get overwhelmed during my session?",
-      a: "Crying is a completely natural, healthy somatic release. Our psychologists and verified listeners are trained to hold a gentle, safe, non-judgmental container for you to express your emotions freely without pressure."
+      q: "Are my sessions confidential?",
+      a: "Yes, 100%. All conversations and details shared during your sessions are strictly private and protected under professional confidentiality ethics and data protection standards."
     },
     {
-      q: "Can I choose my psychologist or change my therapist?",
-      a: "Yes! Finding the right therapeutic comfort is essential. You can browse verified specialists by language, qualification, and area of expertise (Anxiety, Depression, OCD, Couples, Overthinking) or switch anytime."
+      q: "How long is one session?",
+      a: "Each standard 1-on-1 therapy session lasts up to 50 minutes, providing ample time to share, reflect and work on practical tools."
     },
     {
-      q: "How many sessions will I need to see results?",
-      a: "Mental health journeys are unique. Many clients feel profound relief and mental lightness after their very first session. Your therapist collaborates with you to build a practical 3-6 session milestone plan without lock-in."
+      q: "Can I choose my therapist?",
+      a: "Yes. You can explore our verified therapist profiles, their experience, areas of specialization and languages to choose the professional who best suits your preferences."
     },
     {
-      q: "Are conversations recorded or shared?",
-      a: "Never. All calls are strictly confidential, end-to-end encrypted, and adhere to strict clinical privacy standards. Your phone number is masked, and zero audio recordings are stored."
+      q: "Can I change my therapist later?",
+      a: "Absolutely. We understand that personal connection is essential for effective therapy. You can switch to another therapist at any time with zero hassle."
     },
     {
-      q: "How does the neuroscience sound therapy work with therapy?",
-      a: "We integrate clinically researched acoustic wave frequencies (such as 10 Hz Alpha waves and 432 Hz Solfeggio tones) that stimulate neuroplasticity and calm amygdala hyperactivity, amplifying the cognitive clarity gained during talk therapy."
+      q: "Can I take therapy online?",
+      a: "Yes. All sessions are conducted online via private audio/video calls, allowing you to join comfortably from your home or any private space."
+    },
+    {
+      q: "What happens during my first session?",
+      a: "Your first session is an introductory conversation. Your therapist will listen to your concerns, understand your background and goals, and outline a supportive path forward."
+    },
+    {
+      q: "Can I cancel or reschedule my appointment?",
+      a: "Yes, you can easily reschedule or cancel your appointment from your dashboard with at least 12 hours advance notice."
+    },
+    {
+      q: "How do the session packages work?",
+      a: "Session plans (6, 12, 20 or 25 sessions) offer discounted per-session rates with no expiration. You can book individual sessions whenever convenient for you."
     }
   ];
 
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx);
   };
 
   return (
-    <section className="py-10 bg-brand-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-6">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl font-semibold text-brand-900 mb-4"
-          >
+    <section id="faq" className="py-14 sm:py-16 bg-[#fbfdfc] border-b border-slate-100">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="inline-block px-3 py-1 rounded-full bg-[#00839a]/10 text-[#00839a] text-xs font-semibold uppercase tracking-wider mb-3">
+            Got Questions?
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#083058] tracking-tight font-display mb-3">
             Frequently Asked Questions
-          </motion.h2>
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base">
+            Everything you need to know about starting your therapy journey with Neuravia.
+          </p>
         </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="bg-white border border-brand-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
-              <button
-                onClick={() => toggleAccordion(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+        {/* FAQ Accordion List */}
+        <div className="space-y-3.5">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div
+                key={idx}
+                className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden transition-all shadow-sm"
               >
-                <span className="text-lg font-medium text-brand-900">{faq.q}</span>
-                <ChevronDown 
-                  className={`text-brand-600 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} 
-                  size={20} 
-                />
-              </button>
-              
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="px-6 pb-5 text-gray-600">
-                      {faq.a}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                <button
+                  onClick={() => toggle(idx)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-[#083058] hover:text-[#00839a] transition-colors"
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown
+                    size={18}
+                    className={`text-slate-400 shrink-0 ml-4 transition-transform duration-200 ${
+                      isOpen ? 'rotate-180 text-[#00839a]' : ''
+                    }`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

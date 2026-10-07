@@ -51,8 +51,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-        display: ['Outfit', 'sans-serif'],
+        sans: ['Inter', '"Plus Jakarta Sans"', 'sans-serif'],
+        display: ['Poppins', '"Plus Jakarta Sans"', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
         serif: ['"Playfair Display"', 'serif'],
       }
     },

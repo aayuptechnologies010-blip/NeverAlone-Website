@@ -1,34 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import PricingHero from '../components/pricing/PricingHero';
-import PricingToggle from '../components/pricing/PricingToggle';
-import PricingCards from '../components/pricing/PricingCards';
-import PricingDailyMeaning from '../components/pricing/PricingDailyMeaning';
-import PricingComparison from '../components/pricing/PricingComparison';
-import PricingCategories from '../components/pricing/PricingCategories';
-import PricingRecommendation from '../components/pricing/PricingRecommendation';
-import PricingTransparency from '../components/pricing/PricingTransparency';
-import PricingFAQ from '../components/pricing/PricingFAQ';
-import PricingFinalCTA from '../components/pricing/PricingFinalCTA';
+import React, { useEffect } from 'react';
+import Pricing from '../components/Pricing';
+import WhyNeuravia from '../components/WhyNeuravia';
+import FAQ from '../components/FAQ';
+import FinalCTA from '../components/FinalCTA';
+import EmergencySupport from '../components/EmergencySupport';
 
 const PricingPage = () => {
-  const [selectedDuration, setSelectedDuration] = useState('30 Days');
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="bg-brand-950 text-white min-h-screen">
-      <PricingHero />
-      <PricingToggle selected={selectedDuration} onSelect={setSelectedDuration} />
-      <PricingCards selectedDuration={selectedDuration} />
-      <PricingDailyMeaning />
-      <PricingComparison />
-      <PricingCategories />
-      <PricingRecommendation />
-      <PricingTransparency />
-      <PricingFAQ />
-      <PricingFinalCTA />
+    <div className="bg-[#fbfdfc] text-slate-800 min-h-screen pt-16">
+      <div className="pt-8">
+        <Pricing />
+        <WhyNeuravia />
+        <FAQ />
+        <FinalCTA />
+        <EmergencySupport />
+      </div>
     </div>
   );
 };

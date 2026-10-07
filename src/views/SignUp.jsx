@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Heart, Mail, Lock, User, Loader2, AlertCircle } from 'lucide-react';
-import { auth, googleProvider, signInWithPopup } from '../firebase';
+import { auth, googleProvider, signInWithPopup, createUserWithEmailAndPassword } from '../firebase';
+import { syncUserProfile } from '../services/userService';
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [agreed, setAgreed] = useState(false);
   const [loadingGoogle, setLoadingGoogle] = useState(false);
+  const [loadingEmail, setLoadingEmail] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
 
   const handleGoogleSignUp = async () => {
     setErrorMsg('');
@@ -16,18 +24,54 @@ const SignUp = () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-      console.log("Signed up user via Google:", user);
+      
+      // Save/Sync user profile dynamically in Firestore
+      await syncUserProfile(user, {
+        name: user.displayName || 'Member'
+      });
+      
       navigate('/dashboard');
     } catch (err) {
-      // User closed the popup window manually
       if (err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request') {
-        console.log("User cancelled Google Sign-up popup.");
         return;
       }
       console.error("Google SignUp Error:", err);
       setErrorMsg(err.message || "Google registration failed. Please try again.");
     } finally {
       setLoadingGoogle(false);
+    }
+  };
+
+  const handleEmailSignUp = async (e) => {
+    e.preventDefault();
+    if (!agreed) {
+      setErrorMsg("Please agree to the Terms of Service.");
+      return;
+    }
+    setErrorMsg('');
+    setLoadingEmail(true);
+
+    try {
+      const result = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+      const user = result.user;
+
+      // Save user in Firestore
+      await syncUserProfile(user, {
+        name: formData.name
+      });
+
+      navigate('/dashboard');
+    } catch (err) {
+      console.error("Email SignUp Error:", err);
+      if (err.code === 'auth/email-already-in-use') {
+        setErrorMsg("This email is already registered. Please sign in.");
+      } else if (err.code === 'auth/weak-password') {
+        setErrorMsg("Password should be at least 6 characters.");
+      } else {
+        setErrorMsg(err.message || "Sign up failed. Please try again.");
+      }
+    } finally {
+      setLoadingEmail(false);
     }
   };
 
@@ -50,7 +94,7 @@ const SignUp = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="mt-2 text-center text-3xl font-semibold text-white"
+          className="mt-2 text-center text-3xl font-semibold text-white font-display"
         >
           Create your space
         </motion.h2>
@@ -86,7 +130,7 @@ const SignUp = () => {
           <button
             type="button"
             onClick={handleGoogleSignUp}
-            disabled={loadingGoogle}
+            disabled={loadingGoogle || loadingEmail}
             className="w-full flex items-center justify-center gap-3 py-3.5 px-4 border border-white/15 rounded-xl bg-white hover:bg-gray-100 text-brand-950 font-semibold text-sm transition-all shadow-md transform hover:scale-[1.01] disabled:opacity-75"
           >
             {loadingGoogle ? (
@@ -111,7 +155,7 @@ const SignUp = () => {
             </div>
           </div>
 
-          <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); navigate('/dashboard'); }}>
+          <form className="space-y-5" onSubmit={handleEmailSignUp}>
             <div>
               <label htmlFor="name" className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
                 Your Preferred Name
@@ -125,6 +169,8 @@ const SignUp = () => {
                   name="name"
                   type="text"
                   required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="block w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:ring-electric-cyan focus:border-electric-cyan text-sm transition-colors bg-brand-950 text-white placeholder-gray-500 focus:outline-none"
                   placeholder="How should we call you?"
                 />
@@ -145,6 +191,8 @@ const SignUp = () => {
                   type="email"
                   autoComplete="email"
                   required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="block w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:ring-electric-cyan focus:border-electric-cyan text-sm transition-colors bg-brand-950 text-white placeholder-gray-500 focus:outline-none"
                   placeholder="you@example.com"
                 />
@@ -164,6 +212,8 @@ const SignUp = () => {
                   name="password"
                   type="password"
                   required
+                  value={formData.password}
+                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className="block w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:ring-electric-cyan focus:border-electric-cyan text-sm transition-colors bg-brand-950 text-white placeholder-gray-500 focus:outline-none"
                   placeholder="••••••••"
                 />
@@ -192,9 +242,11 @@ const SignUp = () => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-lg text-sm font-bold text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:opacity-95 focus:outline-none transition-all transform hover:scale-[1.01]"
+                disabled={loadingEmail || loadingGoogle}
+                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-lg text-sm font-bold text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:opacity-95 focus:outline-none transition-all transform hover:scale-[1.01] disabled:opacity-75 items-center gap-2"
               >
-                Create Account
+                {loadingEmail ? <Loader2 className="w-5 h-5 animate-spin" /> : null}
+                <span>{loadingEmail ? 'Creating account...' : 'Create Account'}</span>
               </button>
             </div>
           </form>

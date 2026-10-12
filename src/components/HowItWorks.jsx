@@ -32,7 +32,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-14 sm:py-16 bg-white border-b border-slate-100">
+    <section id="how-it-works" className="py-8 sm:py-10 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

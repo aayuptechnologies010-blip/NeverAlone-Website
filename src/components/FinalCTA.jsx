@@ -5,7 +5,7 @@ import { ArrowRight, UserCheck } from 'lucide-react';
 
 const FinalCTA = () => {
   return (
-    <section className="py-14 sm:py-16 bg-white border-b border-slate-100">
+    <section className="py-8 sm:py-10 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="bg-gradient-to-br from-[#083058] to-[#041a22] rounded-3xl p-8 sm:p-12 lg:p-16 text-white shadow-xl relative overflow-hidden">

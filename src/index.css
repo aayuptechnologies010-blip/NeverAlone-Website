@@ -10,4 +10,22 @@
   body {
     @apply text-slate-800 bg-[#fbfdfc] antialiased font-sans selection:bg-[#00839a]/20 selection:text-[#083058];
   }
+
+  button, 
+  a, 
+  [role="button"], 
+  input[type="submit"], 
+  input[type="button"], 
+  input[type="reset"],
+  select, 
+  summary, 
+  label[for] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  input:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
 }

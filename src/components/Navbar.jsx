@@ -94,7 +94,7 @@ const Navbar = () => {
               Login
             </Link>
             <Link
-              to="/first-session"
+              to="/book"
               className="px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-[#083058] hover:bg-[#0c4a6e] shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 whitespace-nowrap"
             >
               Book a Session — ₹499
@@ -143,7 +143,7 @@ const Navbar = () => {
             </div>
             <div className="mt-8 flex flex-col space-y-3 pb-8">
               <Link
-                to="/first-session"
+                to="/book"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full py-3.5 text-center text-sm font-bold text-white bg-[#083058] hover:bg-[#0c4a6e] rounded-xl shadow-md transition-all"
               >

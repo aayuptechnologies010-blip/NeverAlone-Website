@@ -87,7 +87,7 @@ function PublicLayout() {
     <div className="min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white bg-white pb-14 sm:pb-0">
       <SEOHead pathname={location.pathname} />
       <Navbar />
-      <main className="flex-grow pt-24">
+      <main className="flex-grow pt-16 sm:pt-20">
         <Outlet />
       </main>
       <Footer />

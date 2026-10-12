@@ -12,7 +12,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative pt-20 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 overflow-hidden bg-[#fbfdfc]">
+    <section className="relative pt-6 pb-10 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16 overflow-hidden bg-[#fbfdfc]">
       {/* Subtle soft background accents */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00839a]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#083058]/5 rounded-full blur-3xl pointer-events-none" />
@@ -45,7 +45,7 @@ const HeroSection = () => {
             {/* Primary & Secondary CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <Link
-                to="/first-session"
+                to="/book"
                 className="px-7 py-3.5 rounded-xl font-semibold text-sm sm:text-base text-white bg-[#083058] hover:bg-[#0c4a6e] shadow-sm hover:shadow-md transition-all duration-200 text-center flex items-center justify-center space-x-2"
               >
                 <span>Book Your First Session — ₹499</span>

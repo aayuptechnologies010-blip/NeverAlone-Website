@@ -51,7 +51,7 @@ export default function SafetyPage() {
       </section>
 
       {/* Safety Features */}
-      <section className="py-14 sm:py-16 bg-[#fbfdfc] border-b border-slate-100">
+      <section className="py-8 sm:py-10 bg-[#fbfdfc] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-2 gap-8">
             {safetyFeatures.map((f, i) => (

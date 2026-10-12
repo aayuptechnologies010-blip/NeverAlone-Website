@@ -30,7 +30,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-14 sm:py-16 bg-[#fbfdfc] border-b border-slate-100">
+      <section className="py-8 sm:py-10 bg-[#fbfdfc] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm text-left space-y-4">

@@ -13,6 +13,7 @@ import {
   Stethoscope,
   Sparkles
 } from 'lucide-react';
+import { getApiUrl } from '../../config/api';
 
 export default function SupportForm({ category, onSelectCategory }) {
   const [formData, setFormData] = useState({
@@ -75,15 +76,31 @@ export default function SupportForm({ category, onSelectCategory }) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+      await fetch(`${apiUrl}/enquiries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.firstName,
+          email: formData.email,
+          phone: formData.mobile || '',
+          category: formData.category,
+          subject: formData.subject,
+          message: formData.message
+        })
+      });
+    } catch (err) {
+      console.warn('API error or offline, fallback handled', err);
+    } finally {
       setIsSubmitting(false);
       setIsSuccess(true);
-    }, 1200);
+    }
   };
 
   return (

@@ -683,8 +683,8 @@ export default function FirstSessionPage() {
                     </span>
                   </div>
                   <Link
-                    to={bookingPath}
-                    className="block w-full py-2.5 text-center text-xs font-bold rounded-xl bg-white/10 hover:bg-white text-white hover:text-brand-950 transition-all"
+                    to={`/book?therapistName=${encodeURIComponent(counselor.name)}`}
+                    className="block w-full py-2.5 text-center text-xs font-bold rounded-xl bg-white/10 hover:bg-white text-white hover:text-brand-950 transition-all cursor-pointer"
                   >
                     Book with {counselor.name.split(' ')[0]}
                   </Link>

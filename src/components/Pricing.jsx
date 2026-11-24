@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Check, Sparkles, ArrowRight } from 'lucide-react';
+import { getApiUrl } from '../config/api';
 
-const Pricing = () => {
-  const plans = [
-    {
-      name: "Single Session",
-      price: "₹499",
-      sessionsCount: 1,
-      effective: "₹499 / session",
-      savings: null,
-      subtitle: "Start with one session.",
-      badge: null,
-      isBestValue: false,
-      cta: "Book a Session — ₹499",
-      features: [
-        "Up to 50 minutes each",
-        "Online sessions",
-        "Confidential & private",
-        "Flexible scheduling"
-      ]
-    },
+const defaultPlans = [
+  {
+    name: "Single Session",
+    price: "₹499",
+    sessionsCount: 1,
+    effective: "₹499 / session",
+    savings: null,
+    subtitle: "Start with one session.",
+    badge: null,
+    isBestValue: false,
+    cta: "Book a Session — ₹499",
+    features: [
+      "Up to 50 minutes each",
+      "Online sessions",
+      "Confidential & private",
+      "Flexible scheduling"
+    ]
+  },
     {
       name: "6 Session Plan",
       price: "₹2,500",
@@ -91,6 +91,41 @@ const Pricing = () => {
       ]
     }
   ];
+
+const Pricing = () => {
+  const [plans, setPlans] = useState(defaultPlans);
+
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        const apiUrl = getApiUrl();
+        const res = await fetch(`${apiUrl}/plans`);
+        const json = await res.json();
+        if (json.success && json.data?.length > 0) {
+          setPlans(json.data.map(p => ({
+            name: p.name,
+            price: `₹${Number(p.price).toLocaleString()}`,
+            sessionsCount: p.sessionsCount,
+            effective: p.effectivePrice,
+            savings: p.savings,
+            subtitle: p.subtitle,
+            badge: p.badge,
+            isBestValue: p.isBestValue,
+            cta: p.sessionsCount === 1 ? 'Book a Session — ₹499' : `Choose ${p.sessionsCount} Sessions`,
+            features: p.features || [
+              "Up to 50 minutes each",
+              "Online sessions",
+              "Confidential & private",
+              "Flexible scheduling"
+            ]
+          })));
+        }
+      } catch (err) {
+        // Fallback to default
+      }
+    };
+    fetchPlans();
+  }, []);
 
   return (
     <section id="pricing" className="py-8 sm:py-10 bg-[#fbfdfc] border-b border-slate-100">

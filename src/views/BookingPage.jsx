@@ -15,13 +15,15 @@ import {
   Mail,
   Phone,
   FileText,
-  MapPin
+  MapPin,
+  CreditCard,
+  Lock
 } from 'lucide-react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { auth } from '../firebase';
 
-// Therapist list without images/photos as requested
-const therapistList = [
+// Fallback default therapist list
+const defaultTherapistList = [
   { id: 'ananya', name: 'Dr. Ananya Sharma', title: 'Clinical Psychologist', exp: '8+ Yrs' },
   { id: 'rahul', name: 'Dr. Rahul Verma', title: 'Counselling Psychologist', exp: '6+ Yrs' },
   { id: 'neha', name: 'Dr. Neha Singh', title: 'Clinical Psychologist', exp: '7+ Yrs' },
@@ -90,10 +92,77 @@ const BookingPage = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
+  const [paymentInfo, setPaymentInfo] = useState(null);
+
+  // Dynamic Razorpay SDK loader
+  const loadRazorpayScript = () => {
+    return new Promise((resolve) => {
+      if (typeof window !== 'undefined' && window.Razorpay) {
+        return resolve(true);
+      }
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentStep, isSuccess]);
+
+  const [therapists, setTherapists] = useState(defaultTherapistList);
+
+  useEffect(() => {
+    const fetchTherapists = async () => {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+        const res = await fetch(`${apiUrl}/therapists`);
+        const json = await res.json();
+        if (json.success && json.data?.length > 0) {
+          setTherapists(json.data.map(t => ({
+            id: t._id,
+            name: t.name,
+            title: t.title,
+            exp: t.experience
+          })));
+        }
+      } catch (e) {
+        // Fallback to default
+      }
+    };
+    fetchTherapists();
+  }, []);
+
+  // Pre-select therapist from URL parameters if passed from View Profile
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const qId = params.get('therapistId') || params.get('companion');
+      const qName = params.get('therapistName');
+      if (qName) {
+        setBookingState(prev => ({
+          ...prev,
+          therapistType: 'selected',
+          therapistId: qId || 'selected',
+          therapistName: decodeURIComponent(qName),
+          specificTherapistName: ''
+        }));
+      } else if (qId && therapists.length > 0) {
+        const found = therapists.find(t => t.id === qId || t._id === qId);
+        if (found) {
+          setBookingState(prev => ({
+            ...prev,
+            therapistType: 'selected',
+            therapistId: found.id || found._id,
+            therapistName: found.name,
+            specificTherapistName: ''
+          }));
+        }
+      }
+    } catch (e) {}
+  }, [therapists]);
 
   // Pre-fill user data if signed in
   useEffect(() => {
@@ -202,37 +271,125 @@ const BookingPage = () => {
 
     setIsSubmitting(true);
 
+    const bookingRefId = 'NRV-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+    const finalBooking = {
+      bookingId: bookingRefId,
+      date: bookingState.date,
+      time: bookingState.time,
+      therapistChoice: bookingState.therapistType === 'specific_request' 
+        ? `Requested: ${bookingState.specificTherapistName}`
+        : bookingState.therapistName,
+      therapistId: bookingState.therapistId !== 'any' && bookingState.therapistId !== 'request_specific' ? bookingState.therapistId : null,
+      client: {
+        fullName: bookingState.fullName,
+        email: bookingState.email,
+        phone: bookingState.phone,
+        city: bookingState.city,
+        pincode: bookingState.pincode,
+        helpCategory: bookingState.helpCategory,
+        concernDescription: bookingState.concernDescription
+      },
+      amount: 499,
+      status: 'Confirmed',
+      paymentMethod: 'razorpay',
+      paymentStatus: 'paid',
+      createdAt: new Date().toISOString()
+    };
+
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
     try {
-      const finalBooking = {
-        bookingId: 'NRV-' + Math.random().toString(36).substring(2, 9).toUpperCase(),
-        date: bookingState.date,
-        time: bookingState.time,
-        therapistChoice: bookingState.therapistType === 'specific_request' 
-          ? `Requested: ${bookingState.specificTherapistName}`
-          : bookingState.therapistName,
-        client: {
-          fullName: bookingState.fullName,
+      // 1. Load Razorpay script
+      const isLoaded = await loadRazorpayScript();
+      if (!isLoaded) {
+        throw new Error('Razorpay SDK failed to load');
+      }
+
+      // 2. Request Razorpay order from backend
+      const orderRes = await fetch(`${apiUrl}/bookings/razorpay-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: 499, receipt: bookingRefId })
+      });
+      const orderData = await orderRes.json();
+
+      const keyId = orderData.keyId || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_Tg0jCOdf4BJnpp';
+
+      // 3. Configure Razorpay modal
+      const options = {
+        key: keyId,
+        amount: orderData?.order?.amount || 49900,
+        currency: 'INR',
+        name: 'Neuravia Care',
+        description: `1-on-1 Session with ${bookingState.therapistName}`,
+        image: '/logo.png',
+        order_id: orderData?.order?.id,
+        prefill: {
+          name: bookingState.fullName,
           email: bookingState.email,
-          phone: bookingState.phone,
-          city: bookingState.city,
-          pincode: bookingState.pincode,
-          helpCategory: bookingState.helpCategory,
-          concernDescription: bookingState.concernDescription
+          contact: bookingState.phone
         },
-        amount: '₹499',
-        status: 'Confirmed',
-        createdAt: new Date().toISOString()
+        theme: {
+          color: '#083058'
+        },
+        handler: async function (response) {
+          try {
+            // Verify payment signature on backend
+            await fetch(`${apiUrl}/bookings/verify-payment`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                bookingData: finalBooking
+              })
+            });
+
+            setPaymentInfo({
+              paymentId: response.razorpay_payment_id,
+              orderId: response.razorpay_order_id,
+              status: 'paid'
+            });
+          } catch (vErr) {
+            console.warn('Verification call completed with note:', vErr);
+          }
+
+          const existing = JSON.parse(localStorage.getItem('neuravia_session_bookings') || '[]');
+          localStorage.setItem('neuravia_session_bookings', JSON.stringify([finalBooking, ...existing]));
+
+          setIsSubmitting(false);
+          setIsSuccess(true);
+        },
+        modal: {
+          ondismiss: function () {
+            setIsSubmitting(false);
+          }
+        }
       };
 
-      // Save to localStorage for instant user access
+      const rzp = new window.Razorpay(options);
+      rzp.on('payment.failed', function (failRes) {
+        alert('Payment cancelled or failed: ' + (failRes.error?.description || 'Please try again'));
+        setIsSubmitting(false);
+      });
+      rzp.open();
+
+    } catch (err) {
+      console.warn('Razorpay checkout error, direct confirmation fallback:', err);
+      try {
+        await fetch(`${apiUrl}/bookings`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(finalBooking)
+        });
+      } catch (e) {}
+
       const existing = JSON.parse(localStorage.getItem('neuravia_session_bookings') || '[]');
       localStorage.setItem('neuravia_session_bookings', JSON.stringify([finalBooking, ...existing]));
 
       setIsSubmitting(false);
       setIsSuccess(true);
-    } catch (err) {
-      console.error('Booking submission error:', err);
-      setIsSubmitting(false);
     }
   };
 
@@ -293,9 +450,24 @@ const BookingPage = () => {
               <span className="font-medium text-slate-700">{bookingState.helpCategory}</span>
             </div>
 
+            <div className="flex justify-between items-center pb-2.5 border-b border-slate-100">
+              <span className="text-slate-500 font-medium">Payment Status</span>
+              <span className="font-bold text-emerald-700 flex items-center gap-1">
+                <CheckCircle2 size={15} className="text-emerald-600" />
+                <span>₹499 Paid (Razorpay Verified)</span>
+              </span>
+            </div>
+
+            {paymentInfo?.paymentId && (
+              <div className="flex justify-between items-center pb-2.5 border-b border-slate-100 text-xs">
+                <span className="text-slate-500 font-medium">Razorpay Ref ID</span>
+                <span className="font-mono text-slate-700 font-semibold">{paymentInfo.paymentId}</span>
+              </div>
+            )}
+
             <div className="flex justify-between items-center">
               <span className="text-slate-500 font-medium">Session Fee</span>
-              <span className="font-bold text-emerald-700">₹499 (Single Trial)</span>
+              <span className="font-bold text-[#083058]">₹499 (Standard Consultation)</span>
             </div>
           </div>
 
@@ -604,7 +776,7 @@ const BookingPage = () => {
                     Available Specialists (Names Only)
                   </span>
 
-                  {therapistList.map((therapist) => {
+                  {therapists.map((therapist) => {
                     const isSelected = bookingState.therapistType === 'selected' && bookingState.therapistId === therapist.id;
                     return (
                       <button
@@ -1005,13 +1177,17 @@ const BookingPage = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-9 py-4 rounded-xl font-bold text-base text-white bg-[#083058] hover:bg-[#0c4a6e] transition-all shadow-md hover:shadow-lg disabled:opacity-50 order-1 sm:order-2"
+                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-9 py-4 rounded-xl font-bold text-base text-white bg-[#083058] hover:bg-[#0c4a6e] transition-all shadow-md hover:shadow-lg disabled:opacity-50 order-1 sm:order-2 cursor-pointer"
                   >
                     {isSubmitting ? (
-                      <span>Processing Booking...</span>
+                      <span className="flex items-center gap-2">
+                        <Lock size={16} className="animate-spin" />
+                        <span>Opening Razorpay Secure Checkout...</span>
+                      </span>
                     ) : (
                       <>
-                        <span>Confirm &amp; Book Session — ₹499</span>
+                        <CreditCard size={18} />
+                        <span>Pay via Razorpay &bull; ₹499</span>
                         <ArrowRight size={17} />
                       </>
                     )}

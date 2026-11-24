@@ -68,9 +68,9 @@ export default function SEOHead({ pathname = '/' }) {
   const currentMeta = pageSchemas[pathname] || pageSchemas['/'];
 
   useEffect(() => {
-    // Update document title dynamically for Client-Side Routing
+    // Keep consistent permanent Brand title with Slogan across all pages
     if (typeof document !== 'undefined') {
-      document.title = currentMeta.title;
+      document.title = 'Neuravia — Where Minds Find Peace.';
 
       // Update meta description
       let metaDesc = document.querySelector('meta[name="description"]');
@@ -89,6 +89,16 @@ export default function SEOHead({ pathname = '/' }) {
         document.head.appendChild(metaKeywords);
       }
       metaKeywords.content = currentMeta.keywords;
+
+      // Enforce Logo Favicon dynamically
+      let iconLink = document.querySelector('link[rel="icon"]');
+      if (!iconLink) {
+        iconLink = document.createElement('link');
+        iconLink.rel = 'icon';
+        document.head.appendChild(iconLink);
+      }
+      iconLink.type = 'image/png';
+      iconLink.href = '/logo.png';
 
       // Update canonical link
       let linkCanonical = document.querySelector('link[rel="canonical"]');

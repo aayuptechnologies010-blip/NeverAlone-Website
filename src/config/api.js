@@ -15,7 +15,7 @@ export const getApiUrl = () => {
   } catch (e) {
     // ignore
   }
-  return 'http://localhost:5000/api';
+  return 'https://neuravia-backend.onrender.com/api';
 };
 
 export const getBackendBaseUrl = () => {
